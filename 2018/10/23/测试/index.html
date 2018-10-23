@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="源起最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，代码说话。 （1）创建Firefox全局变量创建Firefox全局变量是为了达到浏览器兼容的效果。 创建global文件夹，并新建index.js。 ··· 12const Firefox = navigator.userAgent.indexOf(&apos;Firefox&apos;">
+<meta name="description" content="源起最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，代码说话。 （1）创建Firefox全局变量创建Firefox全局变量是为了达到浏览器兼容的效果。 创建global文件夹，并新建index.js。 12const Firefox = navigator.userAgent.indexOf(&apos;Firefox&apos;) !=">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue项目实现图片的横向滚动">
 <meta property="og:url" content="http://yoursite.com/2018/10/23/测试/index.html">
 <meta property="og:site_name" content="金赫思的博客">
-<meta property="og:description" content="源起最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，代码说话。 （1）创建Firefox全局变量创建Firefox全局变量是为了达到浏览器兼容的效果。 创建global文件夹，并新建index.js。 ··· 12const Firefox = navigator.userAgent.indexOf(&apos;Firefox&apos;">
+<meta property="og:description" content="源起最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，代码说话。 （1）创建Firefox全局变量创建Firefox全局变量是为了达到浏览器兼容的效果。 创建global文件夹，并新建index.js。 12const Firefox = navigator.userAgent.indexOf(&apos;Firefox&apos;) !=">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-23T03:23:18.297Z">
+<meta property="og:updated_time" content="2018-10-23T03:24:12.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue项目实现图片的横向滚动">
-<meta name="twitter:description" content="源起最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，代码说话。 （1）创建Firefox全局变量创建Firefox全局变量是为了达到浏览器兼容的效果。 创建global文件夹，并新建index.js。 ··· 12const Firefox = navigator.userAgent.indexOf(&apos;Firefox&apos;">
+<meta name="twitter:description" content="源起最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，代码说话。 （1）创建Firefox全局变量创建Firefox全局变量是为了达到浏览器兼容的效果。 创建global文件夹，并新建index.js。 12const Firefox = navigator.userAgent.indexOf(&apos;Firefox&apos;) !=">
 
 
 
@@ -333,10 +333,7 @@
         <h2 id="源起"><a href="#源起" class="headerlink" title="源起"></a>源起</h2><p>最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，代码说话。</p>
 <h2 id="（1）创建Firefox全局变量"><a href="#（1）创建Firefox全局变量" class="headerlink" title="（1）创建Firefox全局变量"></a>（1）创建Firefox全局变量</h2><p>创建Firefox全局变量是为了达到浏览器兼容的效果。</p>
 <p>创建global文件夹，并新建index.js。</p>
-<p>···</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Firefox = navigator.userAgent.indexOf(<span class="string">'Firefox'</span>) != <span class="number">-1</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123; Firefox &#125;</span><br></pre></td></tr></table></figure>
-<p>···</p>
-
       
     </div>
     
