@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="vue," />
 
 
 
@@ -94,13 +94,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="金赫思的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="源起最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，代码说话。 （1）创建Firefox全局变量创建Firefox全局变量是为了达到浏览器兼容的效果。 创建global文件夹，并新建index.js。 12const Firefox = navigator.userAgent.indexOf(&apos;Firefox&apos;) !=">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue项目实现图片的横向滚动">
+<meta property="og:url" content="http://yoursite.com/2018/10/23/vue项目实现图片的横向滚动/index.html">
 <meta property="og:site_name" content="金赫思的博客">
+<meta property="og:description" content="源起最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，代码说话。 （1）创建Firefox全局变量创建Firefox全局变量是为了达到浏览器兼容的效果。 创建global文件夹，并新建index.js。 12const Firefox = navigator.userAgent.indexOf(&apos;Firefox&apos;) !=">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-23T03:37:59.666Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="金赫思的博客">
+<meta name="twitter:title" content="vue项目实现图片的横向滚动">
+<meta name="twitter:description" content="源起最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，代码说话。 （1）创建Firefox全局变量创建Firefox全局变量是为了达到浏览器兼容的效果。 创建global文件夹，并新建index.js。 12const Firefox = navigator.userAgent.indexOf(&apos;Firefox&apos;) !=">
 
 
 
@@ -129,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/23/vue项目实现图片的横向滚动/"/>
 
 
 
 
 
-  <title>金赫思的博客</title>
+  <title>vue项目实现图片的横向滚动 | 金赫思的博客</title>
   
 
 
@@ -160,9 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -277,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/23/vue项目实现图片的横向滚动/" itemprop="url">vue项目实现图片的横向滚动</a></h1>
+          <h1 class="post-title" itemprop="name headline">vue项目实现图片的横向滚动</h1>
         
 
         <div class="post-meta">
@@ -329,17 +330,13 @@
       
 
       
-        
-          
-            <h2 id="源起"><a href="#源起" class="headerlink" title="源起"></a>源起</h2><p>最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，代码说话。</p>
+        <h2 id="源起"><a href="#源起" class="headerlink" title="源起"></a>源起</h2><p>最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，代码说话。</p>
 <h2 id="（1）创建Firefox全局变量"><a href="#（1）创建Firefox全局变量" class="headerlink" title="（1）创建Firefox全局变量"></a>（1）创建Firefox全局变量</h2><p>创建Firefox全局变量是为了达到浏览器兼容的效果。</p>
 <p>创建global文件夹，并新建index.js。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Firefox = navigator.userAgent.indexOf(<span class="string">'Firefox'</span>) != <span class="number">-1</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123; Firefox &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="（2）vue文件引入global变量，并使用"><a href="#（2）vue文件引入global变量，并使用" class="headerlink" title="（2）vue文件引入global变量，并使用"></a>（2）vue文件引入global变量，并使用</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"scenelist"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"listwrap"</span> <span class="attr">id</span>=<span class="string">"listwrap"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">draggable</span> <span class="attr">:options</span>=<span class="string">"&#123;chosenClass:'chosen', animation: 500&#125;"</span> <span class="attr">element</span>=<span class="string">"ul"</span> <span class="attr">v-model</span>=<span class="string">"list"</span> <span class="attr">:move</span>=<span class="string">"allow"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in list"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span> @<span class="attr">click</span>=<span class="string">"cur_index = index"</span> <span class="attr">:class</span>=<span class="string">"&#123;active: cur_index === index&#125;"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"item.src"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btns"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Tooltip</span> <span class="attr">content</span>=<span class="string">"复制场景"</span> <span class="attr">placement</span>=<span class="string">"top"</span> <span class="attr">class</span>=<span class="string">"btnitem"</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"copybtn"</span> @<span class="attr">click</span>=<span class="string">"copyPage(index)"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"iconfont icon-fuzhi"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Tooltip</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Tooltip</span> <span class="attr">content</span>=<span class="string">"删除场景"</span> <span class="attr">placement</span>=<span class="string">"top"</span> <span class="attr">class</span>=<span class="string">"btnitem"</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"deletebtn"</span> @<span class="attr">click</span>=<span class="string">"showDelMessage(index)"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"iconfont icon-shanchu"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Tooltip</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"itemcount pa"</span>&gt;</span>&#123;&#123;index+1&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"checkall"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">draggable</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"addscene"</span> @<span class="attr">click</span>=<span class="string">"addScene()"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Icon</span> <span class="attr">type</span>=<span class="string">"md-add"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Modal</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-model</span>=<span class="string">"showModal"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">title</span>=<span class="string">"提示"</span></span></span><br><span class="line"><span class="tag">      @<span class="attr">on-ok</span>=<span class="string">"delPage"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">width</span>=<span class="string">"300"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>删除后不可恢复, 是否继续?<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Modal</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> global_ <span class="keyword">from</span> <span class="string">'../../global/index'</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    MouseWheel(e) &#123;</span><br><span class="line">      e=e||<span class="built_in">window</span>.event;</span><br><span class="line">      <span class="keyword">if</span>(e.stopPropagation)&#123;</span><br><span class="line">        e.stopPropagation();</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        e.cancelBubble=<span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(e.preventDefault)&#123;</span><br><span class="line">        e.preventDefault();</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        e.returnValue=<span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(global_.Firefox)&#123;</span><br><span class="line">        <span class="keyword">if</span>(e.detail&gt;<span class="number">0</span>)&#123;</span><br><span class="line">          $(<span class="string">'#listwrap'</span>).scrollLeft($(<span class="string">'#listwrap'</span>).scrollLeft()+<span class="number">60</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          $(<span class="string">'#listwrap'</span>).scrollLeft($(<span class="string">'#listwrap'</span>).scrollLeft()<span class="number">-60</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(e.wheelDelta&lt;<span class="number">0</span>)&#123;</span><br><span class="line">          $(<span class="string">'#listwrap'</span>).scrollLeft($(<span class="string">'#listwrap'</span>).scrollLeft()+<span class="number">60</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          $(<span class="string">'#listwrap'</span>).scrollLeft($(<span class="string">'#listwrap'</span>).scrollLeft()<span class="number">-60</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">mounted() &#123;</span><br><span class="line">     <span class="keyword">let</span> scrollDiv = <span class="built_in">document</span>.getElementById(<span class="string">"listwrap"</span>);</span><br><span class="line">     global_.Firefox ? scrollDiv.addEventListener(<span class="string">'DOMMouseScroll'</span>,<span class="keyword">this</span>.MouseWheel,<span class="literal">false</span>):(scrollDiv.onmousewheel=<span class="keyword">this</span>.MouseWheel);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-          
-        
       
     </div>
     
@@ -354,14 +351,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -371,10 +374,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -382,6 +386,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -402,8 +410,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -456,6 +473,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#源起"><span class="nav-number">1.</span> <span class="nav-text">源起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（1）创建Firefox全局变量"><span class="nav-number">2.</span> <span class="nav-text">（1）创建Firefox全局变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（2）vue文件引入global变量，并使用"><span class="nav-number">3.</span> <span class="nav-text">（2）vue文件引入global变量，并使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -576,10 +609,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
