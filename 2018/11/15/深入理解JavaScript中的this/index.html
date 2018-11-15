@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性,俘获了大批粉丝儿。 它也可能是面试中的宠儿, 我们关键要搞清楚箭头函数和普通函数中的this。 普通函数中的this1.this总是代表它的直接调用者(js的this是执行上下文), 例如 obj.func ,那么func中的this就是obj 2.在默认情况(非严格模式下,未使用 ‘use strict’),没找到直接调">
+<meta name="description" content="ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性,俘获了大批粉丝儿。 它也可能是面试中的宠儿, 我们关键要搞清楚箭头函数和普通函数中的this。">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解JavaScript中的this">
 <meta property="og:url" content="http://yoursite.com/2018/11/15/深入理解JavaScript中的this/index.html">
 <meta property="og:site_name" content="金赫思的博客">
-<meta property="og:description" content="ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性,俘获了大批粉丝儿。 它也可能是面试中的宠儿, 我们关键要搞清楚箭头函数和普通函数中的this。 普通函数中的this1.this总是代表它的直接调用者(js的this是执行上下文), 例如 obj.func ,那么func中的this就是obj 2.在默认情况(非严格模式下,未使用 ‘use strict’),没找到直接调">
+<meta property="og:description" content="ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性,俘获了大批粉丝儿。 它也可能是面试中的宠儿, 我们关键要搞清楚箭头函数和普通函数中的this。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-15T09:08:15.392Z">
+<meta property="og:updated_time" content="2018-11-15T09:12:03.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解JavaScript中的this">
-<meta name="twitter:description" content="ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性,俘获了大批粉丝儿。 它也可能是面试中的宠儿, 我们关键要搞清楚箭头函数和普通函数中的this。 普通函数中的this1.this总是代表它的直接调用者(js的this是执行上下文), 例如 obj.func ,那么func中的this就是obj 2.在默认情况(非严格模式下,未使用 ‘use strict’),没找到直接调">
+<meta name="twitter:description" content="ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性,俘获了大批粉丝儿。 它也可能是面试中的宠儿, 我们关键要搞清楚箭头函数和普通函数中的this。">
 
 
 
@@ -364,6 +364,7 @@
       
         <p>ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性,俘获了大批粉丝儿。</p>
 <p>它也可能是面试中的宠儿, 我们关键要搞清楚箭头函数和普通函数中的this。</p>
+<a id="more"></a>
 <h2 id="普通函数中的this"><a href="#普通函数中的this" class="headerlink" title="普通函数中的this"></a>普通函数中的this</h2><p>1.this总是代表它的直接调用者(js的this是执行上下文), 例如 obj.func ,那么func中的this就是obj</p>
 <p>2.在默认情况(非严格模式下,未使用 ‘use strict’),没找到直接调用者,则this指的是 window (约定俗成)</p>
 <p>3.在严格模式下,没有直接调用者的函数中的this是 undefined</p>
