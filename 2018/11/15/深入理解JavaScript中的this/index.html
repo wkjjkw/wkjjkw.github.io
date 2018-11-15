@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="金赫思的博客">
 <meta property="og:description" content="ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性,俘获了大批粉丝儿。 它也可能是面试中的宠儿, 我们关键要搞清楚箭头函数和普通函数中的this。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-15T09:27:02.855Z">
+<meta property="og:updated_time" content="2018-11-15T09:38:06.167Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解JavaScript中的this">
 <meta name="twitter:description" content="ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性,俘获了大批粉丝儿。 它也可能是面试中的宠儿, 我们关键要搞清楚箭头函数和普通函数中的this。">
@@ -365,34 +365,34 @@
         <p>ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性,俘获了大批粉丝儿。</p>
 <p>它也可能是面试中的宠儿, 我们关键要搞清楚箭头函数和普通函数中的this。</p>
 <a id="more"></a>
-<h2 id="普通函数中的this"><a href="#普通函数中的this" class="headerlink" title="普通函数中的this"></a>普通函数中的this</h2><p>1.this总是代表它的直接调用者(js的this是执行上下文), 例如 obj.func ,那么func中的this就是obj。</p>
+<p>普通函数中的this</p>
+<p>1.this总是代表它的直接调用者(js的this是执行上下文), 例如 obj.func ,那么func中的this就是obj。</p>
 <p>2.在默认情况(非严格模式下,未使用 ‘use strict’),没找到直接调用者,则this指的是 window (约定俗成)。</p>
 <p>3.在严格模式下,没有直接调用者的函数中的this是 undefined。</p>
 <p>4.使用call,apply,bind(ES5新增)绑定的,this指的是 绑定的对象。</p>
-<h2 id="箭头函数中的this"><a href="#箭头函数中的this" class="headerlink" title="箭头函数中的this"></a>箭头函数中的this</h2><p>箭头函数没有自己的this, 它的this是继承而来; 默认指向在定义它时所处的对象(宿主对象),而不是执行时的对象, 定义它的时候,可能环境是window; 箭头函数可以方便地让我们在 setTimeout ,setInterval中使用this。</p>
+<p>箭头函数中的this</p>
+<p>箭头函数没有自己的this, 它的this是继承而来; 默认指向在定义它时所处的对象(宿主对象),而不是执行时的对象, 定义它的时候,可能环境是window; 箭头函数可以方便地让我们在 setTimeout ,setInterval中使用this。</p>
 <p>下面通过一些例子来研究一下 this的一些使用场景。</p>
 <p>要整明白这些, 我们需要首先了解一下作用域链:</p>
-<p>当在函数中使用一个变量的时候,首先在本函数内部查找该变量,如果找不到则找其父级函数,</p>
-<p>最后直到window,全局变量默认挂载在window对象下</p>
-<p>1.全局变量默认挂载在window对象下</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> aa = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.aa); <span class="comment">//2</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  aa = <span class="number">3</span>;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.aa); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+<p>当在函数中使用一个变量的时候,首先在本函数内部查找该变量,如果找不到则找其父级函数,最后直到window,全局变量默认挂载在window对象下。</p>
+<h2 id="全局变量默认挂载在window对象下"><a href="#全局变量默认挂载在window对象下" class="headerlink" title="全局变量默认挂载在window对象下"></a>全局变量默认挂载在window对象下</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> aa = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.aa); <span class="comment">//2</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  aa = <span class="number">3</span>;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.aa); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
 <p>我们仅仅声明了一个全局变量aa,但是打印出window.aa却和aa保持一致,为什么呢?</p>
 <p>我们可以看到在window属性中,看到 aa 属性了;此外,函数也适用于此情况,全局函数也会挂在window对象下</p>
 <p>我们常见的window的属性和方法有: alert, location,document,parseInt,setTimeout,setInterval等,window的属性默认可以省略window前缀!</p>
-<p>2.在普通函数中,this指向它的直接调用者;如果找不到直接调用者,则是window</p>
-<p>我们来看一些例子</p>
+<h2 id="普通函数中的this"><a href="#普通函数中的this" class="headerlink" title="普通函数中的this"></a>普通函数中的this</h2><p>普通函数中的this指向它的直接调用者;如果找不到直接调用者,则是window。</p>
+<p>我们来看一些例子。</p>
 <p>示例1:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>结果是: window </p>
-<p>原因: test()是一个全局函数,也就是说是挂在window对象下的,所以test()等价于 window.test() ,所以此时的this是window</p>
+<p>结果是: window 。</p>
+<p>原因: test()是一个全局函数,也就是说是挂在window对象下的,所以test()等价于 window.test() ,所以此时的this是window。</p>
 </blockquote>
 <p>示例2:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  say: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.say();</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>结果是: window</p>
+<p>结果是: window。</p>
+<p>匿名函数,定时器中的函数,由于没有默认的宿主对象,所以默认this指向window。</p>
 </blockquote>
-<p>匿名函数,定时器中的函数,由于没有默认的宿主对象,所以默认this指向window</p>
 <p>问题: 如果想要在setTimeout/setInterval中使用这个对象的this引用呢?</p>
 <p>用一个变量提前把正确的 this引用保存 起来, 我们通常使用that = this, 或者 _this = this来保存我们需要的this指针!</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  func: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,</span><br><span class="line">  say: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;   <span class="comment">//此时的this就是obj对象</span></span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">      that.func()</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.say();</span><br></pre></td></tr></table></figure>
@@ -405,27 +405,26 @@
 <p>val变量在没有指定对象前缀,默认从函数中找,找不到则从window中找全局变量。</p>
 <p>即 val <em>=2 就是 window.val </em>= 2。this.val默认指的是 obj.val ;因为 dbl()第一次被obj直接调用func() 没有任何前缀,类似于全局函数,即  window.func调用,所以第二次调用的时候, this指的是window, val指的是window.val，第二次的结果受第一次的影响。</p>
 </blockquote>
-<p>3.在严格模式下的this</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
+<h2 id="在严格模式下的this"><a href="#在严格模式下的this" class="headerlink" title="在严格模式下的this"></a>在严格模式下的this</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>结果是: undefined</p>
+<p>结果是: undefined。</p>
 </blockquote>
-<p>4.箭头函数中的 this</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  say: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.say(); <span class="comment">// obj</span></span><br></pre></td></tr></table></figure>
+<h2 id="箭头函数中的-this"><a href="#箭头函数中的-this" class="headerlink" title="箭头函数中的 this"></a>箭头函数中的 this</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  say: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.say(); <span class="comment">// obj</span></span><br></pre></td></tr></table></figure>
 <p>此时的 this继承自obj, 指的是定义它的对象obj, 而不是 window!</p>
 <p>示例(多层嵌套的箭头函数):</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">say: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> f1 = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// obj</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// obj</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  f1();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.say()</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>因为f1定义时所处的函数中的this是指的obj, setTimeout中的箭头函数this继承自f1, 所以不管有多层嵌套,都是 obj</p>
+<p>因为f1定义时所处的函数中的this是指的obj, setTimeout中的箭头函数this继承自f1, 所以不管有多层嵌套,都是 obj。</p>
 </blockquote>
 <p>示例(复杂情况: 普通函数和箭头函数混杂嵌套)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">say: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> f1 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// window, f1调用时,没有宿主对象,默认是window</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// window</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;;</span><br><span class="line">  f1();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.say()</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>结果: 都是 window,因为 箭头函数在定义的时候它所处的环境相当于是window, 所以在箭头函数内部的this函数window<br>示例(严格模式下的混杂嵌套)</p>
+<p>结果: 都是 window,因为箭头函数在定义的时候它所处的环境相当于是window, 所以在箭头函数内部的this函数window。</p>
 </blockquote>
+<p>示例(严格模式下的混杂嵌套)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">say: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  <span class="keyword">var</span> f1 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// undefined</span></span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// undefined</span></span><br><span class="line">  &#125;)</span><br><span class="line">  &#125;;</span><br><span class="line">  f1();</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.say()</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>结果都是undefined</p>
+<p>结果都是undefined。</p>
 <p>说明: 严格模式下,没有宿主调用的函数中的this是undefined!!!所以箭头函数中的也是undefined!</p>
 </blockquote>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>使用箭头函数,可以让我们解决一些在匿名函数中 this指向不正确的问题; 但是要注意在和普通函数混合的时候,this的指向可能是window !</p>
@@ -601,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#普通函数中的this"><span class="nav-number">1.</span> <span class="nav-text">普通函数中的this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数中的this"><span class="nav-number">2.</span> <span class="nav-text">箭头函数中的this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局变量默认挂载在window对象下"><span class="nav-number">1.</span> <span class="nav-text">全局变量默认挂载在window对象下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#普通函数中的this"><span class="nav-number">2.</span> <span class="nav-text">普通函数中的this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在严格模式下的this"><span class="nav-number">3.</span> <span class="nav-text">在严格模式下的this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数中的-this"><span class="nav-number">4.</span> <span class="nav-text">箭头函数中的 this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
