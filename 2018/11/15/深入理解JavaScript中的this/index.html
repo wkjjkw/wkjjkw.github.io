@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="金赫思的博客">
 <meta property="og:description" content="ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性,俘获了大批粉丝儿。 它也可能是面试中的宠儿, 我们关键要搞清楚箭头函数和普通函数中的this。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-15T09:12:03.808Z">
+<meta property="og:updated_time" content="2018-11-15T09:27:02.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解JavaScript中的this">
 <meta name="twitter:description" content="ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性,俘获了大批粉丝儿。 它也可能是面试中的宠儿, 我们关键要搞清楚箭头函数和普通函数中的this。">
@@ -365,12 +365,12 @@
         <p>ES6中新增了箭头函数这种语法,箭头函数以其简洁性和方便获取this的特性,俘获了大批粉丝儿。</p>
 <p>它也可能是面试中的宠儿, 我们关键要搞清楚箭头函数和普通函数中的this。</p>
 <a id="more"></a>
-<h2 id="普通函数中的this"><a href="#普通函数中的this" class="headerlink" title="普通函数中的this"></a>普通函数中的this</h2><p>1.this总是代表它的直接调用者(js的this是执行上下文), 例如 obj.func ,那么func中的this就是obj</p>
-<p>2.在默认情况(非严格模式下,未使用 ‘use strict’),没找到直接调用者,则this指的是 window (约定俗成)</p>
-<p>3.在严格模式下,没有直接调用者的函数中的this是 undefined</p>
-<p>4.使用call,apply,bind(ES5新增)绑定的,this指的是 绑定的对象</p>
-<h2 id="箭头函数中的this"><a href="#箭头函数中的this" class="headerlink" title="箭头函数中的this"></a>箭头函数中的this</h2><p>箭头函数没有自己的this, 它的this是继承而来; 默认指向在定义它时所处的对象(宿主对象),而不是执行时的对象, 定义它的时候,可能环境是window; 箭头函数可以方便地让我们在 setTimeout ,setInterval中方便的使用this</p>
-<p>下面通过一些例子来研究一下 this的一些使用场景[ 使用最新版 chrome测试 ]</p>
+<h2 id="普通函数中的this"><a href="#普通函数中的this" class="headerlink" title="普通函数中的this"></a>普通函数中的this</h2><p>1.this总是代表它的直接调用者(js的this是执行上下文), 例如 obj.func ,那么func中的this就是obj。</p>
+<p>2.在默认情况(非严格模式下,未使用 ‘use strict’),没找到直接调用者,则this指的是 window (约定俗成)。</p>
+<p>3.在严格模式下,没有直接调用者的函数中的this是 undefined。</p>
+<p>4.使用call,apply,bind(ES5新增)绑定的,this指的是 绑定的对象。</p>
+<h2 id="箭头函数中的this"><a href="#箭头函数中的this" class="headerlink" title="箭头函数中的this"></a>箭头函数中的this</h2><p>箭头函数没有自己的this, 它的this是继承而来; 默认指向在定义它时所处的对象(宿主对象),而不是执行时的对象, 定义它的时候,可能环境是window; 箭头函数可以方便地让我们在 setTimeout ,setInterval中使用this。</p>
+<p>下面通过一些例子来研究一下 this的一些使用场景。</p>
 <p>要整明白这些, 我们需要首先了解一下作用域链:</p>
 <p>当在函数中使用一个变量的时候,首先在本函数内部查找该变量,如果找不到则找其父级函数,</p>
 <p>最后直到window,全局变量默认挂载在window对象下</p>
