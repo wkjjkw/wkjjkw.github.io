@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="金赫思的博客">
 <meta property="og:description" content="闭包，是 Javascript 比较重要的一个概念，对于初学者来讲，闭包是一个特别抽象的概念，特别是ECMAScript 规范给的定义，如果没有实战经验，很难从定义去理解它。因此，本文不会对闭包的概念进行大篇幅描述，直接上干货，让你分分钟理解闭包！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-15T08:25:48.003Z">
+<meta property="og:updated_time" content="2018-11-15T08:31:48.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解闭包(转)">
 <meta name="twitter:description" content="闭包，是 Javascript 比较重要的一个概念，对于初学者来讲，闭包是一个特别抽象的概念，特别是ECMAScript 规范给的定义，如果没有实战经验，很难从定义去理解它。因此，本文不会对闭包的概念进行大篇幅描述，直接上干货，让你分分钟理解闭包！">
@@ -391,8 +391,7 @@
 </blockquote>
 <p>count 是函数A 中的一个变量，它的值在函数B 中被改变，函数B 每执行一次，count 的值就在原来的基础上累加 1 。因此，函数A中的 count 变量会一直保存在内存中。</p>
 <p>当我们需要在模块中定义一些变量，并希望这些变量一直保存在内存中但又不会“污染”全局的变量时，就可以用闭包来定义这个模块。</p>
-<p>3、闭包的高级写法</p>
-<p>上面的写法其实是最原始的写法，而在实际应用中，会将闭包和匿名函数联系在一起使用。下面就是一个闭包常用的写法：</p>
+<h2 id="闭包的高级写法"><a href="#闭包的高级写法" class="headerlink" title="闭包的高级写法"></a>闭包的高级写法</h2><p>上面的写法其实是最原始的写法，而在实际应用中，会将闭包和匿名函数联系在一起使用。下面就是一个闭包常用的写法：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">document</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> viewport;</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;</span><br><span class="line">        init:<span class="function"><span class="keyword">function</span>(<span class="params">id</span>)</span>&#123;</span><br><span class="line">           viewport = <span class="built_in">document</span>.querySelector(<span class="string">"#"</span>+id);</span><br><span class="line">        &#125;,</span><br><span class="line">        addChild:<span class="function"><span class="keyword">function</span>(<span class="params">child</span>)</span>&#123;</span><br><span class="line">            viewport.appendChild(child);</span><br><span class="line">        &#125;,</span><br><span class="line">        removeChild:<span class="function"><span class="keyword">function</span>(<span class="params">child</span>)</span>&#123;</span><br><span class="line">            viewport.removeChild(child);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.jView = obj;</span><br><span class="line">&#125;)(<span class="built_in">document</span>);</span><br></pre></td></tr></table></figure>
 <p>这个组件的作用是：初始化一个容器，然后可以给这个容器添加子容器，也可以移除一个容器。</p>
 <p>这个组件的作用是：初始化一个容器，然后可以给这个容器添加子容器，也可以移除一个容器。</p>
@@ -403,8 +402,7 @@
 <p>在这段代码中似乎看到了闭包的影子，但 f 中没有任何返回值，似乎不具备闭包的条件，注意这句代码：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.jView = obj;</span><br></pre></td></tr></table></figure>
 <p>obj 是在函数 f 中定义的一个对象，这个对象中定义了一系列方法， 执行window.jView = obj 就是在 window 全局对象定义了一个变量 jView，并将这个变量指向 obj 对象，即全局变量 jView 引用了 obj . 而 obj 对象中的函数又引用了函数 f 中的变量 viewport ,因此函数 f 中的 viewport 不会被 GC 回收，viewport 会一直保存到内存中，所以这种写法满足了闭包的条件。 </p>
-<p>4、总结</p>
-<p>这是对闭包最简单的理解，当然闭包还有其更深层次的理解，这个就涉及的多了，你需要了解JS的执行环境(execution context)、活动对象(activation object)以及作用域(scope)和作用域链(scope chain)的运行机制。但作为初学者，暂时不必了解这些，有了简单的理解之后，一定要在实际项目中用起来，等你用的多了，对于闭包，你自然会有更深层次的理解！</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这是对闭包最简单的理解，当然闭包还有其更深层次的理解，这个就涉及的多了，你需要了解JS的执行环境(execution context)、活动对象(activation object)以及作用域(scope)和作用域链(scope chain)的运行机制。但作为初学者，暂时不必了解这些，有了简单的理解之后，一定要在实际项目中用起来，等你用的多了，对于闭包，你自然会有更深层次的理解！</p>
 
       
     </div>
@@ -577,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包，一睹为快"><span class="nav-number">1.</span> <span class="nav-text">闭包，一睹为快</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包的用途"><span class="nav-number">2.</span> <span class="nav-text">闭包的用途</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包，一睹为快"><span class="nav-number">1.</span> <span class="nav-text">闭包，一睹为快</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包的用途"><span class="nav-number">2.</span> <span class="nav-text">闭包的用途</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包的高级写法"><span class="nav-number">3.</span> <span class="nav-text">闭包的高级写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
