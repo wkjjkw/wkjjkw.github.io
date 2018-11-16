@@ -270,6 +270,149 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/一个loading模板/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="金赫思">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="金赫思的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/25/一个loading模板/" itemprop="url">一个loading模板</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-25T09:52:41+08:00">
+                2018-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> _LoadingTitle=<span class="string">"努力加载中..."</span>;</span><br><span class="line"><span class="keyword">var</span> _LoadingHtml = <span class="string">'&lt;div id="loadingDiv" style="position:absolute;left:0;width:100%;height:100%;top:0;opacity:1;filter:alpha(opacity=80);z-index:10000;"&gt;&lt;div style="position: absolute; cursor1: wait; left: 50%; top:50%; width: 448px; height: 118px; line-height: 118px;  border: 2px solid #4dd3c5; color: #4dd3c5; margin-left:-225px;margin-top: -60px;font-size:24px;text-align: center;"&gt;'</span>+_LoadingTitle+<span class="string">'&lt;/div&gt;&lt;/div&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.write(_LoadingHtml);</span><br><span class="line"><span class="comment">//监听加载状态改变</span></span><br><span class="line"><span class="built_in">document</span>.onreadystatechange = completeLoading;</span><br><span class="line"><span class="comment">//加载状态为complete时移除loading效果</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">completeLoading</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.readyState == <span class="string">"complete"</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> loadingMask = <span class="built_in">document</span>.getElementById(<span class="string">'loadingDiv'</span>);</span><br><span class="line">    loadingMask.parentNode.removeChild(loadingMask);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>//在index.html中引入该文件</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/24/Css用border设置hover是出现div抖动和走位问题解决/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -601,7 +744,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
