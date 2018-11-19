@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="Object的hasOwnProperty()方法返回一个布尔值，判断对象是否包含特定的自身（非继承）属性。">
+<meta name="description" content="区别a.querySelector属于 W3C 中的 Selectors API 规范，而getElementsBy 系列则属于 W3C 的 DOM 规范。">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hasOwnProperty方法的使用">
-<meta property="og:url" content="http://yoursite.com/2018/11/16/hasOwnProperty方法的使用/index.html">
+<meta property="og:title" content="querySelector*和getElementBy*方法的区别">
+<meta property="og:url" content="http://yoursite.com/2018/11/19/querySelector和getElementById方法的区别/index.html">
 <meta property="og:site_name" content="金赫思的博客">
-<meta property="og:description" content="Object的hasOwnProperty()方法返回一个布尔值，判断对象是否包含特定的自身（非继承）属性。">
+<meta property="og:description" content="区别a.querySelector属于 W3C 中的 Selectors API 规范，而getElementsBy 系列则属于 W3C 的 DOM 规范。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-16T06:13:49.278Z">
+<meta property="og:updated_time" content="2018-11-19T04:06:13.385Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hasOwnProperty方法的使用">
-<meta name="twitter:description" content="Object的hasOwnProperty()方法返回一个布尔值，判断对象是否包含特定的自身（非继承）属性。">
+<meta name="twitter:title" content="querySelector*和getElementBy*方法的区别">
+<meta name="twitter:description" content="区别a.querySelector属于 W3C 中的 Selectors API 规范，而getElementsBy 系列则属于 W3C 的 DOM 规范。">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/16/hasOwnProperty方法的使用/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/19/querySelector和getElementById方法的区别/"/>
 
 
 
 
 
-  <title>hasOwnProperty方法的使用 | 金赫思的博客</title>
+  <title>querySelector*和getElementBy*方法的区别 | 金赫思的博客</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/16/hasOwnProperty方法的使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/19/querySelector和getElementById方法的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="金赫思">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hasOwnProperty方法的使用</h1>
+          <h1 class="post-title" itemprop="name headline">querySelector*和getElementBy*方法的区别</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-16T13:55:39+08:00">
-                2018-11-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-19T11:53:00+08:00">
+                2018-11-19
               </time>
             
 
@@ -362,14 +362,16 @@
       
 
       
-        <p>Object的<code>hasOwnProperty()</code>方法返回一个布尔值，判断对象是否包含特定的自身（非继承）属性。</p>
-<a id="more"></a>
-<h2 id="判断自身属性是否存在"><a href="#判断自身属性是否存在" class="headerlink" title="判断自身属性是否存在"></a>判断自身属性是否存在</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">o.prop = <span class="string">'exists'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeO</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">o.newprop = o.prop;</span><br><span class="line"><span class="keyword">delete</span> o.prop;</span><br><span class="line">&#125;</span><br><span class="line">o.hasOwnProperty(<span class="string">'prop'</span>);  <span class="comment">// true</span></span><br><span class="line">changeO();</span><br><span class="line">o.hasOwnProperty(<span class="string">'prop'</span>);  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-<h2 id="判断自身属性与继承属性"><a href="#判断自身属性与继承属性" class="headerlink" title="判断自身属性与继承属性"></a>判断自身属性与继承属性</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">this</span>.name = <span class="string">'foo'</span></span><br><span class="line"><span class="keyword">this</span>.sayHi = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Say Hi'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">foo.prototype.sayGoodBy = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Say Good By'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> myPro = <span class="keyword">new</span> foo()</span><br><span class="line"><span class="built_in">console</span>.log(myPro.name) <span class="comment">// foo</span></span><br><span class="line"><span class="built_in">console</span>.log(myPro.hasOwnProperty(<span class="string">'name'</span>)) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(myPro.hasOwnProperty(<span class="string">'toString'</span>)) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(myPro.hasOwnProperty(<span class="string">'hasOwnProperty'</span>)) <span class="comment">// fasle</span></span><br><span class="line"><span class="built_in">console</span>.log(myPro.hasOwnProperty(<span class="string">'sayHi'</span>)) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(myPro.hasOwnProperty(<span class="string">'sayGoodBy'</span>)) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'sayGoodBy'</span> <span class="keyword">in</span> myPro) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<h2 id="遍历一个对象的所有自身属性"><a href="#遍历一个对象的所有自身属性" class="headerlink" title="遍历一个对象的所有自身属性"></a>遍历一个对象的所有自身属性</h2><p>使用for…in循环对象的所有枚举属性，然后再使用hasOwnProperty()方法来忽略继承属性。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> buz = &#123;</span><br><span class="line">fog: <span class="string">'stack'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> name <span class="keyword">in</span> buz) &#123;</span><br><span class="line"><span class="keyword">if</span> (buz.hasOwnProperty(name)) &#123;</span><br><span class="line">  alert(<span class="string">"this is fog ("</span> + name + <span class="string">") for sure. Value: "</span> + buz[name]);</span><br><span class="line"> &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  alert(name); <span class="comment">// toString or something else</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="使用-hasOwnProperty-作为属性名"><a href="#使用-hasOwnProperty-作为属性名" class="headerlink" title="使用 hasOwnProperty 作为属性名"></a>使用 hasOwnProperty 作为属性名</h2><p>JavaScript 并没有保护 hasOwnProperty 属性名，因此某个对象是有可能存在使用这个属性名的属性的。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">    hasOwnProperty: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    bar: <span class="string">'Here be dragons'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">foo.hasOwnProperty(<span class="string">'bar'</span>); <span class="comment">// 始终返回 false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果担心这种情况，可以直接使用原型链上真正的 hasOwnProperty 方法</span></span><br><span class="line">(&#123;&#125;).hasOwnProperty.call(foo, <span class="string">'bar'</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以使用 Object 原型上的 hasOwnProperty 属性</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.hasOwnProperty.call(foo, <span class="string">'bar'</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+        <h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>a.querySelector<em>属于 W3C 中的 Selectors API 规范，而getElementsBy</em> 系列则属于 W3C 的 DOM 规范。<br><a id="more"></a></p>
+<p>b.querySelector*方法接收的参数是一个 CSS 选择符,其中querySelector()是用于接收一个CSS选择符，返回与该模式匹配的第一个元素；querySelectorAll()用于选择匹配到的所有元素；而 getElementsBy 系列接收的参数只能是单一的className、tagName 和 name等。</p>
+<p>c.querySelector选择符选出来的元素及元素数组是静态的，而getElementsBy 方法选出的元素是动态的。</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>querySelector </p>
+<p>list 是一个静态的 Node List，是一个 li 集合的快照，对文档的任何操作都不会对其产生影响。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li&gt;<span class="number">111</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">  &lt;li&gt;222&lt;/</span>li&gt;</span><br><span class="line">  &lt;li&gt;<span class="number">333</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ul=<span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>);</span><br><span class="line"><span class="keyword">var</span> list=ul.querySelectorAll(<span class="string">'li'</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;list.length;i++)&#123;</span><br><span class="line">    ul.appendChild(<span class="built_in">document</span>.createElement(<span class="string">'li'</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这个时候就创建了3个新的li，添加在ul列表上。</span></span><br><span class="line"><span class="built_in">console</span>.log(list.length);</span><br><span class="line"><span class="comment">// 输出的结果仍然是3，不是此时li的数量6</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>getElementById </p>
+<p>list 是一个动态的 Node List， 每一次调用 lis 都会重新对文档进行查询，导致无限循环的问题。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li&gt;<span class="number">111</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">  &lt;li&gt;222&lt;/</span>li&gt;</span><br><span class="line">  &lt;li&gt;<span class="number">333</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">var</span> ul=<span class="built_in">document</span>.getElementsByTagName(<span class="string">'ul'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> list=ul.getElementsByTagName(<span class="string">'li'</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">    ul.appendChild(<span class="built_in">document</span>.createElement(<span class="string">'li'</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(list.length)<span class="comment">//此时输出的结果就是3+5=8</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -399,8 +401,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/15/深入理解JavaScript中的this/" rel="next" title="深入理解JavaScript中的this">
-                <i class="fa fa-chevron-left"></i> 深入理解JavaScript中的this
+              <a href="/2018/11/16/如何将异步请求callback转换为同步请求promise/" rel="next" title="如何将异步请求callback转换为同步请求promise">
+                <i class="fa fa-chevron-left"></i> 如何将异步请求callback转换为同步请求promise
               </a>
             
           </div>
@@ -408,10 +410,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/16/如何将异步请求callback转换为同步请求promise/" rel="prev" title="如何将异步请求callback转换为同步请求promise">
-                如何将异步请求callback转换为同步请求promise <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -545,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#判断自身属性是否存在"><span class="nav-number">1.</span> <span class="nav-text">判断自身属性是否存在</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断自身属性与继承属性"><span class="nav-number">2.</span> <span class="nav-text">判断自身属性与继承属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历一个对象的所有自身属性"><span class="nav-number">3.</span> <span class="nav-text">遍历一个对象的所有自身属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-hasOwnProperty-作为属性名"><span class="nav-number">4.</span> <span class="nav-text">使用 hasOwnProperty 作为属性名</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">2.</span> <span class="nav-text">说明</span></a></li></ol></div>
             
 
           </div>
