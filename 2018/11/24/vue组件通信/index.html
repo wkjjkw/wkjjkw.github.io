@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="组件通信是vue项目中几乎必须做的事情，vue中实现组件通信的场景，包括父子组件通信，非父子组件通信两种；而通信手段，则包括： （1）props down,events up(父子组件通信) （2）eventbus事件总线 （3）vuex通信 下面根据本人项目中的实践，具体来说说如何进行组件通信。">
+<meta name="description" content="组件通信是vue项目中几乎必须做的事情，vue中实现组件通信的场景，包括父子组件通信，非父子组件通信两种；而通信手段，则包括： （1）props down,events up(父子组件通信) （2）bus事件总线 （3）vuex通信 下面根据本人项目中的实践，具体来说说如何进行组件通信。">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue组件通信">
 <meta property="og:url" content="http://yoursite.com/2018/11/24/vue组件通信/index.html">
 <meta property="og:site_name" content="金赫思的博客">
-<meta property="og:description" content="组件通信是vue项目中几乎必须做的事情，vue中实现组件通信的场景，包括父子组件通信，非父子组件通信两种；而通信手段，则包括： （1）props down,events up(父子组件通信) （2）eventbus事件总线 （3）vuex通信 下面根据本人项目中的实践，具体来说说如何进行组件通信。">
+<meta property="og:description" content="组件通信是vue项目中几乎必须做的事情，vue中实现组件通信的场景，包括父子组件通信，非父子组件通信两种；而通信手段，则包括： （1）props down,events up(父子组件通信) （2）bus事件总线 （3）vuex通信 下面根据本人项目中的实践，具体来说说如何进行组件通信。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-24T07:44:26.917Z">
+<meta property="og:updated_time" content="2018-11-24T09:20:16.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue组件通信">
-<meta name="twitter:description" content="组件通信是vue项目中几乎必须做的事情，vue中实现组件通信的场景，包括父子组件通信，非父子组件通信两种；而通信手段，则包括： （1）props down,events up(父子组件通信) （2）eventbus事件总线 （3）vuex通信 下面根据本人项目中的实践，具体来说说如何进行组件通信。">
+<meta name="twitter:description" content="组件通信是vue项目中几乎必须做的事情，vue中实现组件通信的场景，包括父子组件通信，非父子组件通信两种；而通信手段，则包括： （1）props down,events up(父子组件通信) （2）bus事件总线 （3）vuex通信 下面根据本人项目中的实践，具体来说说如何进行组件通信。">
 
 
 
@@ -364,12 +364,71 @@
       
         <p> 组件通信是vue项目中几乎必须做的事情，vue中实现组件通信的场景，包括父子组件通信，非父子组件通信两种；而通信手段，则包括：</p>
 <p>（1）props down,events up(父子组件通信)</p>
-<p>（2）eventbus事件总线</p>
+<p>（2）bus事件总线</p>
 <p>（3）vuex通信</p>
 <p>下面根据本人项目中的实践，具体来说说如何进行组件通信。</p>
 <a id="more"></a>
 <h2 id="props-down-events-up"><a href="#props-down-events-up" class="headerlink" title="props down,events up"></a>props down,events up</h2><p>（一）父组件向子组件传值</p>
-<p>  (二)子组件向父组件传值</p>
+<p>1.创建子组件，在src/components/文件夹下新建一个子组件<br>2.在子组件中创建props，然后创建一个名为message的属性</p>
+<blockquote>
+<p>Child.vue</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">&lt;h2&gt;Child子组件&lt;/h2&gt;</span><br><span class="line">&lt;!--此时message即显示为“我是要传给子组件的数据”--&gt;</span><br><span class="line">&lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default&#123;</span><br><span class="line"> props:[&quot;message&quot;]</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>3、创建父组件，在src/components/文件夹下再创建一个父组件</p>
+<p>4、在父组件中注册子组件，并在template中加入child标签，标签中添加message属性并赋值</p>
+<blockquote>
+<p>Parent.vue</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">&lt;child message=&quot;我是要传给子组件的数据&quot;&gt;&lt;/child&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import child from &apos;./Child&apos;;</span><br><span class="line">export default&#123;</span><br><span class="line"> name:&quot;parent&quot;,</span><br><span class="line"> components:&#123;</span><br><span class="line">   child</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>父组件向子组件传值总结：</p>
+<p>子组件在props中创建一个属性，用以接收父组件传过来的值；</p>
+<p>父组件中注册子组件；</p>
+<p>在子组件标签中添加子组件props中创建的属性；</p>
+<p>把需要传给子组件的值赋给该属性；</p>
+</blockquote>
+<p>(二)子组件向父组件传值</p>
+<p> 1.在子组件中创建一个按钮，给按钮绑定一个点击事件</p>
+<p>2.在响应该点击事件的函数中使用$emit来触发一个自定义事件，并传递一个参数</p>
+<blockquote>
+<p>Child.vue</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">&lt;h2&gt;Child子组件&lt;/h2&gt;</span><br><span class="line">&lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;button @click=&quot;sendMessageToParent()&quot;&gt;&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default&#123;</span><br><span class="line"> props:[&quot;message&quot;],</span><br><span class="line"> methods:&#123;</span><br><span class="line">     sendMessageToParent()&#123;</span><br><span class="line">         this.$emit(&quot;listenToChildEvent&quot;,&quot;我是子组件传过来的数据&quot;)</span><br><span class="line">     &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>3.在父组件中的子标签中监听该自定义事件并添加一个响应该事件的处理方法</p>
+<blockquote>
+<p>Parent.vue</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">&lt;child message=&quot;我是要传给子组件的数据&quot; @listenToChildEvent=&quot;showMessageFromChild()&quot;&gt;&lt;/child&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import child from &quot;./Child&quot;;</span><br><span class="line">export default&#123;</span><br><span class="line"> name:&quot;parent&quot;,</span><br><span class="line"> components:&#123;</span><br><span class="line">   child</span><br><span class="line"> &#125;,</span><br><span class="line"> methods:&#123;</span><br><span class="line">     showMessageFromChild(data)&#123;</span><br><span class="line">         console.log(data); // data即为子组件传过来的数据</span><br><span class="line">     &#125;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>子组件向父组件传值总结：</p>
+<p>子组件中需要以某种方式例如点击事件的方法来触发一个自定义事件；</p>
+<p>将需要传的值作为$emit的第二个参数，该值将作为实参传给响应自定义事件的方法；</p>
+<p>在父组件中注册子组件并在子组件标签上绑定对自定义事件的监听；</p>
+</blockquote>
+<h2 id="bus事件总线-非父子组件通信"><a href="#bus事件总线-非父子组件通信" class="headerlink" title="bus事件总线(非父子组件通信)"></a>bus事件总线(非父子组件通信)</h2><p>如何实现非父子组件间的通信，可以通过实例一个vue实例Bus作为媒介，要相互通信的兄弟组件之中，都引入Bus，之后通过分别调用Bus事件触发和监听来实现组件之间的通信和参数传递。</p>
+<p>1.添加一个bus.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">├── node_modules</span><br><span class="line">├── src</span><br><span class="line">  ├── assets</span><br><span class="line">  ├── components</span><br><span class="line">  ├── data</span><br><span class="line">  ├── bus</span><br><span class="line">    ├── bus.js</span><br><span class="line">  └── store</span><br><span class="line">    ├── actions.js</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>bus.js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">"vue"</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vue;</span><br></pre></td></tr></table></figure>
+<p>2.在需要通信的组件都引入bus.js</p>
+<blockquote>
+<p>compoment1.vue</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;button @click=&quot;bus()&quot;&gt;按钮&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"> &lt;/template&gt; </span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Bus from &apos;./bus/bus.js&apos; ;</span><br><span class="line">export default &#123; </span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            message: &quot;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;,</span><br><span class="line">　　methods: &#123;</span><br><span class="line">       bus () &#123;</span><br><span class="line">          Bus.$emit(&apos;msg&apos;, &apos;我是要传给你的信息&apos;); //$emit函数的第二个参数即为要传递的数据</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>component2.vue</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    &lt;!--此时message即显示为“我是要传给你的信息”--&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Bus from &quot;./bus/bus.js&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        message:  &quot;&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted() &#123;</span><br><span class="line">　　　　let self = this;</span><br><span class="line">       Bus.$on(&apos;msg&apos;, (e) =&gt; &#123;</span><br><span class="line">         self.message = e</span><br><span class="line">　　　　　console.log(`传来的数据是：$&#123;e&#125;`)   //$on事件的回调函数的参数即为接收到的数据；</span><br><span class="line">       &#125;)</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>非父子组件数据传递总结：</p>
+<p>创建一个事件总线，用它作为通信桥梁;</p>
+<p>在需要传值的组件中用bus.$emit触发一个自定义事件，并传递参数;</p>
+<p>在需要接收数据的组件中用bus.$on监听自定义事件，并在回调函数中处理传递过来的参数;</p>
+</blockquote>
+<h2 id="Vuex传值"><a href="#Vuex传值" class="headerlink" title="Vuex传值"></a>Vuex传值</h2><p>如果说bus事件总线是为了处理简单场景下的数据传递，那么vuex则是为了复杂场景下的数据传递而设计。</p>
+<p>关于Vuex，建议参阅<a href="https://www.jianshu.com/p/054486340a9b，讲的比较详细。" target="_blank" rel="noopener">https://www.jianshu.com/p/054486340a9b，讲的比较详细。</a></p>
 
       
     </div>
@@ -542,7 +601,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#props-down-events-up"><span class="nav-number">1.</span> <span class="nav-text">props down,events up</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#props-down-events-up"><span class="nav-number">1.</span> <span class="nav-text">props down,events up</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bus事件总线-非父子组件通信"><span class="nav-number">2.</span> <span class="nav-text">bus事件总线(非父子组件通信)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vuex传值"><span class="nav-number">3.</span> <span class="nav-text">Vuex传值</span></a></li></ol></div>
             
 
           </div>
