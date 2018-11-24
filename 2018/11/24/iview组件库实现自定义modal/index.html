@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="最近业务中有这样一项需求：使用iview组件库实现一个自定义的modal。查了下iview官方文档，并没有这方面的详细说明，举的例子也不能够满足需要，于是就开始自己试着去实现。  Modal.vue  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647&amp;lt;template&amp;g">
+<meta name="description" content="最近业务中有这样一项需求：使用iview组件库实现一个自定义的modal。查了下iview官方文档，并没有这方面的详细说明，举的例子也不能够满足需要，于是就开始自己试着去实现。">
 <meta name="keywords" content="vue,iview">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iview组件库实现自定义modal">
 <meta property="og:url" content="http://yoursite.com/2018/11/24/iview组件库实现自定义modal/index.html">
 <meta property="og:site_name" content="金赫思的博客">
-<meta property="og:description" content="最近业务中有这样一项需求：使用iview组件库实现一个自定义的modal。查了下iview官方文档，并没有这方面的详细说明，举的例子也不能够满足需要，于是就开始自己试着去实现。  Modal.vue  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647&amp;lt;template&amp;g">
+<meta property="og:description" content="最近业务中有这样一项需求：使用iview组件库实现一个自定义的modal。查了下iview官方文档，并没有这方面的详细说明，举的例子也不能够满足需要，于是就开始自己试着去实现。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-24T15:11:00.899Z">
+<meta property="og:updated_time" content="2018-11-24T15:36:40.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iview组件库实现自定义modal">
-<meta name="twitter:description" content="最近业务中有这样一项需求：使用iview组件库实现一个自定义的modal。查了下iview官方文档，并没有这方面的详细说明，举的例子也不能够满足需要，于是就开始自己试着去实现。  Modal.vue  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647&amp;lt;template&amp;g">
+<meta name="twitter:description" content="最近业务中有这样一项需求：使用iview组件库实现一个自定义的modal。查了下iview官方文档，并没有这方面的详细说明，举的例子也不能够满足需要，于是就开始自己试着去实现。">
 
 
 
@@ -363,6 +363,10 @@
 
       
         <p>最近业务中有这样一项需求：使用iview组件库实现一个自定义的modal。查了下iview官方文档，并没有这方面的详细说明，举的例子也不能够满足需要，于是就开始自己试着去实现。</p>
+<a id="more"></a>
+<blockquote>
+<p>实现效果</p>
+</blockquote>
 <blockquote>
 <p>Modal.vue</p>
 </blockquote>
@@ -372,9 +376,6 @@
 <p>点击a标签，弹出modal</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;rightpart&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;temp&quot;&gt;</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">              &lt;li v-for=&quot;item in storyList&quot;&gt;</span><br><span class="line">                &lt;p&gt;&#123;&#123;item.title&#125;&#125;&lt;/p&gt;</span><br><span class="line">                &lt;a class=&quot;deleteitem&quot;&gt;</span><br><span class="line">                  &lt;Icon type=&quot;ios-close-circle-outline&quot;/&gt;</span><br><span class="line">                &lt;/a&gt;</span><br><span class="line">              &lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">            &lt;a @click=&quot;addStory()&quot;&gt;+&lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import modal from &apos;./Modal&apos;;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name: &quot;rightpart&quot;,</span><br><span class="line">    components: &#123;</span><br><span class="line">      modal</span><br><span class="line">    &#125;,</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        title:&apos;&apos;,</span><br><span class="line">        description:&apos;&apos;,</span><br><span class="line">        storyList:[]</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      addStory() &#123;</span><br><span class="line">        this.$Modal.confirm(&#123;</span><br><span class="line">            title:&apos;创建故事&apos;,</span><br><span class="line">            render: (h) =&gt; &#123;</span><br><span class="line">              return h(modal, &#123;</span><br><span class="line">                props: &#123;</span><br><span class="line">                  //若父组件有需要传递给内容组件的参数，需要在props中填入</span><br><span class="line">                &#125;,</span><br><span class="line">                on: &#123;</span><br><span class="line">                  tit: (tit) =&gt; &#123;</span><br><span class="line">                    this.title = tit</span><br><span class="line">                  &#125;,</span><br><span class="line">                  des: (des) =&gt; &#123;</span><br><span class="line">                    this.description = des</span><br><span class="line">                  &#125;</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            onOk: () =&gt; &#123;</span><br><span class="line">              // 获取组件Modal传过来的值</span><br><span class="line">              var modalInfo = &#123;</span><br><span class="line">                title: this.title,</span><br><span class="line">                description:this.description</span><br><span class="line">              &#125;</span><br><span class="line">              this.storyList.push(modalInfo);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>实现效果</p>
-</blockquote>
 
       
     </div>
