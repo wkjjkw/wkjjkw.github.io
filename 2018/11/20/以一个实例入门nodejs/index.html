@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="金赫思的博客">
 <meta property="og:description" content="构建一个基础的http服务器 server.js 在JavaScript中，一个函数可以作为另一个函数接收一个参数。我们可以先定义一个函数，然后传递，也可以在传递参数的地方直接定义函数。  123456789101112131415161718var http = require(&quot;http&quot;);http.createServer(function(request, response) &amp;#123">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-21T12:58:16.190Z">
+<meta property="og:updated_time" content="2018-11-24T07:51:56.089Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="以一个实例入门nodejs">
 <meta name="twitter:description" content="构建一个基础的http服务器 server.js 在JavaScript中，一个函数可以作为另一个函数接收一个参数。我们可以先定义一个函数，然后传递，也可以在传递参数的地方直接定义函数。  123456789101112131415161718var http = require(&quot;http&quot;);http.createServer(function(request, response) &amp;#123">
@@ -378,6 +378,7 @@
 <p>在JavaScript中，一个函数可以作为另一个函数接收一个参数。我们可以先定义一个函数，然后传递，也可以在传递参数的地方直接定义函数。</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>) </span>&#123;</span><br><span class="line">  response.writeHead(<span class="number">200</span>, &#123;<span class="string">"Content-Type"</span>: <span class="string">"text/plain"</span>&#125;); <span class="comment">//发送一个HTTP状态和HTTP头的内容类型</span></span><br><span class="line">  response.write(<span class="string">"Hello World"</span>); <span class="comment">//在HTTP相应主体中发送文本</span></span><br><span class="line">  response.end(); <span class="comment">//调用 response.end() 完成响应</span></span><br><span class="line">&#125;).listen(<span class="number">8888</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//or</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onRequest</span>(<span class="params">request, response</span>) </span>&#123;</span><br><span class="line">  response.writeHead(<span class="number">200</span>, &#123;<span class="string">"Content-Type"</span>: <span class="string">"text/plain"</span>&#125;);</span><br><span class="line">  response.write(<span class="string">"Hello World"</span>);</span><br><span class="line">  response.end();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//我们给某个方法传递了一个函数，这个方法在有相应事件发生时调用这个函数来进行回调 。</span></span><br><span class="line">http.createServer(onRequest).listen(<span class="number">8888</span>);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="创建及使用属于自己的模块"><a href="#创建及使用属于自己的模块" class="headerlink" title="创建及使用属于自己的模块"></a>创建及使用属于自己的模块</h2><blockquote>
 <p>server.js</p>
 <p>把某段代码变成模块意味着我们需要把我们希望提供其功能的部分 <em>导出</em> 到请求这个模块的脚本</p>
@@ -388,7 +389,27 @@
 <p>我们可以像使用任何其他的内置模块一样使用server模块：请求这个文件并把它指向一个变量，其中已导出的函数就可以被我们使用了。</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> server = <span class="built_in">require</span>(<span class="string">"./server"</span>);</span><br><span class="line"></span><br><span class="line">server.start();</span><br></pre></td></tr></table></figure>
-<p>(todo)</p>
+<h2 id="请求路由"><a href="#请求路由" class="headerlink" title="请求路由"></a>请求路由</h2><blockquote>
+<p>start.js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">"url"</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">onRequest</span>(<span class="params">request, response</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> pathname = url.parse(request.url).pathname; <span class="comment">//使用url模块解析请求的url</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Request for "</span> + pathname + <span class="string">" received."</span>);</span><br><span class="line">    response.writeHead(<span class="number">200</span>, &#123;<span class="string">"Content-Type"</span>: <span class="string">"text/plain"</span>&#125;);</span><br><span class="line">    response.write(<span class="string">"Hello World"</span>);</span><br><span class="line">    response.end();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  http.createServer(onRequest).listen(<span class="number">8888</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Server has started."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>router.js</p>
+<p>编写路由</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">route</span>(<span class="params">pathname</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"About to route a request for "</span> + pathname);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.route = route;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>扩展start函数，将路由函数作为参数传递进去</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">"url"</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params">route</span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">onRequest</span>(<span class="params">request, response</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> pathname = url.parse(request.url).pathname;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Request for "</span> + pathname + <span class="string">" received."</span>);</span><br><span class="line"></span><br><span class="line">    route(pathname);</span><br><span class="line"></span><br><span class="line">    response.writeHead(<span class="number">200</span>, &#123;<span class="string">"Content-Type"</span>: <span class="string">"text/plain"</span>&#125;);</span><br><span class="line">    response.write(<span class="string">"Hello World"</span>);</span><br><span class="line">    response.end();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  http.createServer(onRequest).listen(<span class="number">8888</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Server has started."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.start = start;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>扩展index.js，使得路由函数可以被注入到服务器中</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> server = <span class="built_in">require</span>(<span class="string">"./server"</span>);</span><br><span class="line"><span class="keyword">var</span> router = <span class="built_in">require</span>(<span class="string">"./router"</span>);</span><br><span class="line"></span><br><span class="line">server.start(router.route);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>启动应用（<em>node index.js</em>），随后请求一个URL，将会看到应用输出相应的信息，这表明HTTP服务器已经在使用路由模块了，并会将请求的路径传递给路由。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">bash$</span> node index.js</span><br><span class="line">Request for /foo received.</span><br><span class="line">About to route a request for /foo</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -428,6 +449,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/24/vue组件通信/" rel="prev" title="vue组件通信">
+                vue组件通信 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -504,7 +529,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -561,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#构建一个基础的http服务器"><span class="nav-number">1.</span> <span class="nav-text">构建一个基础的http服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建及使用属于自己的模块"><span class="nav-number">2.</span> <span class="nav-text">创建及使用属于自己的模块</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#构建一个基础的http服务器"><span class="nav-number">1.</span> <span class="nav-text">构建一个基础的http服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建及使用属于自己的模块"><span class="nav-number">2.</span> <span class="nav-text">创建及使用属于自己的模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求路由"><span class="nav-number">3.</span> <span class="nav-text">请求路由</span></a></li></ol></div>
             
 
           </div>
