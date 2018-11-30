@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -94,13 +94,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="金赫思的博客">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta name="description" content="for…in性能这么慢,因为它要遍历自身的属性和原型链上的属性,这无疑就增加了所有不必要的额外开销. 对于普通的对象，for…of结构不能直接使用，会报错，必须部署了 Iterator 接口后才能使用。但是，这样情况下，for…in循环依然可以用来遍历键名。">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript中for...in循环与for...of循环的执行效率和使用">
+<meta property="og:url" content="http://yoursite.com/2018/11/30/javascript中for-in循环与for-of循环的执行效率和使用/index.html">
 <meta property="og:site_name" content="金赫思的博客">
+<meta property="og:description" content="for…in性能这么慢,因为它要遍历自身的属性和原型链上的属性,这无疑就增加了所有不必要的额外开销. 对于普通的对象，for…of结构不能直接使用，会报错，必须部署了 Iterator 接口后才能使用。但是，这样情况下，for…in循环依然可以用来遍历键名。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-30T09:02:56.878Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="金赫思的博客">
+<meta name="twitter:title" content="javascript中for...in循环与for...of循环的执行效率和使用">
+<meta name="twitter:description" content="for…in性能这么慢,因为它要遍历自身的属性和原型链上的属性,这无疑就增加了所有不必要的额外开销. 对于普通的对象，for…of结构不能直接使用，会报错，必须部署了 Iterator 接口后才能使用。但是，这样情况下，for…in循环依然可以用来遍历键名。">
 
 
 
@@ -129,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/3/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/30/javascript中for-in循环与for-of循环的执行效率和使用/"/>
 
 
 
 
 
-  <title>金赫思的博客</title>
+  <title>javascript中for...in循环与for...of循环的执行效率和使用 | 金赫思的博客</title>
   
 
 
@@ -160,9 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -255,9 +258,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -270,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/24/Css用border设置hover是出现div抖动和走位问题解决/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/30/javascript中for-in循环与for-of循环的执行效率和使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="金赫思">
@@ -287,9 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/24/Css用border设置hover是出现div抖动和走位问题解决/" itemprop="url">Css用border设置hover是出现div抖动和走位问题解决</a></h1>
+          <h1 class="post-title" itemprop="name headline">javascript中for...in循环与for...of循环的执行效率和使用</h1>
         
 
         <div class="post-meta">
@@ -301,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-24T15:15:14+08:00">
-                2018-10-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-30T16:53:04+08:00">
+                2018-11-30
               </time>
             
 
@@ -317,164 +318,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-24T16:22:27+08:00">
-                2018-10-24
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web前端/" itemprop="url" rel="index">
-                    <span itemprop="name">web前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="样式设置-："><a href="#样式设置-：" class="headerlink" title="样式设置 ："></a>样式设置 ：</h3><p>div:hover { border:1px solid red;} 当鼠标移动到div时，产生抖动和偏移。 </p>
-<h3 id="产生的原因："><a href="#产生的原因：" class="headerlink" title="产生的原因："></a>产生的原因：</h3><p>是因为设置border时设置了1px边框，多出的这1px，与其它元素产生了挤压， 导致div偏移。 </p>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>第一种方法：先将这个div设置一个跟背景颜色一样的边框，比如背景颜色为#aaa；那么你先设置这个div的样式：div {border:1px solid #aaa;}，然后再设置hover动作，div:hover { border:1px solid red;} 。</p>
-<p>第二种方法：将这个div的border颜色设置为透明 ，div {border:1px solid transparent;},然后再引入hover动作div:hover { border:1px solid red;} 。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/23/vue项目实现图片的横向滚动/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="金赫思">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="金赫思的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/23/vue项目实现图片的横向滚动/" itemprop="url">vue项目实现图片的横向滚动</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-23T15:18:12+08:00">
-                2018-10-23
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-30T16:26:06+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-30T17:02:56+08:00">
                 2018-11-30
               </time>
             
@@ -530,22 +374,20 @@
       
 
       
-        
-          <h2 id="源起"><a href="#源起" class="headerlink" title="源起"></a>源起</h2><p>最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，上代码。</p>
-<h2 id="创建Firefox全局变量"><a href="#创建Firefox全局变量" class="headerlink" title="创建Firefox全局变量"></a>创建Firefox全局变量</h2><p>创建Firefox全局变量是为了达到浏览器兼容的效果。</p>
-<p>创建global文件夹，并新建index.js。</p>
+        <p>for…in性能这么慢,因为它要遍历自身的属性和原型链上的属性,这无疑就增加了所有不必要的额外开销.</p>
+<p>对于普通的对象，for…of结构不能直接使用，会报错，必须部署了 Iterator 接口后才能使用。但是，这样情况下，for…in循环依然可以用来遍历键名。</p>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> es6 = &#123;</span><br><span class="line">    edition: <span class="number">6</span>,</span><br><span class="line">    committee: <span class="string">"TC39"</span>,</span><br><span class="line">    standard: <span class="string">"ECMA-262"</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> e <span class="keyword">in</span> es6) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// edition</span></span><br><span class="line"><span class="comment">// committee</span></span><br><span class="line"><span class="comment">// standard</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> e <span class="keyword">of</span> es6) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// TypeError: es6[Symbol.iterator] is not a function</span></span><br></pre></td></tr></table></figure>
+<p>上面代码表示，对于普通的对象，for…in循环可以遍历键名，for…of循环会报错。</p>
 <blockquote>
-<p>index.js</p>
+<p>一种解决方法是，使用Object.keys方法将对象的键名生成一个数组，然后遍历这个数组。</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Firefox = navigator.userAgent.indexOf(<span class="string">'Firefox'</span>) != <span class="number">-1</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123; Firefox &#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/23/vue项目实现图片的横向滚动/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">of</span> <span class="built_in">Object</span>.keys(someObject)) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(key + <span class="string">': '</span> + someObject[key]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>经验就是：鉴于for of 循环比for in循环要快，在有性能需要的情况下，可以考虑将for in 循环更改成for of 循环，前提是使用Object.keys()将对象循环转为对数组进行循环。</p>
+<blockquote>
+<p>参考：<a href="http://es6.ruanyifeng.com/#docs/iterator" target="_blank" rel="noopener">http://es6.ruanyifeng.com/#docs/iterator</a></p>
+</blockquote>
+
       
     </div>
     
@@ -560,14 +402,36 @@
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/30/修改hosts文件的作用与方法/" rel="next" title="修改hosts文件的作用与方法">
+                <i class="fa fa-chevron-left"></i> 修改hosts文件的作用与方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -577,14 +441,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -592,6 +453,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -795,10 +660,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
