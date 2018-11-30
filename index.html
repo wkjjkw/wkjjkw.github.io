@@ -317,7 +317,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-30T17:22:34+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-30T17:27:59+08:00">
                 2018-11-30
               </time>
             
@@ -376,8 +376,10 @@
         
           
             <p>~是二进制的按位取反,~~可以理解为是取整的简写</p>
-<p>~~null;      // =&gt; 0<br>~~undefined; // =&gt; 0<br>~~0;         // =&gt; 0<br>~~{};        // =&gt; 0<br>~~[];        // =&gt; 0<br>~~(1/0);     // =&gt; 0<br>~~false;     // =&gt; 0<br>~~true;      // =&gt; 1<br>~~1.2543;    // =&gt; 1<br>~~4.9;       // =&gt; 4<br>~~(-2.999);  // =&gt; -2</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">~~<span class="literal">null</span>;      <span class="comment">// =&gt; 0</span></span><br><span class="line">~~<span class="literal">undefined</span>; <span class="comment">// =&gt; 0</span></span><br><span class="line">~~<span class="number">0</span>;         <span class="comment">// =&gt; 0</span></span><br><span class="line">~~&#123;&#125;;        <span class="comment">// =&gt; 0</span></span><br><span class="line">~~[];        <span class="comment">// =&gt; 0</span></span><br><span class="line">~~(<span class="number">1</span>/<span class="number">0</span>);     <span class="comment">// =&gt; 0</span></span><br><span class="line">~~<span class="literal">false</span>;     <span class="comment">// =&gt; 0</span></span><br><span class="line">~~<span class="literal">true</span>;      <span class="comment">// =&gt; 1</span></span><br><span class="line">~~<span class="number">1.2543</span>;    <span class="comment">// =&gt; 1</span></span><br><span class="line">~~<span class="number">4.9</span>;       <span class="comment">// =&gt; 4</span></span><br><span class="line">~~(<span class="number">-2.999</span>);  <span class="comment">// =&gt; -2</span></span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>对于非数字, ~ ~的结果为0,布尔的true是1<br>对于大于0的数, ~ ~相当于是Math.floor<br>对于小于0的数,~~相当于是Math.ceil</p>
+</blockquote>
 <p>~~在性能上来说更快.</p>
 
           
