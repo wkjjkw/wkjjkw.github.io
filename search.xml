@@ -25,7 +25,7 @@
   <entry>
     <title><![CDATA[双波浪号JavaScript运算符的使用]]></title>
     <url>%2F2018%2F11%2F30%2F%E5%8F%8C%E6%B3%A2%E6%B5%AA%E5%8F%B7JavaScript%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[~是二进制的按位取反,~~可以理解为是取整的简写 1234567891011~~null; // =&gt; 0~~undefined; // =&gt; 0~~0; // =&gt; 0~~&#123;&#125;; // =&gt; 0~~[]; // =&gt; 0~~(1/0); // =&gt; 0~~false; // =&gt; 0~~true; // =&gt; 1~~1.2543; // =&gt; 1~~4.9; // =&gt; 4~~(-2.999); // =&gt; -2 对于非数字（包括0）, ~ ~的结果为0,布尔的true是1对于大于0的数, ~ ~相当于是Math.floor对于小于0的数,~~相当于是Math.ceil ~~在性能上来说更快.]]></content>
+    <content type="text"><![CDATA[~是二进制的按位取反,~~可以理解为是取整的简写 1234567891011~~null; // =&gt; 0~~undefined; // =&gt; 0~~0; // =&gt; 0~~&#123;&#125;; // =&gt; 0~~[]; // =&gt; 0~~(1/0); // =&gt; 0~~false; // =&gt; 0~~true; // =&gt; 1~~1.2543; // =&gt; 1~~4.9; // =&gt; 4~~(-2.999); // =&gt; -2 对于非数字（包括0）, ~ ~的结果为0,布尔的true是1；对于大于0的数, ~ ~相当于是Math.floor；对于小于0的数,~~相当于是Math.ceil ~~在性能上来说更快.]]></content>
       <categories>
         <category>web前端</category>
       </categories>
