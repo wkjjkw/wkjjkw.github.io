@@ -34,17 +34,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[javascript静态方法、实例方法和内部方法的定义与使用]]></title>
-    <url>%2F2018%2F11%2F30%2Fjavascript%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E3%80%81%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E5%92%8C%E5%86%85%E9%83%A8%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[静态方法的定义1234567var BaseClass = function() &#123;&#125;; // var BaseClass=new Function();BaseClass.f1 = function()&#123;//定义静态方法 alert(' This is a static method ');&#125;BaseClass.f1();//This is a static methodvar instance1 = new BaseClass();instance1.f1();//instance1.f1 is not a function 由以上代码分析可知，静态方法不能被实例对象调用 实例方法的定义这里是利用javascript对象原型引用prototype来实现的，看以下代码 123456789101112131415var BaseClass = function() &#123;&#125;;BaseClass.prototype.method1 = function()&#123; alert(' This is a instance method ');&#125;var instance1 = new BaseClass();instance1.method1();//This is a instance methodmethod1即为通过prototype原型引用定义的实例方法，这里也可以在实例上直接定义方法（变量），看以下代码var BaseClass = function() &#123;&#125;;var instance1 = new BaseClass();instance1.method1 = function()&#123; alert(' This is a instance method too ');&#125;instance1.method1();//This is a instance method too 下面介绍通过this指针来定义实例方法（变量），看以下代码 1234567var BaseClass = function() &#123; this.method1 = function()&#123; alert(' Defined by the "this" instance method'); &#125;&#125;;var instance1 = new BaseClass();instance1.method1();//Defined by the "this" instance method 那么同时在实例上、原型引用上和“this”上定义了相同名字的实例方法后，实例会优先调用那一个呢？请看以下代码 12345678910111213var BaseClass = function() &#123; this.method1 = function()&#123; alert(' Defined by the "this" in the instance method'); &#125;&#125;;var instance1 = new BaseClass();instance1.method1 = function()&#123; alert(' Defined directly in the instance method');&#125;BaseClass.prototype.method1 = function()&#123; alert(' Defined by the prototype instance method ');&#125;instance1.method1();//Defined directly in the instance method 通过运行结果跟踪测试可以看出直接定义在实例上的变量的优先级要高于定义在“this”上的，而定义在“this”上的又高于 prototype定义的变量。即直接定义在实例上的变量会覆盖定义在“this”上和prototype定义的变量，定义在“this”上的会覆盖prototype定义的变量。 内部方法先看以下定义 123456789101112131415var BaseClass = function() &#123; var method1 = function() &#123; alert("Internal method"); &#125;; var method2 = function() &#123; alert("call Internal method"); method1(); &#125;; this.method3 = function()&#123; method2(); &#125;&#125;;var instance1 = new BaseClass();instance1.method1();// 会报错，因为method1是BaseClass中定义的内部变量，作用域只有在内部可见（闭包）instance1.method3();//会先后调用method2和method1 从运行结果来看，内部方法只能在内部使用，即用到了闭包的实现]]></content>
-      <categories>
-        <category>web前端</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[javascript中for...in循环与for...of循环的执行效率和使用]]></title>
     <url>%2F2018%2F11%2F30%2Fjavascript%E4%B8%ADfor-in%E5%BE%AA%E7%8E%AF%E4%B8%8Efor-of%E5%BE%AA%E7%8E%AF%E7%9A%84%E6%89%A7%E8%A1%8C%E6%95%88%E7%8E%87%E5%92%8C%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[for…in性能这么慢,因为它要遍历自身的属性和原型链上的属性,这无疑就增加了所有不必要的额外开销. 对于普通的对象，for…of结构不能直接使用，会报错，必须部署了 Iterator 接口后才能使用。但是，这样情况下，for…in循环依然可以用来遍历键名。 1234567891011121314151617let es6 = &#123; edition: 6, committee: "TC39", standard: "ECMA-262"&#125;;for (let e in es6) &#123; console.log(e);&#125;// edition// committee// standardfor (let e of es6) &#123; console.log(e);&#125;// TypeError: es6[Symbol.iterator] is not a function 上面代码表示，对于普通的对象，for…in循环可以遍历键名，for…of循环会报错。 一种解决方法是，使用Object.keys方法将对象的键名生成一个数组，然后遍历这个数组。 123for (var key of Object.keys(someObject)) &#123; console.log(key + ': ' + someObject[key]);&#125; 经验就是：鉴于for of 循环比for in循环要快，在有性能需要的情况下，可以考虑将for in 循环更改成for of 循环，前提是使用Object.keys()将对象循环转为对数组进行循环。 参考：http://es6.ruanyifeng.com/#docs/iterator]]></content>
@@ -292,13 +281,13 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[categories]]></title>
-    <url>%2Fcategories%2Findex.html</url>
+    <title><![CDATA[标签]]></title>
+    <url>%2Ftags%2Findex.html</url>
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[标签]]></title>
-    <url>%2Ftags%2Findex.html</url>
+    <title><![CDATA[categories]]></title>
+    <url>%2Fcategories%2Findex.html</url>
     <content type="text"></content>
   </entry>
 </search>
