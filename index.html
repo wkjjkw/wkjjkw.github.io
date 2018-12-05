@@ -519,7 +519,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-05T09:05:48+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-05T09:09:18+08:00">
                 2018-12-05
               </time>
             
@@ -576,62 +576,15 @@
 
       
         
-          
-            <p>call(),apply(),bind() 函数大家可能都有所了解，但是在平时搬砖过程中很可能或者基本没用过，学过但都淡忘了。</p>
+          <p>call(),apply(),bind() 函数大家可能都有所了解，但是在平时搬砖过程中很可能或者基本没用过，学过但都淡忘了。</p>
 <p>但是在大量第三方的框架(库)，甚至js自己都在源码中大量使用<code>call,apply</code> 函数。所以今天和大家仔细讨论下它们在开发中的应用场景。</p>
-<h2 id="它们是啥意思"><a href="#它们是啥意思" class="headerlink" title="它们是啥意思"></a>它们是啥意思</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ol>
-<li>他们的作用都是改变函数内部的<code>this</code>。</li>
-<li>这三个函数都是<code>函数对象</code>的方法，也就是说只有函数才可以直接调用这些方法。</li>
-</ol>
-<p>ps：call,apply,bind属于this显式绑定，还有好几种其他的this绑定方式，<a href="https://segmentfault.com/a/1190000011194676" target="_blank" rel="noopener">感兴趣的可以点这里</a>。</p>
-<h3 id="三者区别"><a href="#三者区别" class="headerlink" title="三者区别"></a>三者区别</h3><h4 id="参数：三个函数的第一个参数都是需要绑定的-this。"><a href="#参数：三个函数的第一个参数都是需要绑定的-this。" class="headerlink" title="参数：三个函数的第一个参数都是需要绑定的 this。"></a>参数：三个函数的第一个参数都是需要绑定的 <code>this</code>。</h4><p>call： 可以有n个参数，从第二个参数开始的所有参数都是原函数的参数。<br>apply：只有两个参数，并且第二个参数必须为数组，数组中的所有元素一一对应原函数的参数。<br>bind： 只有一个参数，即要绑定的this。</p>
-<blockquote>
-<p>call 语法：  foo.call(this, arg1,arg2, … ,argn );<br>apply 语法： foo.apply(this, [ arg1,arg2, … ,argn ] );<br>bind 语法：  foo.bind(this);</p>
-</blockquote>
-<h4 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h4><p><code>call,apply</code>： 调用后立即执行原函数。<br><code>bind</code>： 调用后返回已经绑定好this的函数。</p>
-<p>小例子一枚：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function foo(a,b)&#123;</span><br><span class="line">    console.log(a+b);</span><br><span class="line">&#125;</span><br><span class="line">foo.call(null,&apos;海洋&apos;,&apos;饼干&apos;);        // 海洋饼干  这里this指向不重要就写null了</span><br><span class="line">foo.apply(null, [&apos;海洋&apos;,&apos;饼干&apos;] );   // 海洋饼干</span><br><span class="line">var fun = foo.bind(null);</span><br><span class="line">fun(&apos;海洋&apos;,&apos;饼干&apos;);                  // 海洋饼干</span><br></pre></td></tr></table></figure>
-<h2 id="它们能干啥事"><a href="#它们能干啥事" class="headerlink" title="它们能干啥事"></a>它们能干啥事</h2><p>这是我们今天讨论的主题，这三个函数如何应用？什么情况下使用？<strong>能改变this指向又能咋滴？</strong></p>
-<h3 id="处理伪数组-最常用"><a href="#处理伪数组-最常用" class="headerlink" title="处理伪数组 (最常用)"></a>处理伪数组 (最常用)</h3><p>先考虑一个问题，如果你使用<code>var arr = document.getElementsByTagName(&#39;li&#39;)</code>获取了5个<code>li</code>元素，你现在需要获取其中的第2,3,4三个元素，你会怎么做？</p>
-<p>这样<code>arr.slice(1,4);</code>？ 啊哦，<code>TypeError -- arr.slice is not a function(slice不是函数)</code>，数组操作在日常搬砖中非常常见，我见过最傻的解决这个问题的方式是使用循环，将需要的元素一个个添加到一个新数组里，<strong>下面我介绍的方法完全可以在实战中使用，可以给你的代码加分哦,非常方便简洁</strong>(中高级前端程序员中，算是基本操作了)。</p>
-<p>先要介绍一个概念( <strong>伪数组</strong> )，这也是为什么我们刚刚slice切割数组时出错的原因： (对新手来说算是干货了，知道的可以跳过)</p>
-<p>什么是伪数组？</p>
-<ol>
-<li>有length属性</li>
-<li>能按索引存储数据</li>
-<li>能像遍历数组一样来遍历</li>
-<li>不能使用数组的push()、slice()等方法</li>
-</ol>
-<p><strong>简单来说就是可以像数组一样操作的对象，但是没有数组的方法。</strong></p>
-<p>js中存在大量伪数组，如 ：</p>
-<p>function的arguments对象;<br>getElementsByName(),getElementsByTagName(),childNodes/children 等方法的返回值;<br>还有比较常见的jquery,使用它获取的元素也是伪数组</p>
-<p>回到原来的问题，如何截取伪数组中的元素：<strong>伪数组没有这些方法，我们’借用’Array的slice不就行了</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[].slice.call(arr,1,4);  // 推荐写法</span><br></pre></td></tr></table></figure>
-<p><strong>不想借用你可以直接给伪数组添加一个slice函数</strong>，如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.slice = [].slice;</span><br><span class="line">arr.slice(1,4);</span><br></pre></td></tr></table></figure>
-<p>当然，’借用’ 更方便，直接添加会导致伪数组对象’污染’。</p>
-<p>如果可以随意改变原对象，可以 <strong>直接将其转成真正的数组对象</strong>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[].slice.call(arr);</span><br></pre></td></tr></table></figure>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>继承方式多种多样,我们现在讨论的这种是其中很重要的一种实现方式，用<code>call</code>实现 js <strong>构造函数继承</strong> 。</p>
-<h4 id="单继承"><a href="#单继承" class="headerlink" title="单继承"></a>单继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function person(name)&#123;</span><br><span class="line">    this.name = name</span><br><span class="line">&#125;</span><br><span class="line">function man(name)&#123;</span><br><span class="line">    this.age = &apos;男&apos;;</span><br><span class="line">    person.call(this,name);              // 继承 man</span><br><span class="line">&#125;</span><br><span class="line">var me = new man(&apos;海洋饼干&apos;);</span><br><span class="line"></span><br><span class="line">console.log(me.name,me.age);             // &apos;海洋饼干&apos; &apos;男&apos;</span><br></pre></td></tr></table></figure>
-<h4 id="多继承"><a href="#多继承" class="headerlink" title="多继承"></a>多继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function person(name)&#123;</span><br><span class="line">    this.name = name</span><br><span class="line">&#125;</span><br><span class="line">function man(name)&#123;</span><br><span class="line">    this.age = &apos;男&apos;;</span><br><span class="line">&#125;</span><br><span class="line">function manProgrammer(name)&#123;</span><br><span class="line">    this.girlfriend = null;</span><br><span class="line">    person.call(this,name);  // 继承 person</span><br><span class="line">    man.call(this,name);     // 继承 man</span><br><span class="line">&#125;</span><br><span class="line">var me = new manProgrammer(&apos;海洋饼干&apos;);</span><br><span class="line"></span><br><span class="line">console.log(me.name,me.age,me.girlfriend);   // &apos;海洋饼干&apos; &apos;男&apos; null</span><br></pre></td></tr></table></figure>
-<h3 id="this硬绑定-—bind"><a href="#this硬绑定-—bind" class="headerlink" title="this硬绑定 —bind"></a>this硬绑定 —bind</h3><p><strong>将一个对象强制且永久性绑定到函数的this上</strong>，使用call,apply或者其他的绑定方式都无法改变(<strong>除了new</strong>绑定，当然，可以手动撸一个new都无法改变的硬绑定)</p>
-<p>直接看例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var fun ;</span><br><span class="line">var obj = &#123;</span><br><span class="line">    a : 1,</span><br><span class="line">    foo : function()&#123;</span><br><span class="line">        var _this = this;            //平时有没有过这种写法？ 为了防止this指向问题</span><br><span class="line">                                     //将this赋值给一个变量,间接维持了this的安全性</span><br><span class="line">       fun = function()&#123;</span><br><span class="line">            console.log(_this.a);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.foo();</span><br><span class="line">fun();                 // 1</span><br><span class="line"></span><br><span class="line">var obj1 = &#123; a : 2&#125;</span><br><span class="line">obj.foo.call(obj1);    // 直接修改_this所绑定的值,boom了</span><br><span class="line">fun();                 // 2</span><br></pre></td></tr></table></figure>
-<p>但是<strong>这种方法感觉上是在逃避问题，直接不使用this了 ? 这真的不是什么好的解决问题的态度</strong>。下面使用我们的bind来优化一下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var fun ;</span><br><span class="line">var obj = &#123;</span><br><span class="line">    a : 1,</span><br><span class="line">    foo : function()&#123;            // 不使用 _this， 避免无谓的变量声明</span><br><span class="line">        fun = function()&#123;</span><br><span class="line">            console.log(this.a);</span><br><span class="line">        &#125;.bind(this);            // 代码很简洁,很漂亮（b格）</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var obj1 = &#123; a : 2&#125;</span><br><span class="line">obj.foo();</span><br><span class="line">fun();             // 1</span><br><span class="line">fun.call(obj1);    // 1  call ,apply等绑定 无法修改</span><br><span class="line">                   // 这里和上面call的位置不同是因为this所处于不同的位置</span><br></pre></td></tr></table></figure>
-<p><strong>这样替代 _this 很规(zhuang)范(b)</strong>呢</p>
-<p>ps：call,apply,bing属于this显示绑定，还有好几种其他的this绑定方式，<a href="https://segmentfault.com/a/1190000011194676" target="_blank" rel="noopener">感兴趣的可以点这里</a>。</p>
-<h3 id="取数组最大最小值"><a href="#取数组最大最小值" class="headerlink" title="取数组最大最小值"></a>取数组最大最小值</h3><p>Math.max和min方法，接收多个参数，比较出极值，这里用到apply的一个默认功能：<strong>展开数组</strong>，<code>传入一个数组参数就可以默认将这个数组转成一个个参数的形式赋给原函数</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var num = [6,9,-3,-5];</span><br><span class="line">console.log(Math.max.apply(Math,num)); // 9  等价  console.log(Math.max(6,9,-3,-5));</span><br><span class="line">console.log(Math.min.apply(Math,num)); // -5 等价  console.log(Math.min(6,9,-3,-5));</span><br></pre></td></tr></table></figure>
-<h3 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h3><p>合并数组常见有三种方式，<code>1.循环 2.Array的concat() 3. 使用apply()合并</code></p>
-<p>这里是使用最简便的apply:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = [1,2,3];</span><br><span class="line">var b = [4,5,6];</span><br><span class="line">[].push.apply(a,b);    // 借用数组的push方法 等价 a.push(4,5,6);</span><br><span class="line">console.log(a);        // [1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>转自<a href="https://segmentfault.com/a/1190000011389726" target="_blank" rel="noopener">https://segmentfault.com/a/1190000011389726</a></p>
-</blockquote>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/05/call、apply、bind函数的用法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
