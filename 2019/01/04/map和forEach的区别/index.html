@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -94,13 +94,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="金赫思的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/11/index.html">
+<meta name="description" content="定义forEach(): 针对每一个元素执行提供的函数； map(): 创建一个新的数组，其中每一个元素由调用数组中的每一个元素执行提供的函数得来 到底有什么区别呢？forEach()方法不会返回执行结果，而是undefined。也就是说，forEach()会修改原来的数组。而map()方法会得到一个新的数组并返回。 示例下方提供了一个数组，如果我们想将其中的每一个元素翻倍，我们可以使用map和f">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="map和forEach的区别">
+<meta property="og:url" content="http://yoursite.com/2019/01/04/map和forEach的区别/index.html">
 <meta property="og:site_name" content="金赫思的博客">
+<meta property="og:description" content="定义forEach(): 针对每一个元素执行提供的函数； map(): 创建一个新的数组，其中每一个元素由调用数组中的每一个元素执行提供的函数得来 到底有什么区别呢？forEach()方法不会返回执行结果，而是undefined。也就是说，forEach()会修改原来的数组。而map()方法会得到一个新的数组并返回。 示例下方提供了一个数组，如果我们想将其中的每一个元素翻倍，我们可以使用map和f">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-07T14:23:39.918Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="金赫思的博客">
+<meta name="twitter:title" content="map和forEach的区别">
+<meta name="twitter:description" content="定义forEach(): 针对每一个元素执行提供的函数； map(): 创建一个新的数组，其中每一个元素由调用数组中的每一个元素执行提供的函数得来 到底有什么区别呢？forEach()方法不会返回执行结果，而是undefined。也就是说，forEach()会修改原来的数组。而map()方法会得到一个新的数组并返回。 示例下方提供了一个数组，如果我们想将其中的每一个元素翻倍，我们可以使用map和f">
 
 
 
@@ -129,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/11/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/01/04/map和forEach的区别/"/>
 
 
 
 
 
-  <title>归档 | 金赫思的博客</title>
+  <title>map和forEach的区别 | 金赫思的博客</title>
   
 
 
@@ -160,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -288,411 +293,202 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/04/map和forEach的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="金赫思">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="金赫思的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">map和forEach的区别</h1>
         
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-04T14:15:44+08:00">
+                2019-01-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-07T22:23:39+08:00">
+                2019-01-07
+              </time>
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 26 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/30/双波浪号JavaScript运算符的使用/" itemprop="url">
-              
-                <span itemprop="name">双波浪号JavaScript运算符的使用</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-30T17:16:13+08:00"
-              content="2018-11-30" >
-          11-30
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/30/javascript中for-in循环与for-of循环的执行效率和使用/" itemprop="url">
-              
-                <span itemprop="name">javascript中for...in循环与for...of循环的执行效率和使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-30T16:53:04+08:00"
-              content="2018-11-30" >
-          11-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/30/修改hosts文件的作用与方法/" itemprop="url">
-              
-                <span itemprop="name">修改hosts文件的作用与方法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-30T16:41:49+08:00"
-              content="2018-11-30" >
-          11-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><code>forEach()</code>: 针对每一个元素执行提供的函数；</p>
+<p><code>map()</code>: 创建一个新的数组，其中每一个元素由调用数组中的每一个元素执行提供的函数得来</p>
+<p>到底有什么区别呢？<code>forEach()</code>方法不会返回执行结果，而是<code>undefined</code>。也就是说，<code>forEach()</code>会修改原来的数组。而<code>map()</code>方法会得到一个新的数组并返回。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>下方提供了一个数组，如果我们想将其中的每一个元素翻倍，我们可以使用<code>map</code>和<code>forEach</code>来达到目的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`let arr = [1, 2, 3, 4, 5];`</span></span><br></pre></td></tr></table></figure>
+<h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h3><p>注意，<code>forEach</code>是不会返回有意义的值的。我们在回调函数中直接修改<code>arr</code>的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`arr.forEach((num, index) =&gt; &#123;    return arr[index] = num * 2;&#125;);`</span></span><br></pre></td></tr></table></figure>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`let doubled = arr.map(num =&gt; &#123;    return num * 2;&#125;);`</span></span><br></pre></td></tr></table></figure>
+<h2 id="执行速度"><a href="#执行速度" class="headerlink" title="执行速度"></a>执行速度</h2><p>经测试，<code>forEach()</code>的执行速度比<code>map()</code>慢。</p>
+<h2 id="函数式角度的理解"><a href="#函数式角度的理解" class="headerlink" title="函数式角度的理解"></a>函数式角度的理解</h2><p>如果你习惯使用函数是编程，那么肯定喜欢使用<code>map()</code>。因为<code>forEach()</code>会改变原始的数组的值，而<code>map()</code>会返回一个全新的数组，原本的数组不受到影响。</p>
+<p>哪个更好呢？取决于你想要做什么。</p>
+<p><code>forEach</code>适合于你并不打算改变数据的时候，而只是想用数据做一些事情 – 比如存入数据库或则打印出来。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`let arr = ['a', 'b', 'c', 'd'];arr.forEach((letter) =&gt; &#123;    console.log(letter);&#125;);// a// b// c// d`</span></span><br></pre></td></tr></table></figure>
+<p><code>map()</code>适用于你要改变数据值的时候。不仅仅在于它更快，而且返回一个新的数组。这样的优点在于你可以使用复合(map(), filter(), reduce()等组合使用)来玩出更多的花样。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`let arr = [1, 2, 3, 4, 5];let arr2 = arr.map(num =&gt; num * 2).filter(num =&gt; num &gt; 5);// arr2 = [6, 8, 10]`</span></span><br></pre></td></tr></table></figure>
+<p>我们首先使用map将每一个元素乘以2，然后紧接着筛选出那些大于5的元素。最终结果赋值给<code>arr2</code>。</p>
+<h2 id="核心要点"><a href="#核心要点" class="headerlink" title="核心要点"></a>核心要点</h2><ul>
+<li>能用<code>forEach()</code>做到的，<code>map()</code>同样可以。反过来也是如此。</li>
+<li><code>map()</code>会分配内存空间存储新数组并返回，<code>forEach()</code>不会返回数据。</li>
+<li><code>forEach()</code>允许<code>callback</code>更改原始数组的元素。<code>map()</code>返回新的数组。</li>
+</ul>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/30/vue开发小知识点整理/" itemprop="url">
-              
-                <span itemprop="name">vue开发小知识点整理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-30T09:36:20+08:00"
-              content="2018-11-30" >
-          11-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/24/iview组件库实现自定义modal/" itemprop="url">
-              
-                <span itemprop="name">iview组件库实现自定义modal</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-24T22:41:09+08:00"
-              content="2018-11-24" >
-          11-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/24/vuejs数据绑定更新视图与传统dom操作比较/" itemprop="url">
-              
-                <span itemprop="name">vuejs数据绑定更新视图与传统dom操作比较</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-24T20:19:54+08:00"
-              content="2018-11-24" >
-          11-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/24/vue组件通信/" itemprop="url">
-              
-                <span itemprop="name">vue组件通信</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-24T15:41:53+08:00"
-              content="2018-11-24" >
-          11-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/20/以一个实例入门nodejs/" itemprop="url">
-              
-                <span itemprop="name">以一个实例入门nodejs</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-20T22:56:12+08:00"
-              content="2018-11-20" >
-          11-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/19/querySelector和getElementById方法的区别/" itemprop="url">
-              
-                <span itemprop="name">querySelector*和getElementBy*方法的区别</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-19T11:53:00+08:00"
-              content="2018-11-19" >
-          11-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/16/如何将异步请求callback转换为同步请求promise/" itemprop="url">
-              
-                <span itemprop="name">如何将异步请求callback转换为同步请求promise</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-16T14:27:52+08:00"
-              content="2018-11-16" >
-          11-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/05/call、apply、bind函数的用法/" rel="next" title="call、apply、bind函数的用法">
+                <i class="fa fa-chevron-left"></i> call、apply、bind函数的用法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2018/11/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/11/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -700,6 +496,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -720,8 +520,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -783,6 +592,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach"><span class="nav-number">2.1.</span> <span class="nav-text">forEach()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">2.2.</span> <span class="nav-text">map</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行速度"><span class="nav-number">3.</span> <span class="nav-text">执行速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式角度的理解"><span class="nav-number">4.</span> <span class="nav-text">函数式角度的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心要点"><span class="nav-number">5.</span> <span class="nav-text">核心要点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -903,11 +728,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
