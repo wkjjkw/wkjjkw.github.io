@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[如何获取访问者的ip地址并写入header]]></title>
+    <url>%2F2019%2F01%2F20%2F%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E8%AE%BF%E9%97%AE%E8%80%85%E7%9A%84ip%E5%9C%B0%E5%9D%80%E5%B9%B6%E5%86%99%E5%85%A5header%2F</url>
+    <content type="text"><![CDATA[背景最近的一个项目，新增了一项需求：获取访问者的ip地址，并将ip地址写到header中，后端获取ip地址后写入日志进行记录。 由于js本身不具备获取访问者ip地址的能力，所以必须借助于第三方服务才能达到这个目的。网上查找了相关资料，最终确定使用搜狐的ip接口服务（http://pv.sohu.com/cityjson?ie=utf-8）。 使用该服务，首先遇到的就是跨域问题，vue项目中解决跨域问题的方法如下： config/index.js 123456789proxyTable: &#123; '/api': &#123; target: 'http://pv.sohu.com/', changeOrigin: true, pathRewrite: &#123; '^/api': '' &#125; &#125;&#125; 解决了跨域问题之后，就可以进行http拦截了： main.js 访问接口，获取ip地址后，进行拦截并写入header中 123456789101112131415161718Vue.http.get('/api/cityjson?ie=utf-8').then((res) =&gt; &#123; if (res) &#123; console.log(res.data) // 获取需要的ip地址 let ip = JSON.parse(res.data.replace('var returnCitySN = ', '').replace(';', '')).cip Vue.http.interceptors.push((request, next) =&gt; &#123; request.credentials = true // 将ip地址写入header中 request.headers.set('ip', ip) next((response) =&gt; &#123; if (response.body.code === '403') &#123; // delCookie('account') // router.push('/') &#125; &#125;) &#125;) &#125;&#125;)]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[开发中遇到的杂七杂八问题记录]]></title>
     <url>%2F2019%2F01%2F13%2F%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95%2F</url>
     <content type="text"><![CDATA[html跳转，js不执行问题单页面复杂应用做多了，突然遇到简单的切图问题反而懵逼了，O(∩_∩)O。123456789&lt;header&gt; &lt;div class="clearfix fixwidth"&gt; &lt;div class="logo left"&gt; &lt;a href=""&gt; &lt;img src="img/logo.png" id="logoImg"/&gt; &lt;/a&gt; &lt;/div&gt; &lt;ul class="right nav-top"&gt; &lt;/ul&gt; &lt;/div&gt;&lt;/header&gt; 总共有三个类似的页面，通过a链接跳转，js是这样的： 12345678910111213141516171819202122232425262728293031323334var obj = [ &#123; title: "首页", url: "index.html" &#125;, &#123; title: "新闻中心", url: "./news.html" &#125;, &#123; title: "联系我们", url: "./aboutUs.html" &#125;];var _html = "";for (var i = 0; i &lt; obj.length; i++) &#123; var aaa = '&lt;li class="item"&gt;&lt;a href="' + obj[i].url +'"&gt;' +obj[i].title + "&lt;/a&gt; &lt;span&gt;&lt;/span&gt;&lt;/li&gt;"; &#125; _html = _html + aaa; &#125;; $("header .nav-top").append(_html); $("header .nav-top").on("click",".item",function() &#123; var _index = $(this).index(); console.log(_index); //打印_index一闪而过 $(this) .addClass("active") .siblings(".item") .removeClass("active"); &#125;); 问题来了：想点击各个导航的时候添加样式，却无法添加（样式一闪而过），问题出在哪呢？ 原来是点击a标签跳转的时候，因为一瞬间已经跳转到另一个页面，所以跳转之前的那个页面的js就起不了想要的作用了。 最简单的处理方式，就是把导航写死，在对应的页面添加active类获取样式。 123456789101112&lt;header&gt; &lt;div class="clearfix fixwidth"&gt; &lt;div class="logo left"&gt; &lt;a href=""&gt; &lt;img src="img/logo.png" id="logoImg"/&gt; &lt;/a&gt; &lt;/div&gt; &lt;ul class="right nav-top"&gt; &lt;li class="item active"&gt;&lt;a href="index.html"&gt;首页&lt;/a&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt; &lt;li class="item"&gt;&lt;a href="./news.html"&gt;新闻中心&lt;/a&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt; &lt;li class="item"&gt;&lt;a href="./aboutUs.html"&gt;联系我们&lt;/a&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt;&lt;/header&gt; 新闻中心、联系我们与首页一样，在对应页面添加active类即可。]]></content>
@@ -303,13 +315,13 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[categories]]></title>
-    <url>%2Fcategories%2Findex.html</url>
+    <title><![CDATA[标签]]></title>
+    <url>%2Ftags%2Findex.html</url>
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[标签]]></title>
-    <url>%2Ftags%2Findex.html</url>
+    <title><![CDATA[categories]]></title>
+    <url>%2Fcategories%2Findex.html</url>
     <content type="text"></content>
   </entry>
 </search>
