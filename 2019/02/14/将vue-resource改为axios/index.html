@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="vue," />
 
 
 
@@ -94,13 +94,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="金赫思的博客">
-<meta property="og:url" content="http://yoursite.com/tags/vue/index.html">
+<meta name="description" content="背景接手的项目之前的http请求库用的是vue-resource,在一般使用过程中没有什么问题，但想要做ie浏览器兼容的时候却出现了很多意想不到的问题。其实vue-resource官方早已经停止维护，所以就想花点时间，改为使用官方推荐的axios库。">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="将vue-resource改为axios">
+<meta property="og:url" content="http://yoursite.com/2019/02/14/将vue-resource改为axios/index.html">
 <meta property="og:site_name" content="金赫思的博客">
+<meta property="og:description" content="背景接手的项目之前的http请求库用的是vue-resource,在一般使用过程中没有什么问题，但想要做ie浏览器兼容的时候却出现了很多意想不到的问题。其实vue-resource官方早已经停止维护，所以就想花点时间，改为使用官方推荐的axios库。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-14T13:53:04.753Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="金赫思的博客">
+<meta name="twitter:title" content="将vue-resource改为axios">
+<meta name="twitter:description" content="背景接手的项目之前的http请求库用的是vue-resource,在一般使用过程中没有什么问题，但想要做ie浏览器兼容的时候却出现了很多意想不到的问题。其实vue-resource官方早已经停止维护，所以就想花点时间，改为使用官方推荐的axios库。">
 
 
 
@@ -129,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/vue/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/14/将vue-resource改为axios/"/>
 
 
 
 
 
-  <title>标签: vue | 金赫思的博客</title>
+  <title>将vue-resource改为axios | 金赫思的博客</title>
   
 
 
@@ -160,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -288,310 +293,194 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>vue<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/14/将vue-resource改为axios/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="金赫思">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="金赫思的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/02/14/将vue-resource改为axios/" itemprop="url">
-              
-                <span itemprop="name">将vue-resource改为axios</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">将vue-resource改为axios</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-14T21:50:14+08:00"
-              content="2019-02-14" >
-          02-14
-        </time>
-      </div>
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-14T21:50:14+08:00">
+                2019-02-14
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-14T21:53:04+08:00">
+                2019-02-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/20/如何获取访问者的ip地址并写入header/" itemprop="url">
-              
-                <span itemprop="name">如何获取访问者的ip地址并写入header</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-20T18:44:10+08:00"
-              content="2019-01-20" >
-          01-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/13/开发中遇到的杂七杂八问题记录/" itemprop="url">
-              
-                <span itemprop="name">开发中遇到的杂七杂八问题记录</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-13T22:37:19+08:00"
-              content="2019-01-13" >
-          01-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/30/vue开发小知识点整理/" itemprop="url">
-              
-                <span itemprop="name">vue开发小知识点整理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-30T09:36:20+08:00"
-              content="2018-11-30" >
-          11-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/24/iview组件库实现自定义modal/" itemprop="url">
-              
-                <span itemprop="name">iview组件库实现自定义modal</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-24T22:41:09+08:00"
-              content="2018-11-24" >
-          11-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/24/vuejs数据绑定更新视图与传统dom操作比较/" itemprop="url">
-              
-                <span itemprop="name">vuejs数据绑定更新视图与传统dom操作比较</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-24T20:19:54+08:00"
-              content="2018-11-24" >
-          11-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/24/vue组件通信/" itemprop="url">
-              
-                <span itemprop="name">vue组件通信</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-24T15:41:53+08:00"
-              content="2018-11-24" >
-          11-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/12/vue项目的过滤器配置/" itemprop="url">
-              
-                <span itemprop="name">vue项目的过滤器配置</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-12T13:52:38+08:00"
-              content="2018-11-12" >
-          11-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/25/如何在vue中使用websocket/" itemprop="url">
-              
-                <span itemprop="name">如何在vue中使用websocket</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-25T17:27:12+08:00"
-              content="2018-10-25" >
-          10-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/25/vue调试工具Devtools不出现的解决方式/" itemprop="url">
-              
-                <span itemprop="name">vue调试工具Devtools不出现的解决方式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-25T17:14:10+08:00"
-              content="2018-10-25" >
-          10-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>接手的项目之前的http请求库用的是vue-resource,在一般使用过程中没有什么问题，但想要做ie浏览器兼容的时候却出现了很多意想不到的问题。其实vue-resource官方早已经停止维护，所以就想花点时间，改为使用官方推荐的axios库。</p>
+<a id="more"></a>
+<h2 id="实施步骤"><a href="#实施步骤" class="headerlink" title="实施步骤"></a>实施步骤</h2><h3 id="安装axios"><a href="#安装axios" class="headerlink" title="安装axios"></a>安装axios</h3><p>npm安装就不多说了，需要注意的是在main.js里面需要添加一些配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line">axios.defaults.withCredentials = <span class="literal">true</span></span><br><span class="line">Vue.prototype.$http = axios</span><br></pre></td></tr></table></figure>
+<h3 id="使用axios"><a href="#使用axios" class="headerlink" title="使用axios"></a>使用axios</h3><p>完成axios的安装和配置之后，就可以在各组件内使用了。</p>
+<p>因为我在vue-resource中使用了Vue.http.options.emulateJSON = true;，这种请求在发送头信息时会将Content-Type改为application/x-www-form-urlencoded。为了在使用axios时达到相同的效果，需要在组件内先引入qs</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">'qs'</span></span><br><span class="line"></span><br><span class="line">login () &#123;</span><br><span class="line">    <span class="keyword">this</span>.$http.post(process.env.BASE_URL + <span class="string">'/user/login'</span>, qs.stringify(<span class="keyword">this</span>.login_data)).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">	 <span class="built_in">console</span>.log(response.data)   <span class="comment">//这个打印出来的就是返回的结果</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>login.vue</p>
+<p>post请求必须将发送的请求参数使用qs.stringify进行包裹，用以解决axios发送x-www-form-urlencoded的需求</p>
+<p>qs.stringify()将对象 序列化成URL的形式，以&amp;进行拼接</p>
+<p>同时需要注意，在vue-resource中正文是response.body，而在axios中正文则是response.data</p>
+</blockquote>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/20/如何获取访问者的ip地址并写入header/" rel="next" title="如何获取访问者的ip地址并写入header">
+                <i class="fa fa-chevron-left"></i> 如何获取访问者的ip地址并写入header
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/tags/vue/page/2/">2</a><a class="extend next" rel="next" href="/tags/vue/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -599,6 +488,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -619,8 +512,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -682,6 +584,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实施步骤"><span class="nav-number">2.</span> <span class="nav-text">实施步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装axios"><span class="nav-number">2.1.</span> <span class="nav-text">安装axios</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用axios"><span class="nav-number">2.2.</span> <span class="nav-text">使用axios</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -802,10 +720,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 

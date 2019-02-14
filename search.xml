@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[将vue-resource改为axios]]></title>
+    <url>%2F2019%2F02%2F14%2F%E5%B0%86vue-resource%E6%94%B9%E4%B8%BAaxios%2F</url>
+    <content type="text"><![CDATA[背景接手的项目之前的http请求库用的是vue-resource,在一般使用过程中没有什么问题，但想要做ie浏览器兼容的时候却出现了很多意想不到的问题。其实vue-resource官方早已经停止维护，所以就想花点时间，改为使用官方推荐的axios库。 实施步骤安装axiosnpm安装就不多说了，需要注意的是在main.js里面需要添加一些配置： 123import axios from 'axios'axios.defaults.withCredentials = trueVue.prototype.$http = axios 使用axios完成axios的安装和配置之后，就可以在各组件内使用了。 因为我在vue-resource中使用了Vue.http.options.emulateJSON = true;，这种请求在发送头信息时会将Content-Type改为application/x-www-form-urlencoded。为了在使用axios时达到相同的效果，需要在组件内先引入qs 1234567import qs from 'qs'login () &#123; this.$http.post(process.env.BASE_URL + '/user/login', qs.stringify(this.login_data)).then(res =&gt; &#123; console.log(response.data) //这个打印出来的就是返回的结果 &#125;)&#125; login.vue post请求必须将发送的请求参数使用qs.stringify进行包裹，用以解决axios发送x-www-form-urlencoded的需求 qs.stringify()将对象 序列化成URL的形式，以&amp;进行拼接 同时需要注意，在vue-resource中正文是response.body，而在axios中正文则是response.data]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[如何获取访问者的ip地址并写入header]]></title>
     <url>%2F2019%2F01%2F20%2F%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E8%AE%BF%E9%97%AE%E8%80%85%E7%9A%84ip%E5%9C%B0%E5%9D%80%E5%B9%B6%E5%86%99%E5%85%A5header%2F</url>
     <content type="text"><![CDATA[背景最近的一个项目，新增了一项需求：获取访问者的ip地址，并将ip地址写到header中，后端获取ip地址后写入日志进行记录。 由于js本身不具备获取访问者ip地址的能力，所以必须借助于第三方服务才能达到这个目的。网上查找了相关资料，最终确定使用搜狐的ip接口服务（http://pv.sohu.com/cityjson?ie=utf-8）。 解决方案使用该服务，首先遇到的就是跨域问题，vue项目中解决跨域问题的方法如下： config/index.js 123456789proxyTable: &#123; '/api': &#123; target: 'http://pv.sohu.com/', changeOrigin: true, pathRewrite: &#123; '^/api': '' &#125; &#125;&#125; 解决了跨域问题之后，就可以进行http拦截了： main.js 访问接口，获取ip地址后，进行拦截并写入header中 123456789101112131415161718Vue.http.get('/api/cityjson?ie=utf-8').then((res) =&gt; &#123; if (res) &#123; console.log(res.data) // 获取需要的ip地址 let ip = JSON.parse(res.data.replace('var returnCitySN = ', '').replace(';', '')).cip Vue.http.interceptors.push((request, next) =&gt; &#123; request.credentials = true // 将ip地址写入header中 request.headers.set('ip', ip) next((response) =&gt; &#123; if (response.body.code === '403') &#123; // delCookie('account') // router.push('/') &#125; &#125;) &#125;) &#125;&#125;) 后续：本地环境测试没有问题，但是部署上线的时候，该功能出现了问题：返回的数据变成了一个HTML文档（具体原因未知），所以也就无法再解析出IP地址。最后，还是通过后端埋点监控，拿到IP实现了功能。]]></content>
@@ -318,13 +329,13 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[标签]]></title>
-    <url>%2Ftags%2Findex.html</url>
+    <title><![CDATA[categories]]></title>
+    <url>%2Fcategories%2Findex.html</url>
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[categories]]></title>
-    <url>%2Fcategories%2Findex.html</url>
+    <title><![CDATA[标签]]></title>
+    <url>%2Ftags%2Findex.html</url>
     <content type="text"></content>
   </entry>
 </search>
