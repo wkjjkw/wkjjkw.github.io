@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="金赫思的博客">
 <meta property="og:description" content="html跳转，js不执行问题单页面复杂应用做多了，突然遇到简单的切图问题反而懵逼了，O(∩_∩)O。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-03T08:13:54.951Z">
+<meta property="og:updated_time" content="2019-03-03T08:23:46.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中遇到的杂七杂八问题记录">
 <meta name="twitter:description" content="html跳转，js不执行问题单页面复杂应用做多了，突然遇到简单的切图问题反而懵逼了，O(∩_∩)O。">
@@ -353,7 +353,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T16:13:54+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T16:23:46+08:00">
                 2019-03-03
               </time>
             
@@ -434,6 +434,7 @@
 <p>对于非数字（包括0）, ~ ~的结果为0,布尔的true是1；<br>对于大于0的数, ~ ~相当于是Math.floor；<br>对于小于0的数,~~相当于是Math.ceil</p>
 </blockquote>
 <p>~~在性能上来说更快.</p>
+<h2 id="IE浏览器低版本添加console对象"><a href="#IE浏览器低版本添加console对象" class="headerlink" title="IE浏览器低版本添加console对象"></a>IE浏览器低版本添加console对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 防止低版本ie或者国产浏览器兼容模式在没有删除console调试代码时报错的问题。</span></span><br><span class="line"><span class="comment">如果在打包前确保删除所有console调试代码，可删除本段代码。 */</span></span><br><span class="line"><span class="built_in">window</span>.console = <span class="built_in">window</span>.console || (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> c = &#123;&#125;</span><br><span class="line">  c.log = c.warn = c.debug = c.info = c.error = c.time = c.dir = c.profile = c.clear = c.exception = c.trace = c.assert = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">  <span class="keyword">return</span> c</span><br><span class="line">&#125;())</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -559,7 +560,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -616,7 +617,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#html跳转，js不执行问题"><span class="nav-number">1.</span> <span class="nav-text">html跳转，js不执行问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSO单点登录"><span class="nav-number">2.</span> <span class="nav-text">SSO单点登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#免密SSH，拉取代码"><span class="nav-number">3.</span> <span class="nav-text">免密SSH，拉取代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sourcetree撤销推送"><span class="nav-number">4.</span> <span class="nav-text">sourcetree撤销推送</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie的妙用"><span class="nav-number">5.</span> <span class="nav-text">cookie的妙用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">5.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">5.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双波浪号JavaScript字符的使用"><span class="nav-number">6.</span> <span class="nav-text">双波浪号JavaScript字符的使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#html跳转，js不执行问题"><span class="nav-number">1.</span> <span class="nav-text">html跳转，js不执行问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSO单点登录"><span class="nav-number">2.</span> <span class="nav-text">SSO单点登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#免密SSH，拉取代码"><span class="nav-number">3.</span> <span class="nav-text">免密SSH，拉取代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sourcetree撤销推送"><span class="nav-number">4.</span> <span class="nav-text">sourcetree撤销推送</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie的妙用"><span class="nav-number">5.</span> <span class="nav-text">cookie的妙用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">5.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">5.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双波浪号JavaScript字符的使用"><span class="nav-number">6.</span> <span class="nav-text">双波浪号JavaScript字符的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IE浏览器低版本添加console对象"><span class="nav-number">7.</span> <span class="nav-text">IE浏览器低版本添加console对象</span></a></li></ol></div>
             
 
           </div>
