@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,vue," />
+  <meta name="keywords" content="vue," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="源起最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，上代码。 创建Firefox全局变量创建Firefox全局变量是为了达到浏览器兼容的效果。 创建global文件夹，并新建index.js。  index.js  12const Firefox = navigator.userAgent.indexOf(&apos;Firef">
-<meta name="keywords" content="JavaScript,vue">
+<meta name="description" content="背景webpack的出现，极大地简化了前端开发的复杂度：作为一种模块化的解决方案，它可以将项目当做一个整体，通过一个给定的主文件（如index.js）,进而从这个主文件中找到项目的所有依赖文件，使用loaders来处理它们，最后打包成浏览器可识别的JavaScript文件。 但是在实际的开发中，我们经常发现由于npm run build命令默认把dependencies中的依赖统一打包，导致打包后">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue项目实现图片的横向滚动">
-<meta property="og:url" content="http://yoursite.com/2018/10/23/vue项目实现图片的横向滚动/index.html">
+<meta property="og:title" content="vendor.js和app.js文件过大问题处理方案">
+<meta property="og:url" content="http://yoursite.com/2019/03/09/vendor-js和app-js文件过大问题处理方案/index.html">
 <meta property="og:site_name" content="金赫思的博客">
-<meta property="og:description" content="源起最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，上代码。 创建Firefox全局变量创建Firefox全局变量是为了达到浏览器兼容的效果。 创建global文件夹，并新建index.js。  index.js  12const Firefox = navigator.userAgent.indexOf(&apos;Firef">
+<meta property="og:description" content="背景webpack的出现，极大地简化了前端开发的复杂度：作为一种模块化的解决方案，它可以将项目当做一个整体，通过一个给定的主文件（如index.js）,进而从这个主文件中找到项目的所有依赖文件，使用loaders来处理它们，最后打包成浏览器可识别的JavaScript文件。 但是在实际的开发中，我们经常发现由于npm run build命令默认把dependencies中的依赖统一打包，导致打包后">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-30T08:26:07.061Z">
+<meta property="og:updated_time" content="2019-03-09T02:50:27.551Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue项目实现图片的横向滚动">
-<meta name="twitter:description" content="源起最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，上代码。 创建Firefox全局变量创建Firefox全局变量是为了达到浏览器兼容的效果。 创建global文件夹，并新建index.js。  index.js  12const Firefox = navigator.userAgent.indexOf(&apos;Firef">
+<meta name="twitter:title" content="vendor.js和app.js文件过大问题处理方案">
+<meta name="twitter:description" content="背景webpack的出现，极大地简化了前端开发的复杂度：作为一种模块化的解决方案，它可以将项目当做一个整体，通过一个给定的主文件（如index.js）,进而从这个主文件中找到项目的所有依赖文件，使用loaders来处理它们，最后打包成浏览器可识别的JavaScript文件。 但是在实际的开发中，我们经常发现由于npm run build命令默认把dependencies中的依赖统一打包，导致打包后">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/23/vue项目实现图片的横向滚动/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/09/vendor-js和app-js文件过大问题处理方案/"/>
 
 
 
 
 
-  <title>vue项目实现图片的横向滚动 | 金赫思的博客</title>
+  <title>vendor.js和app.js文件过大问题处理方案 | 金赫思的博客</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/23/vue项目实现图片的横向滚动/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/vendor-js和app-js文件过大问题处理方案/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="金赫思">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue项目实现图片的横向滚动</h1>
+          <h1 class="post-title" itemprop="name headline">vendor.js和app.js文件过大问题处理方案</h1>
         
 
         <div class="post-meta">
@@ -337,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-23T15:18:12+08:00">
-                2018-10-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-09T10:49:11+08:00">
+                2019-03-09
               </time>
             
 
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-30T16:26:07+08:00">
-                2018-11-30
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-09T10:50:27+08:00">
+                2019-03-09
               </time>
             
           </span>
@@ -409,15 +409,64 @@
       
 
       
-        <h2 id="源起"><a href="#源起" class="headerlink" title="源起"></a>源起</h2><p>最近公司的AE编辑器项目有一项需求，就是滚动鼠标滚轮的时候实现图片列表的横向滚动。那么，如何在vue中实现这个功能呢？话不多说，上代码。</p>
-<h2 id="创建Firefox全局变量"><a href="#创建Firefox全局变量" class="headerlink" title="创建Firefox全局变量"></a>创建Firefox全局变量</h2><p>创建Firefox全局变量是为了达到浏览器兼容的效果。</p>
-<p>创建global文件夹，并新建index.js。</p>
-<blockquote>
-<p>index.js</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Firefox = navigator.userAgent.indexOf(<span class="string">'Firefox'</span>) != <span class="number">-1</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123; Firefox &#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>webpack的出现，极大地简化了前端开发的复杂度：作为一种模块化的解决方案，它可以将项目当做一个整体，通过一个给定的主文件（如index.js）,进而从这个主文件中找到项目的所有依赖文件，使用loaders来处理它们，最后打包成浏览器可识别的JavaScript文件。</p>
+<p>但是在实际的开发中，我们经常发现由于npm run build命令默认把dependencies中的依赖统一打包，导致打包后的vendor.js文件过大，出现首屏加载过于缓慢的问题，严重影响到了上线后的项目性能。如何处理它们呢？</p>
 <a id="more"></a>
-<h2 id="vue文件引入global变量，并使用"><a href="#vue文件引入global变量，并使用" class="headerlink" title="vue文件引入global变量，并使用"></a>vue文件引入global变量，并使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;scenelist&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;listwrap&quot; id=&quot;listwrap&quot;&gt;</span><br><span class="line">      &lt;draggable :options=&quot;&#123;chosenClass:&apos;chosen&apos;, animation: 500&#125;&quot; element=&quot;ul&quot; v-model=&quot;list&quot; :move=&quot;allow&quot;&gt;</span><br><span class="line">        &lt;li v-for=&quot;(item, index) in list&quot; :key=&quot;item.id&quot; @click=&quot;cur_index = index&quot; :class=&quot;&#123;active: cur_index === index&#125;&quot;&gt;</span><br><span class="line">          &lt;img :src=&quot;item.src&quot;&gt;</span><br><span class="line">          &lt;div class=&quot;btns&quot;&gt;</span><br><span class="line">            &lt;Tooltip content=&quot;复制场景&quot; placement=&quot;top&quot; class=&quot;btnitem&quot;&gt;</span><br><span class="line">              &lt;a class=&quot;copybtn&quot; @click=&quot;copyPage(index)&quot;&gt;</span><br><span class="line">                &lt;i class=&quot;iconfont icon-fuzhi&quot;&gt;&lt;/i&gt;</span><br><span class="line">              &lt;/a&gt;</span><br><span class="line">            &lt;/Tooltip&gt;</span><br><span class="line">            &lt;Tooltip content=&quot;删除场景&quot; placement=&quot;top&quot; class=&quot;btnitem&quot;&gt;</span><br><span class="line">              &lt;a class=&quot;deletebtn&quot; @click=&quot;showDelMessage(index)&quot;&gt;</span><br><span class="line">                &lt;i class=&quot;iconfont icon-shanchu&quot;&gt;&lt;/i&gt;</span><br><span class="line">              &lt;/a&gt;</span><br><span class="line">            &lt;/Tooltip&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">          &lt;div class=&quot;itemcount pa&quot;&gt;&#123;&#123;index+1&#125;&#125;&lt;/div&gt;</span><br><span class="line">          &lt;div class=&quot;checkall&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">      &lt;/draggable&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;a class=&quot;addscene&quot; @click=&quot;addScene()&quot;&gt;</span><br><span class="line">      &lt;Icon type=&quot;md-add&quot; /&gt;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">    &lt;Modal</span><br><span class="line">      v-model=&quot;showModal&quot;</span><br><span class="line">      title=&quot;提示&quot;</span><br><span class="line">      @on-ok=&quot;delPage&quot;</span><br><span class="line">      width=&quot;300&quot;&gt;</span><br><span class="line">      &lt;p&gt;删除后不可恢复, 是否继续?&lt;/p&gt;</span><br><span class="line">    &lt;/Modal&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    import global_ from &apos;../../global/index&apos;</span><br><span class="line">    export default &#123;</span><br><span class="line">        methods:&#123;</span><br><span class="line">            MouseWheel(e) &#123;</span><br><span class="line">                e = e || window.event;</span><br><span class="line">                if (e.stopPropagation) &#123;</span><br><span class="line">                    e.stopPropagation();</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    e.cancelBubble = true;</span><br><span class="line">                &#125;</span><br><span class="line">                if (e.preventDefault) &#123;</span><br><span class="line">                    e.preventDefault();</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    e.returnValue = false;</span><br><span class="line">                &#125;</span><br><span class="line">                if (global_.Firefox) &#123;</span><br><span class="line">                    if (e.detail &gt; 0) &#123;</span><br><span class="line">                        $(&apos;#listwrap&apos;).scrollLeft($(&apos;#listwrap&apos;).scrollLeft() + 60);</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        $(&apos;#listwrap&apos;).scrollLeft($(&apos;#listwrap&apos;).scrollLeft() - 60);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    if (e.wheelDelta &lt; 0) &#123;</span><br><span class="line">                        $(&apos;#listwrap&apos;).scrollLeft($(&apos;#listwrap&apos;).scrollLeft() + 60);</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        $(&apos;#listwrap&apos;).scrollLeft($(&apos;#listwrap&apos;).scrollLeft() - 60);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        mounted() &#123;</span><br><span class="line">            let scrollDiv = document.getElementById(&quot;listwrap&quot;);</span><br><span class="line">            global_.Firefox ? scrollDiv.addEventListener(&apos;DOMMouseScroll&apos;, this.MouseWheel, false) : (scrollDiv.onmousewheel = this.MouseWheel);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>要解决这个问题，需要前后端一齐发力：后端做缓存，前端则需要做如下几项工作：</p>
+<p>A.去除不必要的插件，删除不必要的代码</p>
+<p>B.分离业务代码和第三方库</p>
+<p>C.按需加载</p>
+<h3 id="具体实施"><a href="#具体实施" class="headerlink" title="具体实施"></a>具体实施</h3><h4 id="去除不必要的插件，删除不必要的代码"><a href="#去除不必要的插件，删除不必要的代码" class="headerlink" title="去除不必要的插件，删除不必要的代码"></a>去除不必要的插件，删除不必要的代码</h4><p>比如babel-polyfill、vuex、less等（当然，我指的是当前还没有必要使用的情况。如果需要使用，自然不能删除），还有一些开发过程中用于测试的代码等等，这种是釜底抽薪式的解决方案——减少依赖，自然打包文件就变小了；删除无用代码，可以减少解析引擎的工作量。</p>
+<h4 id="开启gzip压缩"><a href="#开启gzip压缩" class="headerlink" title="开启gzip压缩"></a>开启gzip压缩</h4><p>开启gzip压缩，对打包优化有很大帮助。方法步骤如下：</p>
+<p>a.安装插件 compression-webpack-plugin</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev compression-webpack-plugin</span><br></pre></td></tr></table></figure>
+<p>b.设置config/index.js中productionGzip: true</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">productionGzip: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意，此时如果compression-webpack-plugin版本过高，可能会压缩失败。解决方法是，安装1.1.12版本，同时将webpack.prod.conf.js中的asset字段名改为filename。</p>
+<p>npm run build执行后会发现每个js和css文件会压缩一个gz后缀的文件夹，浏览器如果支持g-zip 会自动查找有没有gz文件，找到了就加载gz然后本地解压执行。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (config.build.productionGzip) &#123;</span><br><span class="line">  <span class="keyword">const</span> CompressionWebpackPlugin = <span class="built_in">require</span>(<span class="string">'compression-webpack-plugin'</span>)</span><br><span class="line">  webpackConfig.plugins.push(</span><br><span class="line">    <span class="keyword">new</span> CompressionWebpackPlugin(&#123;</span><br><span class="line">      filename: <span class="string">'[path].gz[query]'</span>,   <span class="comment">// 将asset改为filename</span></span><br><span class="line">      algorithm: <span class="string">'gzip'</span>,</span><br><span class="line">      test: <span class="keyword">new</span> <span class="built_in">RegExp</span>(</span><br><span class="line">        <span class="string">'\\.('</span> +</span><br><span class="line">        config.build.productionGzipExtensions.join(<span class="string">'|'</span>) +</span><br><span class="line">        <span class="string">')$'</span></span><br><span class="line">      ),</span><br><span class="line">      threshold: <span class="number">10240</span>,</span><br><span class="line">      minRatio: <span class="number">0.8</span></span><br><span class="line">    &#125;)</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="打包的时候不生成map文件"><a href="#打包的时候不生成map文件" class="headerlink" title="打包的时候不生成map文件"></a>打包的时候不生成map文件</h4><p>webpack最终打包的文件中会出现一些map文件，map文件的作用在于：项目打包后，代码都是经过压缩加密的，如果运行时报错，输出的错误信息无法准确得知是哪里的代码报错。有了map文件，就可以准确地输出错误信息。为了减小打包体积，我们可以设置不生成map文件：</p>
+<blockquote>
+<p>设置config/index.js中productionSourceMap: false</p>
+</blockquote>
+<h4 id="分离vendor"><a href="#分离vendor" class="headerlink" title="分离vendor"></a>分离vendor</h4><p>app.js 包含了我们的第三方库 vue 和 axios ，以及业务代码 src ，我们可以将之分离开。</p>
+<p>最简单方法就是：加一个 entry：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    app: <span class="string">'./src/main.js'</span>,</span><br><span class="line">    vendor: [<span class="string">'vue'</span>, <span class="string">'axios'</span>],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="路由懒加载"><a href="#路由懒加载" class="headerlink" title="路由懒加载"></a>路由懒加载</h4><p>vue-router官网原文：当打包构建应用时，Javascript 包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了。</p>
+<p>具体的方案如下：</p>
+<blockquote>
+<p>原来的路由配置文件index.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> index <span class="keyword">from</span> <span class="string">'@/components/home/index'</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>更改后的路由配置文件index.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> index = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'@/components/home/index'</span>)</span><br></pre></td></tr></table></figure>
+<p>做了路由懒加载后，我们可以看到app.js这个文件明显减小的同时多出了几个js文件，那是我们的另外几个路由页面的js文件。这些文件会在我们需要的时候，通过异步的方式加载进来，因此它们不会为首屏的加载增加负担。</p>
+<h4 id="组件懒加载"><a href="#组件懒加载" class="headerlink" title="组件懒加载"></a>组件懒加载</h4><p>组件懒加载的套路和路由懒加载是一样的，代码如下：</p>
+<blockquote>
+<p>原来的组件引入方法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> myHeader <span class="keyword">from</span> <span class="string">'../header/myHeader'</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>更改后的组件引入方法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myheader = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'../header/myHeader'</span>)</span><br></pre></td></tr></table></figure>
+<p>此时，工程打包后我们可以看到app.js又变小了，同时又多出了几个js，这些js是自定义组件的js，我们可以用异步加载的方式加载进来的。</p>
+<p>当然，组件懒加载有提升加载速度的一面，也有不总是“真香”的一面：如果网络慢，那么就有可能会出现白屏问题。这个时候就要做出判断了：哪些组件适合做懒加载，哪些不适合做懒加载。通常的建议如下：</p>
+<blockquote>
+<p>对于路由页面，最好进行懒加载;</p>
+<p>对于路由页面中的各个组件实行按需进行懒加载;</p>
+<p>如果组件不大并且使用不多，可直接在路由页面中导入，若组件较大或者使用比较频繁，建议使用组件懒加载</p>
+</blockquote>
+<h4 id="使用CDN导入"><a href="#使用CDN导入" class="headerlink" title="使用CDN导入"></a>使用CDN导入</h4><p>CDN的工作原理不多做介绍，个人认为使用CDN导入工具和库可以作为一种选项，但并不能保证100%的安全：谁知道这些服务会在什么时候突然挂掉呢，即使是那些号称最为稳定的服务？</p>
+<p>使用CDN导入的基本方法如下：</p>
+<p>a.在项目根目录index.html使用cdn节点导入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 先引入 Vue --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--开发环境--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.5.3/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--生产环境--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;script src="https://cdn.bootcss.com/vue/2.5.3/vue.min.js"&gt;&lt;/script&gt;--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 引入组件库 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/axios/0.17.1/axios.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/element-ui/1.4.10/index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>b.项目根目录下<code>build/webpack.base.config.js</code>中添加externals</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// externals中的key是后面需要require的名字，value是第三方库暴露出来的方法名</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  externals: &#123;</span><br><span class="line">    <span class="string">'vue'</span>: <span class="string">'Vue'</span>,</span><br><span class="line">    <span class="string">'axios'</span>: <span class="string">'axios'</span>,</span><br><span class="line">    <span class="string">'element-ui'</span>: <span class="string">'Element'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -435,8 +484,6 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
             <a href="/tags/vue/" rel="tag"># vue</a>
           
         </div>
@@ -450,15 +497,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/03/09/vue项目IE浏览器兼容性问题/" rel="next" title="vue项目IE浏览器兼容性问题">
+                <i class="fa fa-chevron-left"></i> vue项目IE浏览器兼容性问题
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/24/Css用border设置hover是出现div抖动和走位问题解决/" rel="prev" title="Css用border设置hover是出现div抖动和走位问题解决">
-                Css用border设置hover是出现div抖动和走位问题解决 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -592,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#源起"><span class="nav-number">1.</span> <span class="nav-text">源起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Firefox全局变量"><span class="nav-number">2.</span> <span class="nav-text">创建Firefox全局变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue文件引入global变量，并使用"><span class="nav-number">3.</span> <span class="nav-text">vue文件引入global变量，并使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体实施"><span class="nav-number">3.</span> <span class="nav-text">具体实施</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#去除不必要的插件，删除不必要的代码"><span class="nav-number">3.1.</span> <span class="nav-text">去除不必要的插件，删除不必要的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开启gzip压缩"><span class="nav-number">3.2.</span> <span class="nav-text">开启gzip压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打包的时候不生成map文件"><span class="nav-number">3.3.</span> <span class="nav-text">打包的时候不生成map文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分离vendor"><span class="nav-number">3.4.</span> <span class="nav-text">分离vendor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路由懒加载"><span class="nav-number">3.5.</span> <span class="nav-text">路由懒加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件懒加载"><span class="nav-number">3.6.</span> <span class="nav-text">组件懒加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用CDN导入"><span class="nav-number">3.7.</span> <span class="nav-text">使用CDN导入</span></a></li></ol></li></ol></div>
             
 
           </div>
