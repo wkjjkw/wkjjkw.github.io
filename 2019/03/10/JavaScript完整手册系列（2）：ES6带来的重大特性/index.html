@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="ECMAScript 2015，即ES6， 是 ECMAScript 标准的基础版本，该版本距离上个版本 ECMAScript 5.1 发布有四年之久，也是从这个版本开始将版本改为以年命名。所以它不应该叫做 ES6（尽管每个人都这么叫），而是 ES2015。">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript完整手册系列（2）：ES6带来的重大特性">
+<meta property="og:url" content="http://yoursite.com/2019/03/10/JavaScript完整手册系列（2）：ES6带来的重大特性/index.html">
+<meta property="og:site_name" content="金赫思的博客">
+<meta property="og:description" content="ECMAScript 2015，即ES6， 是 ECMAScript 标准的基础版本，该版本距离上个版本 ECMAScript 5.1 发布有四年之久，也是从这个版本开始将版本改为以年命名。所以它不应该叫做 ES6（尽管每个人都这么叫），而是 ES2015。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-10T08:19:51.567Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript完整手册系列（2）：ES6带来的重大特性">
+<meta name="twitter:description" content="ECMAScript 2015，即ES6， 是 ECMAScript 标准的基础版本，该版本距离上个版本 ECMAScript 5.1 发布有四年之久，也是从这个版本开始将版本改为以年命名。所以它不应该叫做 ES6（尽管每个人都这么叫），而是 ES2015。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/10/JavaScript完整手册系列（2）：ES6带来的重大特性/"/>
+
+
+
+
+
+  <title>JavaScript完整手册系列（2）：ES6带来的重大特性 | 金赫思的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">金赫思的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">知道自己知道什么，也知道自己不知道什么，这就是真正的知识。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/JavaScript完整手册系列（2）：ES6带来的重大特性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="金赫思">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="金赫思的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript完整手册系列（2）：ES6带来的重大特性</h1>
+        
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-10T15:18:33+08:00">
+                2019-03-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-10T16:19:51+08:00">
+                2019-03-10
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>ECMAScript 2015，即ES6， 是 ECMAScript 标准的基础版本，该版本距离上个版本 ECMAScript 5.1 发布有四年之久，也是从这个版本开始将版本改为以年命名。所以它不应该叫做 ES6（尽管每个人都这么叫），而是 ES2015。</p>
+<a id="more"></a>
+<blockquote>
+<p>ES5 从 1999 年到2009年花费了十年时间完善，尽管对于这个语言来讲，它也是一个重要版本，但是太长时间过去了，已经不值得我们讨论 ES5 之前的代码是如何工作的。</p>
+</blockquote>
+<p>从 ES5.1 到 ES6，JavaScript 语言有了重要的新特性以及在更好的实践中的关键更新。要了解 ES2015 的基本功能，请参阅规范文档的250页到600页。</p>
+<p>ES2015 中的重要更新包括：</p>
+<ul>
+<li>箭头函数</li>
+<li>Promises</li>
+<li>生成器函数(Generators)</li>
+<li><code>let</code> 和 <code>const</code></li>
+<li>类(Classes)</li>
+<li>模块</li>
+<li>多行字符串</li>
+<li>模板字面量</li>
+<li>默认参数</li>
+<li>扩展运算符</li>
+<li>解构赋值</li>
+<li>增强的对象字面量</li>
+<li>for..of 循环</li>
+<li>Map 和 Set</li>
+</ul>
+<p>在这篇指南中，我将在每个章节中专门介绍它们。让我们开始吧！</p>
+<h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><p>箭头函数改变了大多数 JavaScript 代码的书写习惯和工作方式。</p>
+<p>从视觉上来讲，它更简单了，因此也很受欢迎，比如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>变成：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果这个函数体只有一行，可以是这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="params">()</span> =&gt;</span> doSomething()</span><br></pre></td></tr></table></figure>
+<p>如果只有一个参数，可以这样写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="params">param</span> =&gt;</span> doSomething(param)</span><br></pre></td></tr></table></figure>
+<p>这不是一个破坏性的改变，因为常规函数可以继续像以前一样正常工作。</p>
+<h4 id="新的-this-作用域"><a href="#新的-this-作用域" class="headerlink" title="新的 this 作用域"></a>新的 this 作用域</h4><p>箭头函数的 this 作用域继承自执行上下文(the context)。</p>
+<p>常规函数中，<code>this</code> 总是指最近的函数。然而在箭头函数中这个问题不存在了，你不再需要重写一遍 <code>var that = this</code>。</p>
+<h3 id="Promises"><a href="#Promises" class="headerlink" title="Promises"></a>Promises</h3><p>Promises 帮我们解决了著名的“回调地狱”问题，虽然它引入了更复杂的问题（已经可以在 ES2017 中通过更高级的构造函数 <code>asnyc</code> 解决 ）。</p>
+<p>在 ES2015 之前，JavaScript 开发者就可以通过使用不同的库（jQuery，q，deferred.js，vow…）实现类似 Promises 的功能。该标准制定了更通用的方法。</p>
+<p>通过使用 promises，你可以重构以下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'I promised to run after 1s'</span>)</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'I promised to run after 2s'</span>)</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<p>等同于：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> wait = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  setTimeout(resolve, <span class="number">1000</span>)</span><br><span class="line">&#125;)</span><br><span class="line">wait().then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'I promised to run after 1s'</span>)</span><br><span class="line">  <span class="keyword">return</span> wait()</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'I promised to run after 2s'</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="生成器函数-Generators"><a href="#生成器函数-Generators" class="headerlink" title="生成器函数(Generators)"></a>生成器函数(Generators)</h3><p>生成器是一种特殊的函数，能够暂停输出，稍后恢复，而且允许其它代码在此期间运行。</p>
+<p>代码本身决定了它必须等待，以便让其它代码“按照队列”顺序运行，并保持 “当它正在等待的东西” 完成时恢复其操作的权利。所有的这些都通过一个简单的关键字 <code>yield</code> 来完成。当一个生成器包含该关键字，代码将暂停执行。生成器可以包含很多个 <code>yield</code> 关键字，因此可以暂停很多次，并且通过 <code>*function</code> 关键字标识，不要与 C 语言，C++ 或者 Go 等底层语言的指针反向引用操作符混淆。</p>
+<p>生成器在JavaScript中开启了全新的编程范例，比如：</p>
+<ul>
+<li>生成器运行中双向通信</li>
+<li>持久的 while 循环，不会冻结程序</li>
+</ul>
+<p>这里有个例子可以解释生成器是如何工作的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">calculator</span>(<span class="params">input</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> doubleThat = <span class="number">2</span> * (<span class="keyword">yield</span> (input / <span class="number">2</span>))</span><br><span class="line">    <span class="keyword">var</span> another = <span class="keyword">yield</span> (doubleThat)</span><br><span class="line">    <span class="keyword">return</span> (input * doubleThat * another)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们用下面的代码初始化这个 Generator(生成器)函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> calc = calculator(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<p>然后我们在生成器上启动迭代器：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">calc.next()</span><br></pre></td></tr></table></figure>
+<p>第一次迭代，代码返回了 <code>this</code> 对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  done: <span class="literal">false</span></span><br><span class="line">  value: <span class="number">5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>发生了什么呢？函数开始运行时，<code>input = 10</code> 作为参数传入了生成器的构造函数中，直到遇到 <code>yield</code>，返回了 <code>yeild</code> 的内容：<code>input / 2 = 5</code>。所以我们得到了一个值为 5，并且告诉我们迭代没有完成（仅仅是函数暂停了）。</p>
+<p>在第二次迭代中，我们传入 <code>7</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">calc.next(<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+<p>然后我们会得到：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  done: <span class="literal">false</span></span><br><span class="line">  value: <span class="number">14</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二个 next 方法带有参数 <code>7</code>，这个参数可以传入 Generator 函数，作为上个阶段异步任务的返回结果，被函数体内的变量 <code>doubleThat</code> 所在的表达式接收。</p>
+<blockquote>
+<p>注意：你可能会认为 <code>input / 2</code> 是这个参数，但是它仅仅是第一次迭代的返回值，这次我们跳过了这一步，使用新的输入值 <code>7</code> 和 2 相乘。</p>
+</blockquote>
+<p>我们继续第二次迭代，它返回了 <code>doubleThat</code>，值为 <code>14</code>。</p>
+<p>下一个，最后一次迭代，我们传入100：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">calc.next(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<p>返回：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  done: <span class="literal">true</span></span><br><span class="line">  value: <span class="number">14000</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>整个迭代结束（没有 <code>yeild</code> 关键字了），我们得到了 <code>(input * doubleThat * another)</code> 的值：<code>10 * 14 * 100</code>。</p>
+<h3 id="let-和-const"><a href="#let-和-const" class="headerlink" title="let 和 const"></a>let 和 const</h3><p><code>var</code> 是传统的<strong>函数作用域</strong>。</p>
+<p><code>let</code> 是新的声明变量的方法，拥有<strong>块级作用域</strong>。这意味着在 for 循环中，if 语句内或者普通块中使用 <code>let</code> 声明的变量不会“逃出”所在的块，而 <code>var</code>变量则会被提升。</p>
+<p><code>const</code> 和 <code>let</code> 相似，但是<strong>不可更改</strong>。</p>
+<p>展望 JavaScript 的发展，<code>var</code> 声明会逐渐消失，只剩下 <code>let</code> 和 <code>const</code>。</p>
+<p>更特别的是，由于不可变的特性，<code>const</code> 在今天已经出人意料的被广泛使用。</p>
+<h3 id="类-Classes"><a href="#类-Classes" class="headerlink" title="类(Classes)"></a>类(Classes)</h3><p>传统上，JavaScript 是唯一一个基于原型继承的主流语言。从基于类的语言转向使用 JavaScript 的程序员会觉得困惑，但是 ES2015 引入了 classes，作为 JavaScript 内部运行的语法糖，它改变了我们编写 JavaScript 程序的方式。</p>
+<p>现在，继承变得非常简单，和其他面向对象的编程语言类似：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">  &#125;</span><br><span class="line">  hello() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello, I am '</span> + <span class="keyword">this</span>.name + <span class="string">'.'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Actor</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  hello() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.hello() + <span class="string">' I am an actor.'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> tomCruise = <span class="keyword">new</span> Actor(<span class="string">'Tom Cruise'</span>)</span><br><span class="line">tomCruise.hello()</span><br></pre></td></tr></table></figure>
+<p>上面的代码会打印出：“<em>Hello, I am Tom Cruise. I am an actor.</em>”</p>
+<p>Classes 没有显式声明类变量，你必须在构造函数（constructor）中初始化所有变量。</p>
+<h4 id="Constructor"><a href="#Constructor" class="headerlink" title="Constructor"></a>Constructor</h4><p>Classes 拥有一个特殊的方法 <code>constructor</code>，在使用 <code>new</code> 实例化类时被调用。</p>
+<h4 id="Super"><a href="#Super" class="headerlink" title="Super"></a>Super</h4><p>可以使用 <code>super()</code> 引用父类。</p>
+<h4 id="Getters-和-Setters"><a href="#Getters-和-Setters" class="headerlink" title="Getters 和 Setters"></a>Getters 和 Setters</h4><p>可以像这样声明一个 getter 属性：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  get fullName() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.firstName&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.lastName&#125;</span>`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用同样的方式声明 setter 属性：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  set age(years) &#123;</span><br><span class="line">    <span class="keyword">this</span>.theAge = years</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><p>ES2015 之前，至少有三个主要的模块化标准，这分裂了整个社区：</p>
+<ul>
+<li>AMD</li>
+<li>RequireJS</li>
+<li>CommonJS</li>
+</ul>
+<p>ES2015 制定了统一的模块化标准。</p>
+<h4 id="导入模块"><a href="#导入模块" class="headerlink" title="导入模块"></a>导入模块</h4><p>通过 <code>import ... from ...</code> 导入模块：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">from</span> <span class="string">'mymodule'</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> &#123; React, Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">as</span> MyLibrary <span class="keyword">from</span> <span class="string">'react'</span></span><br></pre></td></tr></table></figure>
+<h4 id="导出模块"><a href="#导出模块" class="headerlink" title="导出模块"></a>导出模块</h4><p>你可以使用关键字 <code>export</code> 将编写的模块内容导出到其它模块里：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> foo = <span class="number">2</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h3><p>模板字符串是创建字符串的新方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> aString = <span class="string">`A string`</span></span><br></pre></td></tr></table></figure>
+<p>使用 <code>${a_variable}</code> 语法可以方便地将表达式的值插到字符串里：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">var</span> = <span class="string">'test'</span></span><br><span class="line"><span class="keyword">const</span> string = <span class="string">`something <span class="subst">$&#123;<span class="keyword">var</span>&#125;</span>`</span> <span class="comment">//something test</span></span><br></pre></td></tr></table></figure>
+<p>你还可以执行更复杂的表达式，像这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> string = <span class="string">`something <span class="subst">$&#123;<span class="number">1</span> + <span class="number">2</span> + <span class="number">3</span>&#125;</span>`</span></span><br><span class="line"><span class="keyword">const</span> string2 = <span class="string">`something <span class="subst">$&#123;foo() ? <span class="string">'x'</span> : <span class="string">'y'</span> &#125;</span>`</span></span><br></pre></td></tr></table></figure>
+<p>字符串可以是多行的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> string3 = <span class="string">`Hey</span></span><br><span class="line"><span class="string">this</span></span><br><span class="line"><span class="string">string</span></span><br><span class="line"><span class="string">is awesome!`</span></span><br></pre></td></tr></table></figure>
+<p>对比一下 ES2015 之前的多行字符串的写法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'One\n'</span> +</span><br><span class="line"><span class="string">'Two\n'</span> +</span><br><span class="line"><span class="string">'Three'</span></span><br></pre></td></tr></table></figure>
+<h3 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h3><p>函数现在支持使用默认参数值：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params">index = <span class="number">0</span>, testing = true</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+<h3 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h3><p>你可以通过扩展运算符 <code>...</code> 扩展数组，对象或者是字符串。</p>
+<p>让我们用数组举个例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<p>你可以这样创建一个新数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> b = [...a, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+<p>你可以复制一个数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> c = [...a]</span><br></pre></td></tr></table></figure>
+<p>这对对象同样奏效，这样复制一个对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> newObj = &#123; ...oldObj &#125;</span><br></pre></td></tr></table></figure>
+<p>对于字符串，扩展运算符会生成一个对应每个字符的数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hey = <span class="string">'hey'</span></span><br><span class="line"><span class="keyword">const</span> arrayized = [...hey] <span class="comment">// ['h', 'e', 'y']</span></span><br></pre></td></tr></table></figure>
+<p>这个运算符非常有用。最重要的就是可以以一种十分简单的方式为一个函数传递数组形式的参数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> f = <span class="function">(<span class="params">foo, bar</span>) =&gt;</span> &#123;&#125;</span><br><span class="line"><span class="keyword">const</span> a = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">f(...a)</span><br></pre></td></tr></table></figure>
+<p>以前你可以使用 <code>f.apply(null, a)</code> 达到同样的效果，但是它可读性不太好。</p>
+<h3 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h3><p>给定一个对象，你可以提取一些值并将赋值给别的变量：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  firstName: <span class="string">'Tom'</span>,</span><br><span class="line">  lastName: <span class="string">'Cruise'</span>,</span><br><span class="line">  actor: <span class="literal">true</span>,</span><br><span class="line">  age: <span class="number">54</span>, <span class="comment">//made up</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> &#123;<span class="attr">firstName</span>: name, age&#125; = person</span><br></pre></td></tr></table></figure>
+<p><code>name</code> 和 <code>age</code> 包含这些值。</p>
+<p>这个语法也可以用在数组中：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">[first, second, , , fifth] = a</span><br></pre></td></tr></table></figure>
+<h3 id="加强的对象字面量"><a href="#加强的对象字面量" class="headerlink" title="加强的对象字面量"></a>加强的对象字面量</h3><p>ES2015 中对象字面量更加强大。</p>
+<h4 id="声明变量的简单语法"><a href="#声明变量的简单语法" class="headerlink" title="声明变量的简单语法"></a>声明变量的简单语法</h4><p>以前：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> something = <span class="string">'y'</span></span><br><span class="line"><span class="keyword">const</span> x = &#123;</span><br><span class="line">  something: something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在你可以：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> something = <span class="string">'y'</span></span><br><span class="line"><span class="keyword">const</span> x = &#123;</span><br><span class="line">  something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h4><p>可以像这样为变量指定原型：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> anObject = &#123; <span class="attr">y</span>: <span class="string">'y'</span> &#125;</span><br><span class="line"><span class="keyword">const</span> x = &#123;</span><br><span class="line">  __proto__: anObject</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="super"><a href="#super" class="headerlink" title="super()"></a>super()</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> anObject = &#123; <span class="attr">y</span>: <span class="string">'y'</span>, <span class="attr">test</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="string">'zoo'</span> &#125;</span><br><span class="line"><span class="keyword">const</span> x = &#123;</span><br><span class="line">  __proto__: anObject,</span><br><span class="line">  test() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.test() + <span class="string">'x'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">x.test() <span class="comment">//zoox</span></span><br></pre></td></tr></table></figure>
+<h4 id="动态属性"><a href="#动态属性" class="headerlink" title="动态属性"></a>动态属性</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> x = &#123;</span><br><span class="line">  [<span class="string">'a'</span> + <span class="string">'_'</span> + <span class="string">'b'</span>]: <span class="string">'z'</span></span><br><span class="line">&#125;</span><br><span class="line">x.a_b <span class="comment">//z</span></span><br></pre></td></tr></table></figure>
+<h3 id="for-of-循环"><a href="#for-of-循环" class="headerlink" title="for-of 循环"></a>for-of 循环</h3><p>2009年的 ES5 引入了 <code>forEach()</code> 循环。虽然很好，但是不能像 <code>for</code> 那样中途跳出循环(比如使用 <code>break</code> 语句或使用 <code>return</code> 语句)。</p>
+<p>ES2015 引入了 <code>for-of</code> 循环，结合了 <code>forEach</code> 的简洁和跳出循环的能力。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//iterate over the value</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> v <span class="keyword">of</span> [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(v);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//get the index as well, using `entries()`</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> [i, v] <span class="keyword">of</span> [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>].entries()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i, v);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Map-和-Set"><a href="#Map-和-Set" class="headerlink" title="Map 和 Set"></a>Map 和 Set</h3><p><strong>Map</strong> 和 <strong>Set</strong>（以及各自的弱引用类型 <strong>WeakMap</strong> 和 <strong>WeakSet</strong>）是官方实现的两种非常流行的数据结构（稍后介绍）。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/10/JavaScript完整手册系列（1）：ECMASCRIPT的发展史与现状/" rel="next" title="JavaScript完整手册系列（1）：ECMASCRIPT的发展史与现状">
+                <i class="fa fa-chevron-left"></i> JavaScript完整手册系列（1）：ECMASCRIPT的发展史与现状
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="金赫思" />
+          <p class="site-author-name" itemprop="name">金赫思</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数"><span class="nav-number">1.</span> <span class="nav-text">箭头函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新的-this-作用域"><span class="nav-number">1.1.</span> <span class="nav-text">新的 this 作用域</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promises"><span class="nav-number">2.</span> <span class="nav-text">Promises</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成器函数-Generators"><span class="nav-number">3.</span> <span class="nav-text">生成器函数(Generators)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#let-和-const"><span class="nav-number">4.</span> <span class="nav-text">let 和 const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类-Classes"><span class="nav-number">5.</span> <span class="nav-text">类(Classes)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Constructor"><span class="nav-number">5.1.</span> <span class="nav-text">Constructor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Super"><span class="nav-number">5.2.</span> <span class="nav-text">Super</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Getters-和-Setters"><span class="nav-number">5.3.</span> <span class="nav-text">Getters 和 Setters</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块化"><span class="nav-number">6.</span> <span class="nav-text">模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#导入模块"><span class="nav-number">6.1.</span> <span class="nav-text">导入模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导出模块"><span class="nav-number">6.2.</span> <span class="nav-text">导出模块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板字符串"><span class="nav-number">7.</span> <span class="nav-text">模板字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认参数"><span class="nav-number">8.</span> <span class="nav-text">默认参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展运算符"><span class="nav-number">9.</span> <span class="nav-text">扩展运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解构赋值"><span class="nav-number">10.</span> <span class="nav-text">解构赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加强的对象字面量"><span class="nav-number">11.</span> <span class="nav-text">加强的对象字面量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#声明变量的简单语法"><span class="nav-number">11.1.</span> <span class="nav-text">声明变量的简单语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型"><span class="nav-number">11.2.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#super"><span class="nav-number">11.3.</span> <span class="nav-text">super()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态属性"><span class="nav-number">11.4.</span> <span class="nav-text">动态属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-of-循环"><span class="nav-number">12.</span> <span class="nav-text">for-of 循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map-和-Set"><span class="nav-number">13.</span> <span class="nav-text">Map 和 Set</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">金赫思</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.2"></script>
+
+
+</body>
+</html>
