@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="金赫思的博客">
 <meta property="og:description" content="ES2018 是最新的 ECMAScript 标准（译注：现在不是了）。 它引入了哪些新东西呢？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-16T14:59:15.709Z">
+<meta property="og:updated_time" content="2019-03-16T15:57:25.881Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript完整手册系列（5）：ES2018（ES9）新增特性">
 <meta name="twitter:description" content="ES2018 是最新的 ECMAScript 标准（译注：现在不是了）。 它引入了哪些新东西呢？">
@@ -353,7 +353,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T22:59:15+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T23:57:25+08:00">
                 2019-03-16
               </time>
             
@@ -415,7 +415,7 @@
 <h3 id="Rest-剩余-Spread-展开-属性"><a href="#Rest-剩余-Spread-展开-属性" class="headerlink" title="Rest(剩余)/Spread(展开) 属性"></a>Rest(剩余)/Spread(展开) 属性</h3><p>ES6 在处理数组解构时,引入了 rest(剩余)元素的概念：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">[first, second, ...others] = numbers</span><br></pre></td></tr></table></figure>
 <p>还有<strong>展开元素</strong>：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">const</span> sum = <span class="function">(<span class="params">a, b, c, d, e</span>) =&gt;</span> a + b + c + d + e</span><br><span class="line"><span class="keyword">const</span> sum = sum(...numbers) <span class="comment">// 勘误：此处不能对 sum 重新赋值，感谢 [森蓝情丶](https://juejin.im/user/59c8ea816fb9a00a4746e258)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">const</span> sum = <span class="function">(<span class="params">a, b, c, d, e</span>) =&gt;</span> a + b + c + d + e</span><br><span class="line"><span class="keyword">const</span> sum = sum(...numbers) <span class="comment">// 勘误：此处不能对 sum 重新赋值。</span></span><br></pre></td></tr></table></figure>
 <p>ES2018 为对象引入了同样的功能。</p>
 <p><strong>rest(剩余)属性</strong>：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; first, second, ...others &#125; = &#123; <span class="attr">first</span>: <span class="number">1</span>, <span class="attr">second</span>: <span class="number">2</span>, <span class="attr">third</span>: <span class="number">3</span>, <span class="attr">fourth</span>: <span class="number">4</span>, <span class="attr">fifth</span>: <span class="number">5</span> &#125;</span><br><span class="line">first <span class="comment">// 1</span></span><br><span class="line">second <span class="comment">// 2</span></span><br><span class="line">others <span class="comment">// &#123; third: 3, fourth: 4, fifth: 5 &#125;</span></span><br></pre></td></tr></table></figure>
