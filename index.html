@@ -472,7 +472,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/java学习笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/JavaScript完整手册系列（17）：函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="金赫思">
@@ -491,7 +491,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/16/java学习笔记/" itemprop="url">java学习笔记</a></h1>
+                <a class="post-title-link" href="/2019/03/16/JavaScript完整手册系列（17）：函数/" itemprop="url">JavaScript完整手册系列（17）：函数</a></h1>
         
 
         <div class="post-meta">
@@ -504,7 +504,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T22:14:59+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T22:42:37+08:00">
                 2019-03-16
               </time>
             
@@ -520,488 +520,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T22:16:15+08:00">
-                2019-03-16
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/后端开发/" itemprop="url" rel="index">
-                    <span itemprop="name">后端开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="第-1-节-Java变量"><a href="#第-1-节-Java变量" class="headerlink" title="第(1)节 Java变量"></a>第(1)节 Java变量</h2><p>在 Java 中，我们通过三个元素描述变量：<strong>变量类型、变量名</strong>以及<strong>变量值</strong>。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String myname = <span class="string">"tom"</span>;</span><br><span class="line"><span class="keyword">int</span> age = <span class="number">20</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="第-2-节-Java数据类型"><a href="#第-2-节-Java数据类型" class="headerlink" title="第(2)节 Java数据类型"></a>第(2)节 Java数据类型</h2><p>Java 语言是一种<strong>强类型</strong>语言。通俗点说就是，在 Java 中存储的数据都是有类型的，而且必须在编译时就确定其类型。 Java 中有两类数据类型：</p>
-<p><strong>基本数据类型</strong></p>
-<p>数值型：包含整数类型(byte、short、int、long)，浮点类型(float、double)；</p>
-<p>字符型(char)、布尔型(boolean)</p>
-<table>
-<thead>
-<tr>
-<th>数据类型</th>
-<th>说明</th>
-<th>字节</th>
-<th>应用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>int</td>
-<td>整型</td>
-<td>4</td>
-<td>用于存储整数如年龄、个数</td>
-</tr>
-<tr>
-<td>double</td>
-<td>双精度浮点型</td>
-<td>8</td>
-<td>用于存储小数，如商品价格、成绩平均分</td>
-</tr>
-<tr>
-<td>float</td>
-<td>单精度浮点型</td>
-<td>4</td>
-<td>用于存储小数，如身高</td>
-</tr>
-<tr>
-<td>char</td>
-<td>字符型</td>
-<td>2</td>
-<td>用于存储单个字符，如性别“男”、“女”</td>
-</tr>
-<tr>
-<td>boolean</td>
-<td>布尔型</td>
-<td>1</td>
-<td>表示“真”或“假”，取值只能是true或false</td>
-</tr>
-</tbody>
-</table>
-<p>你可能已经注意到了：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> height = <span class="number">175.2f</span>; <span class="comment">// 为float变量赋值时在数值后面添加字母f</span></span><br><span class="line"><span class="keyword">char</span> level = <span class="string">'A'</span>; <span class="comment">// 为char变量赋值时使用单引号引起来</span></span><br></pre></td></tr></table></figure>
-<p><strong>引用数据类型</strong></p>
-<p>类(class)、接口(interface)、数组</p>
-<p>在 Java 的领域里<strong>，基本数据类型变量</strong>存的是<strong>数据本身</strong>，而<strong>引用类型变量</strong>存的是保存<strong>数据的空间地址</strong>。说白了，基本数据类型变量里存储的是直接放在抽屉里的东西，而引用数据类型变量里存储的是这个抽屉的钥匙，钥匙和抽屉一一对应。</p>
-<p><strong>Java中的自动类型转换</strong></p>
-<p>在 Java 程序中，不同的基本数据类型的数据之间经常需要进行相互转换。例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> score1 = <span class="number">82</span>；</span><br><span class="line"><span class="keyword">double</span> score2 = score1；</span><br><span class="line">System.out.println(score2); <span class="comment">// 82.0</span></span><br></pre></td></tr></table></figure>
-<p>自动类型转换需要满足特定的条件：</p>
-<p>1、目标类型能与源类型兼容，如 double 型兼容 int 型，但是 char 型不能兼容 int 型</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> age= <span class="number">19</span>；</span><br><span class="line"><span class="keyword">char</span> sex = <span class="string">'女'</span>；</span><br><span class="line"><span class="keyword">char</span> result = age + sex; <span class="comment">// 报错，int类型不能自动转换为char类型</span></span><br></pre></td></tr></table></figure>
-<p>2、目标类型<strong>大于</strong>源类型，如 double 类型长度为 8 字节， int 类型为 4 字节，因此 double 类型的变量里直接可以存放 int 类型的数据，但反过来就不可以了</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> avg1 = <span class="number">75.5</span>;</span><br><span class="line"><span class="keyword">int</span> avg2 = avg1; <span class="comment">// 报错，double类型不能自动转换为int类型</span></span><br></pre></td></tr></table></figure>
-<p><strong>Java中的强制类型转换</strong></p>
-<p>语法：<strong>( 数据类型 ) 数值</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> avg1 = <span class="number">75.8</span>；</span><br><span class="line"><span class="keyword">int</span> avg2 = (<span class="keyword">int</span>)avg1; <span class="comment">// 将double类型强制转换为int类型</span></span><br><span class="line">System.out.println(avg1); <span class="comment">// 75.8</span></span><br><span class="line">System.out.println(avg2); <span class="comment">// 75</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>强制类型转换可能会造成数据的丢失，在应用时一定要慎重！</p>
-</blockquote>
-<h2 id="第-3-节-Java常量的应用"><a href="#第-3-节-Java常量的应用" class="headerlink" title="第(3)节 Java常量的应用"></a>第(3)节 Java常量的应用</h2><p>所谓常量，我们可以理解为是一种特殊的变量，它的值被设定后，在<strong>程序运行过程中不允许改变</strong>。</p>
-<p>语法：<strong>final 常量名 = 值;</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> String LOVE = <span class="string">"KANGJIAN"</span>;</span><br><span class="line"><span class="keyword">final</span> <span class="keyword">double</span> PI = <span class="number">3.14</span>;</span><br></pre></td></tr></table></figure>
-<p>程序中使用常量可以提高代码的<strong>可维护性</strong>。例如，在项目开发时，我们需要指定用户的性别，此时可以定义一个常量 SEX，赋值为 “男”，在需要指定用户性别的地方直接调用此常量即可，避免了由于用户的不规范赋值导致程序出错的情况。</p>
-<p>注意：常量名一般使用<strong>大写字符</strong></p>
-<h2 id="第-4-节-如何在Java中使用注释"><a href="#第-4-节-如何在Java中使用注释" class="headerlink" title="第(4)节 如何在Java中使用注释"></a>第(4)节 如何在Java中使用注释</h2><p>Java 中注释有三种类型：<strong>单行注释、多行注释、文档注释</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.eclipse;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 这是文档注释</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> kangjian</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> v1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 这是多行注释</span></span><br><span class="line"><span class="comment">     * 可以包括多行内容</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 这是单行注释</span></span><br><span class="line">        System.out.println(<span class="string">"Hello World!"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>使用文档注释时还可以使用 <strong>javadoc 标记</strong>，生成更详细的文档信息：</p>
-<p>@author 标明开发该类模块的作者</p>
-<p>@version 标明该类模块的版本</p>
-<p>@see 参考转向，也就是相关主题</p>
-<p>@param 对方法中某参数的说明</p>
-<p>@return 对方法返回值的说明</p>
-<p>@exception 对方法可能抛出的异常进行说明</p>
-</blockquote>
-<h2 id="第-5-节-Java运算符"><a href="#第-5-节-Java运算符" class="headerlink" title="第(5)节 Java运算符"></a>第(5)节 Java运算符</h2><p><strong>算数运算符</strong></p>
-<p>自增(++)和自减(–)既可以出现在操作数左边，也可以出现在操作数右边，但结果不同。</p>
-<p>例1：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> b = ++a; <span class="comment">// 出现在左边。让a先执行自增，然后将值赋给变量b</span></span><br><span class="line">System.out.println(<span class="string">"a:"</span> + a); <span class="comment">// a:6</span></span><br><span class="line">System.out.println(<span class="string">"b:"</span> + b); <span class="comment">// b:6</span></span><br></pre></td></tr></table></figure>
-<p>例2：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> b = a++; <span class="comment">// 出现在右边。将a的值赋给变量b，然后再执行自增。</span></span><br><span class="line">System.out.println(<span class="string">"a:"</span> + a); <span class="comment">// a:6</span></span><br><span class="line">System.out.println(<span class="string">"b:"</span> + b); <span class="comment">// b:5</span></span><br></pre></td></tr></table></figure>
-<p>注意：自增和自减运算符<strong>只能用于操作变量</strong>，不能直接用于操作数值或常量！例如 5++ 、 8– 等写法都是错误的。</p>
-<p><strong>逻辑运算符</strong></p>
-<table>
-<thead>
-<tr>
-<th>逻辑运算符</th>
-<th>名称</th>
-<th>举例</th>
-<th>结果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>^</td>
-<td>异或</td>
-<td>a^b</td>
-<td>如果a与b有且只有一个为true，则返回true</td>
-</tr>
-</tbody>
-</table>
-<p><strong>运算符优先级</strong></p>
-<p>级别为1的优先级最高，级别11的优先级最低。</p>
-<table>
-<thead>
-<tr>
-<th>优先级</th>
-<th>运算符</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>()</td>
-</tr>
-<tr>
-<td>2</td>
-<td>!、 +(正)、 -(负)、 ++、 –</td>
-</tr>
-<tr>
-<td>3</td>
-<td>*、 / 、%</td>
-</tr>
-<tr>
-<td>4</td>
-<td>+(加)、 -(减)</td>
-</tr>
-<tr>
-<td>5</td>
-<td>&lt;、 &lt;= 、&gt; 、&gt;=</td>
-</tr>
-<tr>
-<td>6</td>
-<td>==、 !=</td>
-</tr>
-<tr>
-<td>7</td>
-<td>^</td>
-</tr>
-<tr>
-<td>8</td>
-<td>&amp;&amp;</td>
-</tr>
-<tr>
-<td>9</td>
-<td>\</td>
-<td>\</td>
-<td></td>
-</tr>
-<tr>
-<td>10</td>
-<td>?:</td>
-</tr>
-<tr>
-<td>11</td>
-<td>=、 +=、 -= 、*= 、/=、 %=</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>不需要死记硬背优先级。 实际开发中，一般会使用<strong>小括号</strong>辅助进行优先级管理，因为()的优先级最高。</p>
-</blockquote>
-<h2 id="第-6-节-Java语句"><a href="#第-6-节-Java语句" class="headerlink" title="第(6)节 Java语句"></a>第(6)节 Java语句</h2><p><strong>Java条件语句之switch</strong></p>
-<p>当需要对选项进行等值判断时，使用 switch 语句更加简洁明了。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(表达式) &#123;</span><br><span class="line">  <span class="keyword">case</span> 值<span class="number">1</span>：</span><br><span class="line">      执行代码块<span class="number">1</span></span><br><span class="line">      <span class="keyword">break</span>；</span><br><span class="line">  <span class="keyword">case</span> 值<span class="number">2</span>：</span><br><span class="line">      执行代码块<span class="number">2</span></span><br><span class="line">      <span class="keyword">break</span>；</span><br><span class="line">  <span class="keyword">case</span> 值n：</span><br><span class="line">      执行代码块n</span><br><span class="line">      <span class="keyword">break</span>；</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">      默认执行代码       </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>执行过程：当 switch 后表达式的值和 case 语句后的值相同时，从该位置开始向下执行，直到遇到 break 语句或者 switch 语句块结束；如果没有匹配的 case 语句则执行 default 块的代码。</p>
-<p>需要注意的地方：</p>
-<p>1、 switch 后面小括号中表达式的值必须是<strong>整型或字符型</strong>；</p>
-<p>2、 case 后面的值<strong>可以是常量数值</strong>，如 1、2；也<strong>可以是一个常量表达式</strong>，如 2+2 ；但不能是变量或带有变量的表达式，如 a * 2；</p>
-<p>3、 case 匹配后，执行匹配块里的程序代码，如果没有遇见 <strong>break</strong> 会继续执行下一个的 case 块的内容，直到遇到 break 语句或者 switch 语句块结束；</p>
-<p>4、可以把功能相同的case语句合并起来：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">	System.out.println(<span class="string">"do something."</span>)</span><br></pre></td></tr></table></figure>
-<p>5、default块可以出现在任意位置，也可以忽略。</p>
-<p><strong>Java循环语句之for循环</strong></p>
-<p>语法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(循环变量初始化；循环条件；循环变量变化) &#123;</span><br><span class="line">    循环操作</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>需要注意的地方：</p>
-<p>1、 for 关键字后面括号中的三个表达式必须用 “;” 隔开，三个表达式都可以省略，但 “;” 不能省略。</p>
-<p>a. 省略“循环变量初始化”，可以在 for 语句之前由赋值语句进行变量初始化操作，如:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>；<span class="comment">// 循环变量i在for语句之前赋值</span></span><br><span class="line"><span class="keyword">for</span>(;i&lt;<span class="number">10</span>;i++) &#123; <span class="comment">// 省略初始化变量</span></span><br><span class="line">   System.out.println(<span class="string">"hello world!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>b. 省略“循环条件”，可能会造成循环将一直执行下去，也就是我们常说的“死循环”现象，如:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;;i++) &#123; <span class="comment">// 省略循环条件</span></span><br><span class="line">   System.out.println(<span class="string">"hello world!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在编程过程中要避免“死循环”的出现，因此，对于上面的代码可以在循环体中使用 break 强制跳出循环。</p>
-<p>c. 省略“循环变量变化”，可以在循环体中进行循环变量的变化，如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">10</span>;) &#123; <span class="comment">// 省略循环条件</span></span><br><span class="line">   System.out.println(<span class="string">"hello world!"</span>);</span><br><span class="line">   i++; <span class="comment">// 在循环体中改变变量i的值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2、 for 循环变量初始化和循环变量变化部分，可以是使用 “,” 同时初始化或改变多个循环变量的值，如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>,j = <span class="number">5</span>;i&lt;=<span class="number">5</span>;i++,j--)&#123;</span><br><span class="line">    System.out.println(i+<span class="string">"+"</span>+j+<span class="string">"="</span>+(i+j));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>代码中，初始化变量部分同时对两个变量 i 和 j 赋初值，循环变量变化部分也同时对两个变量进行变化，运行结果：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1+5=6</span><br><span class="line">2+4=6</span><br><span class="line">3+3=6</span><br><span class="line">4+2=6</span><br><span class="line">5+1=6</span><br></pre></td></tr></table></figure>
-<p>3、 循环条件部分可以使用逻辑运算符组合的表达式，表示复杂判断条件，但一定注意运算的优先级，如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> <span class="number">1</span> = <span class="number">1</span>; i&lt;<span class="number">10</span> &amp;&amp; i!=<span class="number">5</span>;i++) &#123;</span><br><span class="line">    System.out.println(i); <span class="comment">// 必须同时满足i&lt;10并且i不等于5才会进行循环，输出i的值。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Java语句循环之多重循环</strong></p>
-<p>循环体中包含循环语句的结构称为<strong>多重循环</strong>。三种循环语句可以自身嵌套，也可以相互嵌套，最常见的就是<strong>二重循环</strong>。在二重循环中，外层循环每执行一次，内层循环要执行一圈。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(循环条件<span class="number">1</span>)&#123;</span><br><span class="line">    循环操作<span class="number">1</span> <span class="comment">// 外层循环</span></span><br><span class="line">    <span class="keyword">while</span>(循环条件<span class="number">2</span>)&#123;</span><br><span class="line">        循环操作<span class="number">2</span>  <span class="comment">// 内层循环</span></span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    循环操作<span class="number">1</span></span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">      循环操作<span class="number">2</span>   </span><br><span class="line">    &#125;<span class="keyword">while</span>(循环条件<span class="number">2</span>)；    </span><br><span class="line">&#125;<span class="keyword">while</span>(循环条件<span class="number">1</span>)；</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(;循环条件<span class="number">1</span>;)&#123;</span><br><span class="line">   循环操作<span class="number">1</span></span><br><span class="line">   <span class="keyword">for</span>(;循环条件<span class="number">2</span>;)&#123;</span><br><span class="line">       循环操作<span class="number">2</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(循环条件<span class="number">1</span>)&#123;</span><br><span class="line">	循环操作<span class="number">1</span> <span class="comment">// 各种循环可以相互嵌套</span></span><br><span class="line">    <span class="keyword">for</span>(;循环条件<span class="number">2</span>;)&#123;</span><br><span class="line">        循环操作<span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例如：使用*打印长方形</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 外层循环控制打印的行数</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> <span class="number">1</span> = <span class="number">1</span>;i &lt;=<span class="number">3</span>;i++)&#123;</span><br><span class="line">    <span class="comment">// 内层循环控制每行打印的*号数</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j&lt;=<span class="number">8</span>;j++) &#123;</span><br><span class="line">        System.out.println(<span class="string">"*"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 每行打印完毕换行</span></span><br><span class="line">    System.out.println();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>执行流程：当 i = 1 时，外层循环条件成立，进入内层循环，开始打印第一行内容。此时， j 从 1 开始，循环 8 次，内层循环结束后换行，实现第一行 8 个 * 的输出。接下来返回外层循环 i 变为 2 ，准备打印下一行，依此类推，直到完成长方形的打印。</p>
-<h2 id="第-7-节-使用eclipse调试程序"><a href="#第-7-节-使用eclipse调试程序" class="headerlink" title="第(7)节 使用eclipse调试程序"></a>第(7)节 使用eclipse调试程序</h2><p>在IDE中可能出现问题的代码所在的位置添加断点，程序在运行到断点的时候会停止，我们可以在此处一步一步地执行，进行调试。</p>
-<p>(1)添加断点:双击可能出现问题的代码</p>
-<p>(2)点击debug按钮或右键-Debug As-Debug Configurations:eclipse会自动打开调试视图，此时你的程序会迅速执行到你设置的第一个断点</p>
-<p>(3)利用好F6与F7/F8，配合右上方的内存变量查看器，找出问题所在</p>
-<p>(4)调试完毕，按右上角的Java切回原来写代码的界面进行修改</p>
-<h2 id="第-8-节-数组"><a href="#第-8-节-数组" class="headerlink" title="第(8)节 数组"></a>第(8)节 数组</h2><p>数组的所有元素的类型必须是相同的。</p>
-<p><strong>如何使用Java中的数组</strong></p>
-<p>Java 中操作数组只需要四个步骤：</p>
-<p>1、 声明数组</p>
-<p>语法：  <strong>数据类型[ ] 数组名；</strong></p>
-<p>或者   <strong>数据类型 数组名[ ]；</strong></p>
-<p>其中，数组名可以是任意合法的变量名，如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] scores;</span><br><span class="line"><span class="keyword">double</span> height[];</span><br><span class="line">String[] names;</span><br></pre></td></tr></table></figure>
-<p>2、 分配空间</p>
-<p>简单地说，就是指定数组中最多可存储多少个元素</p>
-<p>语法：  <strong>数组名 = new  数据类型 [ 数组长度 ];</strong></p>
-<p>其中，数组长度就是数组中能存放元素的个数，如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scores = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br></pre></td></tr></table></figure>
-<p>我们也可以将上面的两个步骤合并，在声明数组的同时为它分配空间：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] scores = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br></pre></td></tr></table></figure>
-<p>3、 赋值</p>
-<p>分配空间后就可以向数组中放数据了，数组中元素都是通过下标来访问的，例如向 scores 数组中存放学生成绩：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scores[<span class="number">0</span>] = <span class="number">89</span>;</span><br></pre></td></tr></table></figure>
-<p>4、 处理数组中数据</p>
-<p>我们可以对赋值后的数组进行操作和处理，如获取并输出数组中元素的值等。</p>
-<p>在 Java 中还提供了另外一种直接创建数组的方式，它将声明数组、分配空间和赋值合并完成，如</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] scores = &#123;<span class="number">78</span>,<span class="number">91</span>,<span class="number">84</span>,<span class="number">68</span>&#125;;</span><br></pre></td></tr></table></figure>
-<p>它等价于：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] scores = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">78</span>,<span class="number">91</span>,<span class="number">84</span>,<span class="number">68</span>&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>使用Array类操作Java中的数组</strong></p>
-<p>Arrays 类是 Java 中提供的一个工具类，在 java.util 包中。该类中包含了一些方法用来直接操作数组，比如可直接实现数组的排序、搜索等。</p>
-<p>Arrays 中常用的方法：</p>
-<p>1、 排序</p>
-<p>语法：  <strong>Arrays.sort(数组名);</strong></p>
-<p>可以使用 sort( ) 方法实现对数组的排序，只要将数组名放在 sort( ) 方法的括号中，就可以完成对该数组的排序（按升序排列），如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays; <span class="comment">// 使用Arrays类时必须添加此行，导入包</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 定义一个整型数组</span></span><br><span class="line">        <span class="keyword">int</span>[] scores = &#123;<span class="number">78</span>,<span class="number">93</span>,<span class="number">97</span>,<span class="number">84</span>,<span class="number">63</span>&#125;;</span><br><span class="line">        <span class="comment">// 使用Arrays类的sort()方法对数组进行排序</span></span><br><span class="line">        Arrays.sort(scores);</span><br><span class="line">        System.out.println(<span class="string">"排序后数组中的元素的值："</span>)；</span><br><span class="line">        <span class="comment">// 循环遍历数组数组中元素的值</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;scores.length;i++)&#123;</span><br><span class="line">            System.out.println(scores[i])；</span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2、 将数组转换为字符串</p>
-<p>语法：  <strong>Arrays.toString(数组名);</strong></p>
-<p>可以使用 toString( ) 方法将一个数组转换成字符串，该方法按顺序把多个数组元素连接在一起，多个元素之间使用逗号和空格隔开。</p>
-<p>3、使用foreach操作数组</p>
-<p>foreach 并不是 Java 中的关键字，是 for 语句的特殊简化版本，在遍历数组、集合时， foreach 更简单便捷。</p>
-<p>语法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(元素类型 元素变量：遍历对象)&#123;</span><br><span class="line">    执行的代码；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们分别使用 for 和 foreach 语句来遍历数组：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 定义一个字符串数组</span></span><br><span class="line">    <span class="keyword">int</span>[] hobbys = &#123;<span class="string">"足球"</span>,<span class="string">"篮球"</span>,<span class="string">"编程"</span>&#125;;</span><br><span class="line">    <span class="comment">// 使用for循环输出数组中的元素</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;hobbys.length;i++)&#123;</span><br><span class="line">        System.out.println(hobbys[i])；</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 使用foreach循环输出数组中的元素</span></span><br><span class="line">    <span class="keyword">for</span>(String hobby : hobbys) &#123;</span><br><span class="line">        System.out.println(hobby);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Java中的二维数组</strong></p>
-<p>所谓二维数组，可以简单的理解为是一种“特殊”的一维数组，它的每个数组空间中保存的是一个一维数组。</p>
-<p>那么如何使用二维数组呢，步骤如下：</p>
-<p>1、声明数组并分配空间</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据类型[][] 数组名 = <span class="keyword">new</span> 数据类型[行的个数][列的个数];</span><br></pre></td></tr></table></figure>
-<p>或者：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">数据类型[][] 数组名;</span><br><span class="line">数组名 = <span class="keyword">new</span> 数据类型[行的个数][列的个数];</span><br></pre></td></tr></table></figure>
-<p>如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个两行三列的二维数组</span></span><br><span class="line"><span class="keyword">int</span>[][] num = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>][<span class="number">3</span>];</span><br></pre></td></tr></table></figure>
-<p>2、赋值</p>
-<p>二维数组的赋值，和一维数组类似，可以通过下标来逐个赋值，注意索引从 0 开始</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组名[行的索引][列的索引] = 值；</span><br></pre></td></tr></table></figure>
-<p>也可以在声明数组的同时为其赋值：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据类型[][] 数组名 = &#123;&#123;值<span class="number">1</span>，值<span class="number">2</span>...&#125;，&#123;值<span class="number">11</span>，值<span class="number">22</span>...&#125;，&#123;值<span class="number">21</span>，值<span class="number">22</span>...&#125;&#125;;</span><br></pre></td></tr></table></figure>
-<p>3、处理数组</p>
-<p>二维数组的访问和输出同一维数组一样，只是多了一个下标而已。在循环输出时，需要里面再内嵌一个循环，即使用二重循环来输出二维数组中的每一个元素。如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个两行三列的二维数组并赋值</span></span><br><span class="line"><span class="keyword">int</span>[][] num = &#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;,&#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;&#125;;</span><br><span class="line"><span class="comment">// 定位行</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt; num.length;i++) &#123;</span><br><span class="line">    <span class="comment">// 定位每行的元素</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j&lt;num[i].length;i++)&#123;</span><br><span class="line">        <span class="comment">// 依次输出每个元素</span></span><br><span class="line">        System.out.print(num[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 实现换行</span></span><br><span class="line">    System.out.println();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>需要了解的：</strong>在定义二维数组时也可以只指定行的个数，然后再为每一行分别指定列的个数。如果每行的列数不同，则创建的是不规则的二维数组，如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][] num = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][]; <span class="comment">// 定义一个三行的二维数组</span></span><br><span class="line">num[<span class="number">0</span>] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>]; <span class="comment">//为第一行分配两列</span></span><br><span class="line">num[<span class="number">1</span>] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>]; <span class="comment">// 为第二行分配三列</span></span><br><span class="line">num[<span class="number">2</span>] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>]; <span class="comment">// 为第三行分配四列</span></span><br><span class="line">num[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>; <span class="comment">// 第一行第一列赋值为1</span></span><br><span class="line">num[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">2</span>; <span class="comment">// 第二行第二列赋值为2</span></span><br><span class="line">num[<span class="number">2</span>][<span class="number">3</span>] = <span class="number">3</span>; <span class="comment">// 第三行第四列赋值为3</span></span><br></pre></td></tr></table></figure>
-<h2 id="第-9-节-方法"><a href="#第-9-节-方法" class="headerlink" title="第(9)节 方法"></a>第(9)节 方法</h2><p>所谓方法，就是用来解决一类问题的代码的有序组合，是一个功能模块。</p>
-<p>一般情况下，定义一个方法的语法是：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">访问修饰符 返回值类型 方法名(参数列表)&#123;</span><br><span class="line">    方法体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其中：</p>
-<p>1、 访问修饰符：方法允许被访问的权限范围， 可以是 public、protected、private 甚至可以省略 ，其中 public 表示该方法可以被其他任何代码调用，其他几种修饰符的使用在后面章节中会详解。</p>
-<p>2、 返回值类型：方法返回值的类型，如果方法不返回任何值，则返回值类型指定为 void ；如果方法具有返回值，则需要指定返回值的类型，并且在方法体中使用 return 语句返回值。</p>
-<p>3、 方法名：定义的方法的名字，必须使用合法的标识符。</p>
-<p>4、 参数列表：传递给方法的参数列表，参数可以有多个，多个参数间以逗号隔开，每个参数由参数类型和参数名组成，以空格隔开 。</p>
-<p>根据方法是否带参、是否带返回值，可将方法分为四类：</p>
-<ul>
-<li>无参无返回值方法</li>
-<li>无参带返回值方法</li>
-<li>带参无返回值方法</li>
-<li>带参带返回值方法</li>
-</ul>
-<p><strong>Java中无参无返回值方法的使用</strong></p>
-<p>如果方法不包含参数，且没有返回值，我们称为无参无返回值的方法。</p>
-<p>方法的使用分两步：</p>
-<p>第一步，定义方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"kangjian"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第二步，调用方法</p>
-<p>当需要调用方法执行某个操作时，可以先创建类的对象，然后通过  <strong>对象名.方法名();</strong>  来实现。</p>
-<p><strong>Java中无参带返回值方法的使用</strong></p>
-<p>如果方法不包含参数，但有返回值，我们称为无参带返回值的方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calcSum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">12</span>;</span><br><span class="line">    <span class="keyword">int</span> sum = a + b;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在 calSum( ) 方法中，返回值类型为 int 类型，因此在方法体中必须使用 return 返回一个整数值。</p>
-<blockquote>
-<p>调用带返回值的方法时需要注意，由于方法执行后会返回一个结果，因此在调用带返回值方法时一般都会接收其返回值并进行处理。</p>
-</blockquote>
-<p>注意：</p>
-<p>1、 如果方法的返回类型为 void ，则方法中不能使用 return 返回值！</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Java"</span>；   <span class="comment">// 报错</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2、 方法的返回值最多只能有一个，不能返回多个值</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> score1 = <span class="number">94</span>;</span><br><span class="line">    <span class="keyword">int</span> score2 = <span class="number">87</span>;</span><br><span class="line">    <span class="keyword">return</span> score1,score2; <span class="comment">// 报错</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3、 方法返回值的类型必须兼容，例如，如果返回值类型为 int ，则不能返回 String 型值</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String name = <span class="string">"kangjian"</span>;</span><br><span class="line">    <span class="keyword">return</span> name; <span class="comment">// 报错</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Java中带参无返回值方法的使用</strong></p>
-<p>有时方法的执行需要依赖于某些条件，换句话说，要想通过方法完成特定的功能，需要为其提供额外的信息才行。我们可以通过在方法中加入参数列表接收外部传入的数据信息，参数可以是任意的基本类型数据或引用类型数据。</p>
-<p>很多时候，我们把定义方法时的参数称为<strong>形参</strong>，目的是用来定义方法需要传入的参数的个数和类型；把调用方法时的参数称为<strong>实参</strong>，是传递给方法真正被处理的值。</p>
-<p>注意：</p>
-<p>1、调用带参方法时，必须保证实参的数量、类型、顺序与形参一一对应</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        HelloWorld hello = <span class="keyword">new</span> HelloWorld();</span><br><span class="line">        hello.show(<span class="number">25.6</span>); <span class="comment">// 报错，实参与形参类型不一致</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"欢迎你， "</span> + name + <span class="string">"!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2、 调用方法时，实参不需要指定数据类型，如</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello.show(<span class="string">"kangjian"</span>)</span><br></pre></td></tr></table></figure>
-<p>3、方法的参数可以是基本数据类型，如 int、double 等，也可以是引用数据类型，如 String、数组等</p>
-<p>4、 当方法参数有多个时，多个参数间以逗号分隔。</p>
-<p><strong>Java中带参带返回值方法的使用</strong></p>
-<p><strong>Java中方法的重载</strong></p>
-<p>重载定义：如果同一个类中包含了两个或两个以上方法名相同、方法参数的个数、顺序或类型不同的方法，则称为方法的重载，也可称该方法被重载了。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"kangjian"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">     System.out.println(<span class="string">"Welcome"</span> + name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">     System.out.println(<span class="string">"Welcome"</span> + name);</span><br><span class="line">     System.out.println(<span class="string">"age"</span> + age);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(<span class="keyword">int</span> age,String name)</span></span>&#123;</span><br><span class="line">     System.out.println(<span class="string">"Welcome2"</span> + name);</span><br><span class="line">     System.out.println(<span class="string">"age2"</span> + age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当调用被重载的方法时， Java 会根据参数的个数和类型来判断应该调用哪个重载方法，参数完全匹配的方法将被执行。</p>
-<h2 id="第-10-节-面向对象"><a href="#第-10-节-面向对象" class="headerlink" title="第(10)节 面向对象"></a>第(10)节 面向对象</h2><p><strong>相关概念</strong></p>
-<p>对象：万事皆对象，客观存在的事物皆为对象</p>
-<p>面向对象：关注/处理具体事物的信息</p>
-<p>类：类是模子，确定对象将会拥有的特征(属性)和行为(方法)。类是对象的类型；类是具有相同属性和方法的一组对象的集合</p>
-<p>对象的属性：对象具有的各种特征，每个对象的每个属性都拥有特定值</p>
-<p>对象的方法：对象执行的操作</p>
-<p>类和对象的关系与区别：类是抽象的概念，仅仅是模板；对象是一个能看得到、摸得着的具体实体。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/Golang学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="金赫思">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="金赫思的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/16/Golang学习笔记/" itemprop="url">Golang学习笔记</a></h1>
-        
-
-        <div class="post-meta">
-        
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T22:11:11+08:00">
-                2019-03-16
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T22:12:37+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T23:02:16+08:00">
                 2019-03-16
               </time>
             
@@ -1020,8 +539,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/后端开发/" itemprop="url" rel="index">
-                    <span itemprop="name">后端开发</span>
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
                   </a>
                 </span>
 
@@ -1058,220 +577,179 @@
 
       
         
+          <p>现在我们将学习JavaScript中所有关于函数的知识，从概述到小细节，帮助你更好地使用函数。</p>
+<p>JavaScript中的所有内容都在函数中执行。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/16/JavaScript完整手册系列（17）：函数/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/JavaScript完整手册系列（16）：ES6模板字面量/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="金赫思">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="金赫思的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/16/JavaScript完整手册系列（16）：ES6模板字面量/" itemprop="url">JavaScript完整手册系列（16）：ES6模板字面量</a></h1>
+        
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T22:42:12+08:00">
+                2019-03-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T23:02:05+08:00">
+                2019-03-16
+              </time>
+            
+          </span>
+
           
-            <h2 id="第-1-节-Go语言简介：历史背景、发展现状及语言特性"><a href="#第-1-节-Go语言简介：历史背景、发展现状及语言特性" class="headerlink" title="第(1)节 Go语言简介：历史背景、发展现状及语言特性"></a>第(1)节 Go语言简介：历史背景、发展现状及语言特性</h2><h3 id="软件开发的新挑战"><a href="#软件开发的新挑战" class="headerlink" title="软件开发的新挑战"></a>软件开发的新挑战</h3><p>1、多核硬件架构的广泛应用</p>
-<p>2、超大规模分布式计算集群</p>
-<p>3、Web模式导致的前所未有的开发规模和更新速度</p>
-<h3 id="go语言的特点"><a href="#go语言的特点" class="headerlink" title="go语言的特点"></a>go语言的特点</h3><p>1、简单：Go 只有 25 个关键字；特别是对于一些复杂编程任务如：并发编程、内存管理、Go语言有内置的并发支持及GC</p>
-<p>2、高效：Go是编译的静态类型语言，并且可以通过指针进行直接内存访问</p>
-<p>3、生产力：简单清晰的依赖管理，简洁清晰的语法以及独特的接口类型</p>
-<h2 id="第-2-节-编写第一个Go程序"><a href="#第-2-节-编写第一个Go程序" class="headerlink" title="第(2)节 编写第一个Go程序"></a>第(2)节 编写第一个Go程序</h2><h3 id="安装go"><a href="#安装go" class="headerlink" title="安装go"></a>安装go</h3><p>官网下载对应操作系统安装包，其中Windows直接安装即可。</p>
-<h3 id="开发环境构建"><a href="#开发环境构建" class="headerlink" title="开发环境构建"></a>开发环境构建</h3><p><strong>GOPATH</strong></p>
-<p>1、在 1.8 版本前必须设置这个环境变量</p>
-<p>2、1.8版本后（含1.8)如果没有设置使用默认值</p>
-<p>在Unix上默认为$HOME/go，在Windows上默认为%USERPROFILE%/go</p>
-<p>在Mac上GOPATH可以通过修改~/.bash_profile来设置</p>
-<p>检查当前安装的go语言的版本：go version</p>
-<p><strong>构建工程目录</strong></p>
-<p>1、创建目录:mkdir go_learning</p>
-<p>2、打开IDEA(需先安装go插件),进入该目录，新建src文件夹作为源码路径</p>
-<p>3、src文件夹下新建第1章教程文件夹ch1以区分课程目录，在ch1文件夹下新建main文件夹作为package包，在main文件夹内新建hello_world.go文件</p>
-<h3 id="基本程序结构"><a href="#基本程序结构" class="headerlink" title="基本程序结构"></a>基本程序结构</h3><p>1、编写hello world</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main <span class="comment">// 包，表明代码所在的模块(包)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span> <span class="comment">// 引入代码依赖</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//功能实现</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    fmt.Println(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2、使用命令行进入main文件夹后，执行命令：go run hello_world.go即可在命令行中输出hello world</p>
-<p>3、如果想编译源码，执行命令：go build hello_world.go，即可在main文件夹内生成一个二进制文件</p>
-<h3 id="应用程序入口"><a href="#应用程序入口" class="headerlink" title="应用程序入口"></a>应用程序入口</h3><p>1、必须是main包：package main(但是目录名不一定要命名为main，这一点与Java不同)</p>
-<p>2、必须是main方法：func main()</p>
-<p>3、文件名不一定是main.go</p>
-<h3 id="退出返回值"><a href="#退出返回值" class="headerlink" title="退出返回值"></a>退出返回值</h3><p>与其他主要编程语言的差异</p>
-<p>1、Go中main函数不支持任何返回值</p>
-<p>2、通过os.Exit来返回状态</p>
-<p>正常退出：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    fmt.Println(<span class="string">"hello world"</span>)</span><br><span class="line">    os.Exit(<span class="number">0</span>) <span class="comment">// hello world</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>异常退出：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    fmt.Println(<span class="string">"hello world"</span>)</span><br><span class="line">    os.Exit(<span class="number">-1</span>) <span class="comment">// hello world exit status 4294967295</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="获取命令行参数"><a href="#获取命令行参数" class="headerlink" title="获取命令行参数"></a>获取命令行参数</h3><p>与其他主要编程语言的差异</p>
-<p>1、main函数不支持传入参数</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">(arg []<span class="keyword">string</span>)</span></span></span><br></pre></td></tr></table></figure>
-<p>2、在程序中直接通过os.Args获取命令行参数</p>
-<p>运行命令：go run hello_world.go chao  (其中chao即为命令行参数)</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"os"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(os.Args)&gt;<span class="number">1</span>&#123;</span><br><span class="line">		fmt.Println(<span class="string">"hello world"</span>,os.Args[<span class="number">1</span>]) <span class="comment">// hello world chao</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="第-3-节-变量、常量以及与其他语言的差异"><a href="#第-3-节-变量、常量以及与其他语言的差异" class="headerlink" title="第(3)节 变量、常量以及与其他语言的差异"></a>第(3)节 变量、常量以及与其他语言的差异</h2><h3 id="编写测试程序"><a href="#编写测试程序" class="headerlink" title="编写测试程序"></a>编写测试程序</h3><p>1、源码文件以_test结尾：xxx_test.go</p>
-<p>2、测试方法名以Test开头：func TestXXX(t *testing.T){…}</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"testing"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestFirstTry</span><span class="params">(t *testing.T)</span></span>&#123;</span><br><span class="line">	t.Log(<span class="string">"My first try!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>在IDEA中点击运行按钮，即可输出测试结果(快捷键：CTRL + SHIRT +F10)</p>
-</blockquote>
-<p>测试用例：斐波纳契数列</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> fib</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"testing"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestFibList</span><span class="params">(t *testing.T)</span></span>&#123;</span><br><span class="line">	<span class="comment">// 变量初始化并赋值的三种方式</span></span><br><span class="line">    <span class="comment">//var a int = 1</span></span><br><span class="line">	<span class="comment">//var b int = 1</span></span><br><span class="line">	<span class="comment">// 变量赋值简写</span></span><br><span class="line">	<span class="comment">// var (</span></span><br><span class="line">	<span class="comment">//	a int = 1</span></span><br><span class="line">	<span class="comment">//	b int = 1</span></span><br><span class="line">	<span class="comment">// )</span></span><br><span class="line">    <span class="comment">// 无需赋值关键字，通过使用类型推断初始化变量并赋值</span></span><br><span class="line">	a := <span class="number">1</span></span><br><span class="line">	b := <span class="number">1</span></span><br><span class="line">	fmt.Print(a)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>;i &lt;<span class="number">5</span>; i++ &#123;</span><br><span class="line">		fmt.Print(<span class="string">" "</span>,b)</span><br><span class="line">		tmp :=a</span><br><span class="line">		a = b</span><br><span class="line">		b = tmp + a</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println() </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>运行结果：1 1 2 3 5 8</p>
-</blockquote>
-<h3 id="变量赋值"><a href="#变量赋值" class="headerlink" title="变量赋值"></a>变量赋值</h3><p>与其他主要编程语言的差异</p>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>模板字面量是ES2015/ES6的新功能，与 ES5 及更低版本相比，模板字面量功能允许你用更新颖的方式处理字符串。</p>
+<p>乍一看语法非常简单，只需使用反引号而不是单引号或双引号：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a_string = <span class="string">`something`</span></span><br></pre></td></tr></table></figure>
+<p>它们和用引号构建的普通字符串相比提供了更多的功能：</p>
 <ul>
-<li>赋值可以进行自动类型推断</li>
-<li>在一个赋值语句中可以对多个变量进行同时赋值</li>
+<li>提供了优秀的语法定义多行字符串</li>
+<li>它们提供了一种在字符串中插入变量和表达式的简便方法</li>
+<li>它们允许通过模板标签创建 DSL</li>
 </ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 交换两个变量的值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestExchange</span><span class="params">(t *testing.T)</span></span>&#123;</span><br><span class="line">    a := <span class="number">1</span></span><br><span class="line">    b := <span class="number">2</span></span><br><span class="line">    <span class="comment">// 方式1 通过中间变量</span></span><br><span class="line">    <span class="comment">// tmp := a</span></span><br><span class="line">    <span class="comment">// a = b</span></span><br><span class="line">    <span class="comment">// b = tmp</span></span><br><span class="line">    <span class="comment">// 方式2 直接交换</span></span><br><span class="line">    a,b = b,a</span><br><span class="line">    t.Log(a,b)  <span class="comment">// 2 1</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="常量定义"><a href="#常量定义" class="headerlink" title="常量定义"></a>常量定义</h3><p>与其他主要编程语言的差异</p>
-<p><strong>快速设置连续值</strong></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> constant_test</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"testing"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 连续常量</span></span><br><span class="line"><span class="keyword">const</span>(</span><br><span class="line">  Monday = <span class="literal">iota</span> + <span class="number">1</span></span><br><span class="line">  Tuesday</span><br><span class="line">  Wednesday</span><br><span class="line">  Thursday</span><br><span class="line">  Friday</span><br><span class="line">  Saturday</span><br><span class="line">  Sunday</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 连续位的常量</span></span><br><span class="line"><span class="keyword">const</span>(</span><br><span class="line">	Readable = <span class="number">1</span> &lt;&lt; <span class="literal">iota</span></span><br><span class="line">	Writable</span><br><span class="line">	Executable</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestConstantTry</span><span class="params">(t *testing.T)</span></span>&#123;</span><br><span class="line">	t.Log(Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday) <span class="comment">// 1 2 3 4 5 6 7</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestConstantTry1</span><span class="params">(t *testing.T)</span></span>&#123;</span><br><span class="line">	a := <span class="number">7</span> <span class="comment">// 0111</span></span><br><span class="line">	t.Log(a&amp;Readable==Readable,a&amp;Writable==Writable,a&amp;Executable==Executable) <span class="comment">// true true true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/JavaScript完整手册系列（2）：ES6带来的重大特性/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="金赫思">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="金赫思的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/10/JavaScript完整手册系列（2）：ES6带来的重大特性/" itemprop="url">JavaScript完整手册系列（2）：ES6带来的重大特性</a></h1>
-        
-
-        <div class="post-meta">
-        
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-10T15:18:33+08:00">
-                2019-03-10
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-10T16:19:51+08:00">
-                2019-03-10
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web前端/" itemprop="url" rel="index">
-                    <span itemprop="name">web前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>ECMAScript 2015，即ES6， 是 ECMAScript 标准的基础版本，该版本距离上个版本 ECMAScript 5.1 发布有四年之久，也是从这个版本开始将版本改为以年命名。所以它不应该叫做 ES6（尽管每个人都这么叫），而是 ES2015。</p>
+<p>让我们仔细看看这些功能。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/03/10/JavaScript完整手册系列（2）：ES6带来的重大特性/#more" rel="contents">
+            <a class="btn" href="/2019/03/16/JavaScript完整手册系列（16）：ES6模板字面量/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1322,7 +800,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/JavaScript完整手册系列（1）：ECMASCRIPT的发展史与现状/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/JavaScript完整手册系列（15）：在JavaScript中使用引号/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="金赫思">
@@ -1341,7 +819,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/10/JavaScript完整手册系列（1）：ECMASCRIPT的发展史与现状/" itemprop="url">JavaScript完整手册系列（1）：ECMASCRIPT的发展史与现状</a></h1>
+                <a class="post-title-link" href="/2019/03/16/JavaScript完整手册系列（15）：在JavaScript中使用引号/" itemprop="url">JavaScript完整手册系列（15）：在JavaScript中使用引号</a></h1>
         
 
         <div class="post-meta">
@@ -1354,8 +832,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-10T14:21:51+08:00">
-                2019-03-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T22:41:24+08:00">
+                2019-03-16
               </time>
             
 
@@ -1370,8 +848,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-10T15:22:08+08:00">
-                2019-03-10
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T23:01:50+08:00">
+                2019-03-16
               </time>
             
           </span>
@@ -1427,29 +905,17 @@
 
       
         
-          <p>每当你阅读有关JavaScript的内容时，你都会不可避免地看到以下这些术语：</p>
+          <p>现在我们将谈谈 JavaScript 里的引号及其特性。</p>
+<p>JavaScript 允许三种形式的引号：</p>
 <ul>
-<li>ES3</li>
-<li>ES5</li>
-<li>ES6</li>
-<li>ES7</li>
-<li>ES8</li>
-<li>ES2015</li>
-<li>ES2016</li>
-<li>ES2017</li>
-<li>ECMA2017</li>
-<li>ECMA2016</li>
-<li>ECMA2015</li>
+<li>单引号</li>
+<li>双引号</li>
+<li>反引号</li>
 </ul>
-<p>它们是什么意思？它们都是指一个名为ECMAScript的JavaScript标准。ECMAScript是JavaScript实现所基于的标准，通常被简称为ES。除了JavaScript，其他实现了ECMA标准的语言还包括：</p>
-<ul>
-<li><em>ActionScript</em>（Flash 脚本语言），自从官方决定从 2020 年起不再维护 Flash 便不再流行。</li>
-<li><em>JScript</em>（微软实现的脚本语言），一开始只有 Netscape 支持 JavaScript，随着浏览器大战愈演愈烈，微软便实现了仅 IE 浏览器支持的版本。</li>
-</ul>
-<p>但是毫无疑问，JavaScript是最为流行和使用最为广泛的ES实现。</p>
+<p>前两种差不多：</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/03/10/JavaScript完整手册系列（1）：ECMASCRIPT的发展史与现状/#more" rel="contents">
+            <a class="btn" href="/2019/03/16/JavaScript完整手册系列（15）：在JavaScript中使用引号/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1500,7 +966,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/vendor-js和app-js文件过大问题处理方案/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/JavaScript完整手册系列（14）：在JavaScript中使用分号/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="金赫思">
@@ -1519,7 +985,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/09/vendor-js和app-js文件过大问题处理方案/" itemprop="url">vendor.js和app.js文件过大问题处理方案</a></h1>
+                <a class="post-title-link" href="/2019/03/16/JavaScript完整手册系列（14）：在JavaScript中使用分号/" itemprop="url">JavaScript完整手册系列（14）：在JavaScript中使用分号</a></h1>
         
 
         <div class="post-meta">
@@ -1532,8 +998,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-09T10:49:11+08:00">
-                2019-03-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T22:40:48+08:00">
+                2019-03-16
               </time>
             
 
@@ -1548,8 +1014,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-09T10:50:27+08:00">
-                2019-03-09
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T23:01:37+08:00">
+                2019-03-16
               </time>
             
           </span>
@@ -1605,11 +1071,12 @@
 
       
         
-          <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>webpack的出现，极大地简化了前端开发的复杂度：作为一种模块化的解决方案，它可以将项目当做一个整体，通过一个给定的主文件（如index.js）,进而从这个主文件中找到项目的所有依赖文件，使用loaders来处理它们，最后打包成浏览器可识别的JavaScript文件。</p>
-<p>但是在实际的开发中，我们经常发现由于npm run build命令默认把dependencies中的依赖统一打包，导致打包后的vendor.js文件过大，出现首屏加载过于缓慢的问题，严重影响到了上线后的项目性能。如何处理它们呢？</p>
+          <p>JavaScript 分号是可选的，我个人倾向于不写分号，但是很多人喜欢带上分号。</p>
+<p>分号的使用在 JavaScript 社区中产生了很大的分歧。一些人不论在什么情况都很喜欢用它，而另一部分则相反。</p>
+<p>在用了几年分号之后，2017 年秋天我决定尝试避免使用分号，我通过 Prettier 自动移除代码中的分号，除非有特定的代码结构需要它。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/03/09/vendor-js和app-js文件过大问题处理方案/#more" rel="contents">
+            <a class="btn" href="/2019/03/16/JavaScript完整手册系列（14）：在JavaScript中使用分号/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1660,7 +1127,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/vue项目IE浏览器兼容性问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/JavaScript完整手册系列（13）：异常处理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="金赫思">
@@ -1679,7 +1146,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/09/vue项目IE浏览器兼容性问题/" itemprop="url">vue项目IE浏览器兼容性问题</a></h1>
+                <a class="post-title-link" href="/2019/03/16/JavaScript完整手册系列（13）：异常处理/" itemprop="url">JavaScript完整手册系列（13）：异常处理</a></h1>
         
 
         <div class="post-meta">
@@ -1692,8 +1159,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-09T10:45:15+08:00">
-                2019-03-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T22:39:18+08:00">
+                2019-03-16
               </time>
             
 
@@ -1708,8 +1175,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-09T10:48:21+08:00">
-                2019-03-09
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T23:01:25+08:00">
+                2019-03-16
               </time>
             
           </span>
@@ -1765,11 +1232,10 @@
 
       
         
-          <h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><p>vue框架的核心思想——数据的双向绑定，是建立在从ES5才支持的对象方法Object.defineProperty()之上的，由此决定了vue天生不支持IE9以下浏览器，即针对IE浏览器版本，至少需要IE9浏览器才能正常运行vue项目。</p>
-<p>通常来说，项目都需要对IE浏览器进行一定程度上的兼容，但同时即便是版本最高的IE11，也无法完全兼容ES6语法，更遑论IE9浏览器。在具体的项目实践中，笔者又发现，虽然vue核心组件都能正常支持IE9，但围绕vue生态圈打造的某些开发工具仍然无法100%支持IE9，再加上vue在IE9上低概率出现的诡异的组件变形问题，使得笔者最终决定将IE浏览器最低兼容到IE10。</p>
+          <p>当代码发生异常问题时，JavaScript 习惯通过 exceptions 处理错误。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/03/09/vue项目IE浏览器兼容性问题/#more" rel="contents">
+            <a class="btn" href="/2019/03/16/JavaScript完整手册系列（13）：异常处理/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1820,7 +1286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/03/使用try-catch处理代码中的错误/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/JavaScript完整手册系列（12）：JavaScript中的Classes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="金赫思">
@@ -1839,7 +1305,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/03/使用try-catch处理代码中的错误/" itemprop="url">使用try...catch处理代码中的错误</a></h1>
+                <a class="post-title-link" href="/2019/03/16/JavaScript完整手册系列（12）：JavaScript中的Classes/" itemprop="url">JavaScript完整手册系列（12）：JavaScript中的Classes</a></h1>
         
 
         <div class="post-meta">
@@ -1852,8 +1318,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T16:24:54+08:00">
-                2019-03-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T22:38:43+08:00">
+                2019-03-16
               </time>
             
 
@@ -1868,8 +1334,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-03T16:30:46+08:00">
-                2019-03-03
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T23:01:13+08:00">
+                2019-03-16
               </time>
             
           </span>
@@ -1925,10 +1391,11 @@
 
       
         
-          <h2 id="try…catch-语句是什么？"><a href="#try…catch-语句是什么？" class="headerlink" title="try…catch 语句是什么？"></a>try…catch 语句是什么？</h2><p>try…catch 可以测试代码中的错误。try 部分包含需要运行的代码，而 catch 部分包含错误发生时运行的代码。</p>
+          <p>发布于2015年的 ECMAScript 6 (ES6) 标准引入了类。</p>
+<p>在那之前，JavaScript 只能通过一种非常独特的方法实现继承，那就是原型继承。虽然我认为这种实现很棒，但和其它的流行编程语言都不同。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/03/03/使用try-catch处理代码中的错误/#more" rel="contents">
+            <a class="btn" href="/2019/03/16/JavaScript完整手册系列（12）：JavaScript中的Classes/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1979,7 +1446,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/14/将vue-resource改为axios/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/JavaScript完整手册系列（11）：原型继承/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="金赫思">
@@ -1998,7 +1465,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/14/将vue-resource改为axios/" itemprop="url">将vue-resource改为axios</a></h1>
+                <a class="post-title-link" href="/2019/03/16/JavaScript完整手册系列（11）：原型继承/" itemprop="url">JavaScript完整手册系列（11）：原型继承</a></h1>
         
 
         <div class="post-meta">
@@ -2011,8 +1478,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-14T21:50:14+08:00">
-                2019-02-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T22:37:50+08:00">
+                2019-03-16
               </time>
             
 
@@ -2027,8 +1494,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-14T22:01:58+08:00">
-                2019-02-14
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T23:25:57+08:00">
+                2019-03-16
               </time>
             
           </span>
@@ -2084,10 +1551,12 @@
 
       
         
-          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>接手的项目之前的http请求库用的是vue-resource,在一般使用过程中没有什么问题，但想要做ie浏览器兼容的时候却出现了很多意想不到的问题。其实vue-resource官方早已经停止维护，所以就想花点时间，改为使用官方推荐的axios库。</p>
+          <p>JavaScript 在流行的编程语言中非常独特，因为它使用了原型继承。让我们看看这意味着什么。</p>
+<p>大多数面向对象语言使用基于类的继承模式，JavaScript 基于原型继承。</p>
+<p>这是什么意思？</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/02/14/将vue-resource改为axios/#more" rel="contents">
+            <a class="btn" href="/2019/03/16/JavaScript完整手册系列（11）：原型继承/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2138,7 +1607,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/20/如何获取访问者的ip地址并写入header/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/JavaScript完整手册系列（10）：表达式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="金赫思">
@@ -2157,7 +1626,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/20/如何获取访问者的ip地址并写入header/" itemprop="url">如何获取访问者的ip地址并写入header</a></h1>
+                <a class="post-title-link" href="/2019/03/16/JavaScript完整手册系列（10）：表达式/" itemprop="url">JavaScript完整手册系列（10）：表达式</a></h1>
         
 
         <div class="post-meta">
@@ -2170,8 +1639,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-20T18:44:10+08:00">
-                2019-01-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T22:37:23+08:00">
+                2019-03-16
               </time>
             
 
@@ -2186,8 +1655,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-28T21:36:24+08:00">
-                2019-01-28
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T23:00:47+08:00">
+                2019-03-16
               </time>
             
           </span>
@@ -2243,10 +1712,169 @@
 
       
         
-          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近的一个项目，新增了一项需求：获取访问者的ip地址，并将ip地址写到header中，后端获取ip地址后写入日志进行记录。</p>
+          <p>表达式是可以计算并解析为值的代码单元。JS 中的表达式可以分为几类。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/01/20/如何获取访问者的ip地址并写入header/#more" rel="contents">
+            <a class="btn" href="/2019/03/16/JavaScript完整手册系列（10）：表达式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/JavaScript完整手册系列（9）：数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="金赫思">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="金赫思的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/16/JavaScript完整手册系列（9）：数据类型/" itemprop="url">JavaScript完整手册系列（9）：数据类型</a></h1>
+        
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T22:36:45+08:00">
+                2019-03-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-16T23:00:01+08:00">
+                2019-03-16
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>你可能有时候会读到 JS 是无类型的，但是这并不正确。你确实可以为一个变量绑定各种不同的类型，但是 JavaScript 是有类型的。它提供了基本类型和对象类型。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/16/JavaScript完整手册系列（9）：数据类型/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2288,7 +1916,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2334,7 +1962,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
