@@ -102,10 +102,12 @@
 <meta property="og:site_name" content="金赫思的博客">
 <meta property="og:description" content="第(1)节 Java变量在 Java 中，我们通过三个元素描述变量：变量类型、变量名以及变量值。 12String myname = &quot;tom&quot;;int age = 20; 第(2)节 Java数据类型Java 语言是一种强类型语言。通俗点说就是，在 Java 中存储的数据都是有类型的，而且必须在编译时就确定其类型。 Java 中有两类数据类型：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-17T10:38:09.732Z">
+<meta property="og:image" content="https://pic.superbed.cn/item/5c8e51c53a213b0417a10304">
+<meta property="og:updated_time" content="2019-03-17T14:09:33.149Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java学习笔记">
 <meta name="twitter:description" content="第(1)节 Java变量在 Java 中，我们通过三个元素描述变量：变量类型、变量名以及变量值。 12String myname = &quot;tom&quot;;int age = 20; 第(2)节 Java数据类型Java 语言是一种强类型语言。通俗点说就是，在 Java 中存储的数据都是有类型的，而且必须在编译时就确定其类型。 Java 中有两类数据类型：">
+<meta name="twitter:image" content="https://pic.superbed.cn/item/5c8e51c53a213b0417a10304">
 
 
 
@@ -353,7 +355,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-17T18:38:09+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-17T22:09:33+08:00">
                 2019-03-17
               </time>
             
@@ -459,7 +461,7 @@
 </tbody>
 </table>
 <p>你可能已经注意到了：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> height = <span class="number">175.2f</span>; <span class="comment">// 为float变量赋值时在数值后面添加字母f</span></span><br><span class="line"><span class="keyword">char</span> level = <span class="string">'A'</span>; <span class="comment">// 为char变量赋值时使用单引号引起来</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> height = <span class="number">175.2f</span>; <span class="comment">// 为float变量赋值时在数值后面添加字母f，否则默认浮点数是doube型</span></span><br><span class="line"><span class="keyword">char</span> level = <span class="string">'A'</span>; <span class="comment">// 为char变量赋值时使用单引号引起来</span></span><br></pre></td></tr></table></figure>
 <p><strong>引用数据类型</strong></p>
 <p>类(class)、接口(interface)、数组</p>
 <p>在 Java 的领域里<strong>，基本数据类型变量</strong>存的是<strong>数据本身</strong>，而<strong>引用类型变量</strong>存的是保存<strong>数据的空间地址</strong>。说白了，基本数据类型变量里存储的是直接放在抽屉里的东西，而引用数据类型变量里存储的是这个抽屉的钥匙，钥匙和抽屉一一对应。</p>
@@ -735,6 +737,46 @@
 <p>对象的属性：对象具有的各种特征，每个对象的每个属性都拥有特定值</p>
 <p>对象的方法：对象执行的操作</p>
 <p>类和对象的关系与区别：类是抽象的概念，仅仅是模板；对象是一个能看得到、摸得着的具体实体。</p>
+<p><strong>定义类</strong></p>
+<p>1、类的重要性：所有java程序都以类class为组织单元</p>
+<p>2、定义一个类的步骤：</p>
+<ul>
+<li>定义类名</li>
+<li>编写类的属性</li>
+<li>编写类的方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 类名 </span>&#123;</span><br><span class="line">    <span class="comment">// 定义属性部分(成员变量)</span></span><br><span class="line">    属性<span class="number">1</span>的类型 属性<span class="number">1</span>；</span><br><span class="line">    属性<span class="number">2</span>的类型 属性<span class="number">2</span>；</span><br><span class="line">    ...</span><br><span class="line">    属性n的类型 属性n;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 定义方法部分</span></span><br><span class="line">    方法<span class="number">1</span>；</span><br><span class="line">    方法<span class="number">2</span>；</span><br><span class="line">    ...</span><br><span class="line">    方法m;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>java对象</strong></p>
+<p>使用对象的步骤：</p>
+<ul>
+<li><p>创建对象： 类名 对象名 = new 类名();</p>
+</li>
+<li><p>使用对象：引用对象的属性：对象名.属性；引用对象的方法：对象名.方法名()</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Telphone phone = <span class="keyword">new</span> Telephone()</span><br><span class="line">phone.screen = <span class="number">5</span> <span class="comment">// 给screen属性赋值5</span></span><br><span class="line">phone.sendMessage(); <span class="comment">// 调用sendMessage()方法</span></span><br></pre></td></tr></table></figure>
+<p><strong>java中的成员变量和局部变量</strong></p>
+<p>定义：</p>
+<p>(1)成员变量：在类中定义，用来描述对象将要有什么。</p>
+<p>(2)局部变量：在类的方法中定义，在方法中临时保存数据。</p>
+<p><img src="https://pic.superbed.cn/item/5c8e51c53a213b0417a10304" alt=""></p>
+<p>区别：</p>
+<p>(1)作用域不同：局部变量的作用域仅限于定义它的方法，成员变量的作用域在整个类内部都是可见的</p>
+<p>(2)初始值不同：java会给成员变量一个初始值，不会给局部变量赋予初始值</p>
+<p>(3)在同一个方法中，不允许有同名局部变量；在不同的方法中，可以有同名局部变量</p>
+<p>(4)成员变量和局部变量同名时，局部变量具有更高的优先级(就近原则)</p>
+<p><strong>java中的构造方法</strong></p>
+<p>(1)构造方法的定义与特征</p>
+<ul>
+<li><p>使用new+构造方法，创建一个新的对象</p>
+</li>
+<li><p>构造方法是定义在java类中的一个用来初始化对象的方法</p>
+</li>
+<li><p>构造方法与类同名且没有返回值</p>
+</li>
+</ul>
+<p>(2)构造方法的语句格式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> 构造方法名()&#123;</span><br><span class="line">    <span class="comment">// 初始化代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -854,7 +896,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
