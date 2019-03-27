@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,JavaScript完整手册," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Promises 是一种 JavaScript 中处理异步代码的方法，无需在代码中编写太多回调。 Promises 通常定义为最终可用的值的代理（a proxy for a value that will eventually become available）。 其实 Promises 已经存在多年，但是直到 ES2015 才被标准化和引入，现在它们已经在 ES2017 中被 async(异步)">
+<meta name="keywords" content="JavaScript,JavaScript完整手册">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript完整手册系列（25）：Promises">
+<meta property="og:url" content="http://yoursite.com/2019/03/27/JavaScript完整手册系列（25）：Promises/index.html">
+<meta property="og:site_name" content="金赫思的博客">
+<meta property="og:description" content="Promises 是一种 JavaScript 中处理异步代码的方法，无需在代码中编写太多回调。 Promises 通常定义为最终可用的值的代理（a proxy for a value that will eventually become available）。 其实 Promises 已经存在多年，但是直到 ES2015 才被标准化和引入，现在它们已经在 ES2017 中被 async(异步)">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-27T14:51:17.450Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript完整手册系列（25）：Promises">
+<meta name="twitter:description" content="Promises 是一种 JavaScript 中处理异步代码的方法，无需在代码中编写太多回调。 Promises 通常定义为最终可用的值的代理（a proxy for a value that will eventually become available）。 其实 Promises 已经存在多年，但是直到 ES2015 才被标准化和引入，现在它们已经在 ES2017 中被 async(异步)">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/27/JavaScript完整手册系列（25）：Promises/"/>
+
+
+
+
+
+  <title>JavaScript完整手册系列（25）：Promises | 金赫思的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">金赫思的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">知道自己知道什么，也知道自己不知道什么，这就是真正的知识。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/JavaScript完整手册系列（25）：Promises/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="金赫思">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="金赫思的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript完整手册系列（25）：Promises</h1>
+        
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-27T22:39:52+08:00">
+                2019-03-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-27T22:51:17+08:00">
+                2019-03-27
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Promises 是一种 JavaScript 中处理异步代码的方法，无需在代码中编写太多回调。</p>
+<p>Promises 通常定义为最终可用的值的代理（a proxy for a value that will eventually become available）。</p>
+<p>其实 Promises 已经存在多年，但是直到 ES2015 才被标准化和引入，现在它们已经在 ES2017 中被 async(异步) 函数所取代。</p>
+<p>Async functions(异步函数) 使用 promises API 作为构建块，因此理解 Promises 是理解异步函数的基础，即便在你现在写的代码中可能会使用 async(异步) 函数而不是promises 。</p>
+<a id="more"></a>
+<h4 id="一句话，Promises是如何工作的"><a href="#一句话，Promises是如何工作的" class="headerlink" title="一句话，Promises是如何工作的"></a>一句话，Promises是如何工作的</h4><p>一旦调用了一个 promise ，它就会以 <strong>pending(挂起) 状态</strong>开始。 这意味着调用者函数继续执行，同时等待 promise 执行自己的处理，并为调用者函数提供一些反馈。</p>
+<p>此时，调用者函数等待它以 <code>resolved</code> 状态或者 <code>rejected</code> 状态 返回 promise，但函数会在 promise 完成其工作时继续执行。</p>
+<h4 id="哪些-JS-API使用-promises-？"><a href="#哪些-JS-API使用-promises-？" class="headerlink" title="哪些 JS API使用 promises ？"></a>哪些 JS API使用 promises ？</h4><p>除了你自己的代码和库代码之外，Promises 还被用于标准的现代 Web API，例如：</p>
+<ul>
+<li>Battery API</li>
+<li><a href="https://www.html.cn/archives/9907" target="_blank" rel="noopener">Fetch API</a></li>
+<li><a href="https://flaviocopes.com/service-workers/" target="_blank" rel="noopener">Service Workers</a></li>
+</ul>
+<p>在现代 JavaScript 中你不太可能发现自己没有使用 Promises ，所以让我们开始深入了解它们。</p>
+<h3 id="创建-promise"><a href="#创建-promise" class="headerlink" title="创建 promise"></a>创建 promise</h3><p>Promise API 暴露了一个 Promise 构造函数，你可以使用 <code>new Promise()</code> 进行初始化：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> done = <span class="literal">true</span></span><br><span class="line"><span class="keyword">const</span> isItDoneYet = <span class="keyword">new</span> <span class="built_in">Promise</span>(</span><br><span class="line">  (resolve, reject) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (done) &#123;</span><br><span class="line">      <span class="keyword">const</span> workDone = <span class="string">'Here is the thing I built'</span></span><br><span class="line">      resolve(workDone)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> why = <span class="string">'Still working on something else'</span></span><br><span class="line">      reject(why)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>正如你所看到的，promise 会检查 <code>done</code> 这个全局常量，如果 <code>done</code> 为 <code>true</code> ，我们将返回 <code>resolved</code> 状态的 promise ，否则将返回 <code>rejected</code> 状态的 promise 。</p>
+<p>使用 <code>resolve</code> 和 <code>reject</code> 时，我们可以回传一个值，在上面的例子中我们只是回传了一个字符串，但它也可以是一个对象。</p>
+<h3 id="使用-promise"><a href="#使用-promise" class="headerlink" title="使用 promise"></a>使用 promise</h3><p>现在让我们看看如何使用 promise 。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isItDoneYet = <span class="keyword">new</span> <span class="built_in">Promise</span>(</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">const</span> checkIfItsDone = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  isItDoneYet</span><br><span class="line">    .then(<span class="function">(<span class="params">ok</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(ok)</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.error(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行 <code>checkIfItsDone()</code> 将执行 <code>isItDoneYet()</code> promise 并使用 <code>then</code> 回调等待该 promise 的 <code>resolve</code>状态。如果有错误，它将在 <code>catch</code> 回调中处理这个错误。</p>
+<h3 id="链式调用-promises"><a href="#链式调用-promises" class="headerlink" title="链式调用 promises"></a>链式调用 promises</h3><p>promise 可以返回另一个 promise，形成一个链式 promise。</p>
+<p>链式调用 promises 的一个很好的例子是 Fetch API，它是XMLHttpRequest API的上层 API，我们可以使用它来获取资源，并用promise链式操作资源。</p>
+<p>Fetch API 基于 promise 机制，调用 <code>fetch()</code> 等同于我们通过 <code>new promise()</code> 定义一个我们自己的 promise。</p>
+<h4 id="链式调用-promises-例子"><a href="#链式调用-promises-例子" class="headerlink" title="链式调用 promises 例子"></a>链式调用 promises 例子</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> status = <span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (response.status &gt;= <span class="number">200</span> &amp;&amp; response.status &lt; <span class="number">300</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(response)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(<span class="keyword">new</span> <span class="built_in">Error</span>(response.statusText))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> json = <span class="function">(<span class="params">response</span>) =&gt;</span> response.json()</span><br><span class="line">fetch(<span class="string">'/todos.json'</span>)</span><br><span class="line">  .then(status)</span><br><span class="line">  .then(json)</span><br><span class="line">  .then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123; <span class="built_in">console</span>.log(<span class="string">'Request succeeded with JSON response'</span>, data) &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123; <span class="built_in">console</span>.log(<span class="string">'Request failed'</span>, error) &#125;)</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，我们调用 <code>fetch()</code> 从根域名中的 <code>todos.json</code> 文件获取一个 TODO 清单，我们创建了一个 promises 链。</p>
+<p>运行 <code>fetch()</code> 返回一个包含很多个属性的 <a href="https://fetch.spec.whatwg.org/#concept-response" target="_blank" rel="noopener">response</a>，我们引用了其中的：</p>
+<ul>
+<li><code>status</code>，数字值表示的 HTTP 状态代码</li>
+<li><code>statusText</code>，状态消息，请求成功时为 <code>OK</code></li>
+</ul>
+<p><code>response</code> 还有一个 <code>json()</code> 方法，该方法返回一个 <code>resolve</code> 状态的 promise，并且将响应内容转化为 JSON 作为该 promise 的回传值。</p>
+<p>在这些前提下，会发生这样的情况:链中的第一个 promise 是我们定义的函数 <code>status()</code> ，它检查响应状态，如果响应不成功(在200到299之间)，则 <code>reject</code> 该 promise 。</p>
+<p>此操作将导致 promise 链跳过队列中的所有的 promise ，并将直接跳到底部的 <code>catch()</code> 语句，打印 <code>Request failed</code> 文本以及错误消息。</p>
+<p>如果成功，它会调用我们定义的 <code>json()</code> 函数。 前一个 promise 返回 response 对象，作为第二个 promise 的输入。</p>
+<p>在这种情况下，我们返回处理过的 JSON 数据 ，因此第三个 promise 直接接收 JSON：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Request succeeded with JSON response'</span>, data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>在控制台会打印出这些内容。</p>
+<h3 id="处理错误"><a href="#处理错误" class="headerlink" title="处理错误"></a>处理错误</h3><p>在上面的例子中，promises 链后面有一个额外的 catch 块。当 promises 链有任何错误发生，将 promise 置为 <code>reject</code> ，控制会转到链中最近的 <code>catch()</code> 语句。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Error'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123; <span class="built_in">console</span>.error(err) &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  reject(<span class="string">'Error'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123; <span class="built_in">console</span>.error(err) &#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="级联错误"><a href="#级联错误" class="headerlink" title="级联错误"></a>级联错误</h4><p>如果在 <code>catch()</code> 内部又抛出一个错误，你可以添加第二个 <code>catch()</code> 处理它，以此类推。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Error'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123; <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Error'</span>) &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123; <span class="built_in">console</span>.error(err) &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="Promise-prototype-finally"><a href="#Promise-prototype-finally" class="headerlink" title="Promise.prototype.finally()"></a>Promise.prototype.finally()</h3><p>这是 ES2018（ES9）的新特性.</p>
+<p>当一个 promise 得到满足（fulfilled）时，它会一个接一个地调用 <code>then()</code> 方法。如果在此期间发生错误，则跳过 <code>then()</code> 方法并执行 <code>catch()</code> 方法。</p>
+<p><code>finally()</code> 允许你运行一些代码，无论 promise 的执行成功或失败：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'file.json'</span>)</span><br><span class="line">  .then(<span class="function"><span class="params">data</span> =&gt;</span> data.json())</span><br><span class="line">  .catch(<span class="function"><span class="params">error</span> =&gt;</span> <span class="built_in">console</span>.error(error))</span><br><span class="line">  .finally(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'finished'</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="协调-promises"><a href="#协调-promises" class="headerlink" title="协调 promises"></a>协调 promises</h3><h4 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all()"></a>Promise.all()</h4><p>如果你需要同步处理多个 promises，<code>Promise.all()</code> 可以帮助你定义一组 promises 列表，等待它们全部 resolved 之后再执行某些操作。比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> f1 = fetch(<span class="string">'/something.json'</span>)</span><br><span class="line"><span class="keyword">const</span> f2 = fetch(<span class="string">'/something2.json'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.all([f1, f2]).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Array of results'</span>, res)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.error(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>ES2015 的解构语法也允许你这么做：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.all([f1, f2]).then(<span class="function">(<span class="params">[res1, res2]</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Results'</span>, res1, res2)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这不仅限于 fetch，任何 promise 都可以处理。</p>
+<h4 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race()"></a>Promise.race()</h4><p><code>Promise.race()</code> 会在你传递给它的第一个 promise resolves 时运行，并且它只运行一次附加的回调，并传入首先 resolved 的 promise 返回的结果。</p>
+<p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> first = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(resolve, <span class="number">500</span>, <span class="string">'first'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">const</span> second = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(resolve, <span class="number">100</span>, <span class="string">'second'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.race([first, second]).then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(result) <span class="comment">// second</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h3><h4 id="Uncaught-TypeError-undefined-is-not-a-promise"><a href="#Uncaught-TypeError-undefined-is-not-a-promise" class="headerlink" title="Uncaught TypeError: undefined is not a promise"></a>Uncaught TypeError: undefined is not a promise</h4><p>如果你在控制台中看到 <code>Uncaught TypeError: undefined is not a promise</code> 错误，请确保使用的是 <code>new Promise()</code> 而不是 <code>Promise()</code>。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JavaScript完整手册/" rel="tag"># JavaScript完整手册</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/27/JavaScript完整手册系列（24）：异步编程与回调/" rel="next" title="JavaScript完整手册系列（24）：异步编程与回调">
+                <i class="fa fa-chevron-left"></i> JavaScript完整手册系列（24）：异步编程与回调
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/27/JavaScript完整手册系列（26）：Async和Await/" rel="prev" title="JavaScript完整手册系列（26）：Async和Await">
+                JavaScript完整手册系列（26）：Async和Await <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="金赫思" />
+          <p class="site-author-name" itemprop="name">金赫思</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一句话，Promises是如何工作的"><span class="nav-number">1.</span> <span class="nav-text">一句话，Promises是如何工作的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哪些-JS-API使用-promises-？"><span class="nav-number">2.</span> <span class="nav-text">哪些 JS API使用 promises ？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-promise"><span class="nav-number"></span> <span class="nav-text">创建 promise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-promise"><span class="nav-number"></span> <span class="nav-text">使用 promise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链式调用-promises"><span class="nav-number"></span> <span class="nav-text">链式调用 promises</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#链式调用-promises-例子"><span class="nav-number">1.</span> <span class="nav-text">链式调用 promises 例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理错误"><span class="nav-number"></span> <span class="nav-text">处理错误</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#级联错误"><span class="nav-number">1.</span> <span class="nav-text">级联错误</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-prototype-finally"><span class="nav-number"></span> <span class="nav-text">Promise.prototype.finally()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协调-promises"><span class="nav-number"></span> <span class="nav-text">协调 promises</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise-all"><span class="nav-number">1.</span> <span class="nav-text">Promise.all()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise-race"><span class="nav-number">2.</span> <span class="nav-text">Promise.race()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见错误"><span class="nav-number"></span> <span class="nav-text">常见错误</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Uncaught-TypeError-undefined-is-not-a-promise"><span class="nav-number">1.</span> <span class="nav-text">Uncaught TypeError: undefined is not a promise</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">金赫思</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.2"></script>
+
+
+</body>
+</html>

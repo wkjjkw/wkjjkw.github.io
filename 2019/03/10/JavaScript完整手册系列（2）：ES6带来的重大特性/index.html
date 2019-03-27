@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="金赫思的博客">
 <meta property="og:description" content="ECMAScript 2015，即ES6， 是 ECMAScript 标准的基础版本，该版本距离上个版本 ECMAScript 5.1 发布有四年之久，也是从这个版本开始将版本改为以年命名。所以它不应该叫做 ES6（尽管每个人都这么叫），而是 ES2015。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-17T10:13:50.165Z">
+<meta property="og:updated_time" content="2019-03-27T15:19:00.559Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript完整手册系列（2）：ES6带来的重大特性">
 <meta name="twitter:description" content="ECMAScript 2015，即ES6， 是 ECMAScript 标准的基础版本，该版本距离上个版本 ECMAScript 5.1 发布有四年之久，也是从这个版本开始将版本改为以年命名。所以它不应该叫做 ES6（尽管每个人都这么叫），而是 ES2015。">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-17T18:13:50+08:00">
-                2019-03-17
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-27T23:19:00+08:00">
+                2019-03-27
               </time>
             
           </span>
@@ -455,7 +455,7 @@
 <p>代码本身决定了它必须等待，以便让其它代码“按照队列”顺序运行，并保持 “当它正在等待的东西” 完成时恢复其操作的权利。所有的这些都通过一个简单的关键字 <code>yield</code> 来完成。当一个生成器包含该关键字，代码将暂停执行。生成器可以包含很多个 <code>yield</code> 关键字，因此可以暂停很多次，并且通过 <code>*function</code> 关键字标识，不要与 C 语言，C++ 或者 Go 等底层语言的指针反向引用操作符混淆。</p>
 <p>生成器在JavaScript中开启了全新的编程范例，比如：</p>
 <ul>
-<li>生成器运行中双向通信</li>
+<li>生成器运行时的双向通信</li>
 <li>持久的 while 循环，不会冻结程序</li>
 </ul>
 <p>这里有个例子可以解释生成器是如何工作的：</p>
@@ -476,7 +476,7 @@
 <p>注意：你可能会认为 <code>input / 2</code> 是这个参数，但是它仅仅是第一次迭代的返回值，这次我们跳过了这一步，使用新的输入值 <code>7</code> 和 2 相乘。</p>
 </blockquote>
 <p>我们继续第二次迭代，它返回了 <code>doubleThat</code>，值为 <code>14</code>。</p>
-<p>下一个，最后一次迭代，我们传入100：</p>
+<p>在下一个和最后一个迭代，我们传入100：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">calc.next(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
 <p>返回：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  done: <span class="literal">true</span></span><br><span class="line">  value: <span class="number">14000</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -534,8 +534,8 @@
 <p>这个运算符非常有用。最重要的就是可以以一种十分简单的方式为一个函数传递数组形式的参数：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> f = <span class="function">(<span class="params">foo, bar</span>) =&gt;</span> &#123;&#125;</span><br><span class="line"><span class="keyword">const</span> a = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">f(...a)</span><br></pre></td></tr></table></figure>
 <p>以前你可以使用 <code>f.apply(null, a)</code> 达到同样的效果，但是它可读性不太好。</p>
-<h3 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h3><p>给定一个对象，你可以提取一些值并将赋值给别的变量：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  firstName: <span class="string">'Tom'</span>,</span><br><span class="line">  lastName: <span class="string">'Cruise'</span>,</span><br><span class="line">  actor: <span class="literal">true</span>,</span><br><span class="line">  age: <span class="number">54</span>, <span class="comment">//made up</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> &#123;<span class="attr">firstName</span>: name, age&#125; = person</span><br></pre></td></tr></table></figure>
+<h3 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h3><p>给定一个对象，你可以只提取一些值并将它们放入命名变量中：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  firstName: <span class="string">'Tom'</span>,</span><br><span class="line">  lastName: <span class="string">'Cruise'</span>,</span><br><span class="line">  actor: <span class="literal">true</span>,</span><br><span class="line">  age: <span class="number">54</span>, <span class="comment">//made up</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> &#123;<span class="attr">firstName</span>: name, age&#125; = person</span><br><span class="line"><span class="built_in">console</span>.log(name) <span class="comment">// "Tom"</span></span><br><span class="line"><span class="built_in">console</span>.log(age)  <span class="comment">// 54</span></span><br></pre></td></tr></table></figure>
 <p><code>name</code> 和 <code>age</code> 包含这些值。</p>
 <p>这个语法也可以用在数组中：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">[first, second, , , fifth] = a</span><br></pre></td></tr></table></figure>
@@ -543,14 +543,14 @@
 <h4 id="声明变量的简单语法"><a href="#声明变量的简单语法" class="headerlink" title="声明变量的简单语法"></a>声明变量的简单语法</h4><p>以前：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> something = <span class="string">'y'</span></span><br><span class="line"><span class="keyword">const</span> x = &#123;</span><br><span class="line">  something: something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>现在你可以：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> something = <span class="string">'y'</span></span><br><span class="line"><span class="keyword">const</span> x = &#123;</span><br><span class="line">  something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> something = <span class="string">'y'</span></span><br><span class="line"><span class="keyword">const</span> x = &#123;</span><br><span class="line">  something</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(x) <span class="comment">// &#123;something: "y"&#125;</span></span><br></pre></td></tr></table></figure>
 <h4 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h4><p>可以像这样为变量指定原型：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> anObject = &#123; <span class="attr">y</span>: <span class="string">'y'</span> &#125;</span><br><span class="line"><span class="keyword">const</span> x = &#123;</span><br><span class="line">  __proto__: anObject</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="super"><a href="#super" class="headerlink" title="super()"></a>super()</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> anObject = &#123; <span class="attr">y</span>: <span class="string">'y'</span>, <span class="attr">test</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="string">'zoo'</span> &#125;</span><br><span class="line"><span class="keyword">const</span> x = &#123;</span><br><span class="line">  __proto__: anObject,</span><br><span class="line">  test() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.test() + <span class="string">'x'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">x.test() <span class="comment">//zoox</span></span><br></pre></td></tr></table></figure>
 <h4 id="动态属性"><a href="#动态属性" class="headerlink" title="动态属性"></a>动态属性</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> x = &#123;</span><br><span class="line">  [<span class="string">'a'</span> + <span class="string">'_'</span> + <span class="string">'b'</span>]: <span class="string">'z'</span></span><br><span class="line">&#125;</span><br><span class="line">x.a_b <span class="comment">//z</span></span><br></pre></td></tr></table></figure>
 <h3 id="for-of-循环"><a href="#for-of-循环" class="headerlink" title="for-of 循环"></a>for-of 循环</h3><p>2009年的 ES5 引入了 <code>forEach()</code> 循环。虽然很好，但是不能像 <code>for</code> 那样中途跳出循环(比如使用 <code>break</code> 语句或使用 <code>return</code> 语句)。</p>
 <p>ES2015 引入了 <code>for-of</code> 循环，结合了 <code>forEach</code> 的简洁和跳出循环的能力。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//iterate over the value</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> v <span class="keyword">of</span> [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(v);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//get the index as well, using `entries()`</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> [i, v] <span class="keyword">of</span> [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>].entries()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i, v);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//iterate over the value</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> v <span class="keyword">of</span> [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(v);   <span class="comment">// a b c</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//get the index as well, using `entries()`</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> [i, v] <span class="keyword">of</span> [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>].entries()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i, v); <span class="comment">// 0 "a" ;1 "b"; 2 "c"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Map-和-Set"><a href="#Map-和-Set" class="headerlink" title="Map 和 Set"></a>Map 和 Set</h3><p><strong>Map</strong> 和 <strong>Set</strong>（以及各自的弱引用类型 <strong>WeakMap</strong> 和 <strong>WeakSet</strong>）是官方实现的两种非常流行的数据结构（稍后介绍）。</p>
 
       
@@ -673,7 +673,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
