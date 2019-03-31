@@ -627,18 +627,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[以一个实例入门nodejs]]></title>
-    <url>%2F2018%2F11%2F20%2F%E4%BB%A5%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B%E5%85%A5%E9%97%A8nodejs%2F</url>
-    <content type="text"><![CDATA[构建一个基础的http服务器 server.js 在JavaScript中，一个函数可以作为另一个函数接收一个参数。我们可以先定义一个函数，然后传递，也可以在传递参数的地方直接定义函数。 123456789101112131415161718var http = require("http");http.createServer(function(request, response) &#123; response.writeHead(200, &#123;"Content-Type": "text/plain"&#125;); //发送一个HTTP状态和HTTP头的内容类型 response.write("Hello World"); //在HTTP相应主体中发送文本 response.end(); //调用 response.end() 完成响应&#125;).listen(8888);//orvar http = require("http");function onRequest(request, response) &#123; response.writeHead(200, &#123;"Content-Type": "text/plain"&#125;); response.write("Hello World"); response.end();&#125;//我们给某个方法传递了一个函数，这个方法在有相应事件发生时调用这个函数来进行回调 。http.createServer(onRequest).listen(8888); 创建及使用属于自己的模块 server.js 把某段代码变成模块意味着我们需要把我们希望提供其功能的部分 导出 到请求这个模块的脚本 123456789101112131415var http = require("http");function start() &#123; function onRequest(request, response) &#123; console.log("Request received."); response.writeHead(200, &#123;"Content-Type": "text/plain"&#125;); response.write("Hello World"); response.end(); &#125; http.createServer(onRequest).listen(8888); console.log("Server has started.");&#125;exports.start = start; index.js 我们可以像使用任何其他的内置模块一样使用server模块：请求这个文件并把它指向一个变量，其中已导出的函数就可以被我们使用了。 123var server = require("./server");server.start(); 请求路由 start.js 1234567891011121314151617var http = require("http");var url = require("url");function start() &#123; function onRequest(request, response) &#123; var pathname = url.parse(request.url).pathname; //使用url模块解析请求的url console.log("Request for " + pathname + " received."); response.writeHead(200, &#123;"Content-Type": "text/plain"&#125;); response.write("Hello World"); response.end(); &#125; http.createServer(onRequest).listen(8888); console.log("Server has started.");&#125;exports.start = start; router.js 编写路由 12345function route(pathname) &#123; console.log("About to route a request for " + pathname);&#125;exports.route = route; 扩展start函数，将路由函数作为参数传递进去 1234567891011121314151617181920var http = require("http");var url = require("url");function start(route) &#123; function onRequest(request, response) &#123; var pathname = url.parse(request.url).pathname; console.log("Request for " + pathname + " received."); route(pathname); response.writeHead(200, &#123;"Content-Type": "text/plain"&#125;); response.write("Hello World"); response.end(); &#125; http.createServer(onRequest).listen(8888); console.log("Server has started.");&#125;exports.start = start; 扩展index.js，使得路由函数可以被注入到服务器中 1234var server = require("./server");var router = require("./router");server.start(router.route); 启动应用（node index.js），随后请求一个URL，将会看到应用输出相应的信息，这表明HTTP服务器已经在使用路由模块了，并会将请求的路径传递给路由。 123bash$ node index.jsRequest for /foo received.About to route a request for /foo]]></content>
-      <categories>
-        <category>web前端</category>
-        <category>nodejs</category>
-      </categories>
-      <tags>
-        <tag>nodejs</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[querySelector*和getElementBy*方法的区别]]></title>
     <url>%2F2018%2F11%2F19%2FquerySelector%E5%92%8CgetElementById%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[区别（1）querySelector属于 W3C 中的 Selectors API 规范，而getElementsBy 系列则属于 W3C 的 DOM 规范。 （2）querySelector*方法接收的参数是一个 CSS 选择符,其中querySelector()是用于接收一个CSS选择符，返回与该模式匹配的第一个元素；querySelectorAll()用于选择匹配到的所有元素；而 getElementsBy 系列接收的参数只能是单一的className、tagName 和 name等。 （3）querySelector选择符选出来的元素及元素数组是静态的，而getElementsBy 方法选出的元素是动态的。 说明querySelector list 是一个静态的 Node List，是一个 li 集合的快照，对文档的任何操作都不会对其产生影响。 12345678910111213141516&lt;ul&gt; &lt;li&gt;111&lt;/li&gt; &lt;li&gt;222&lt;/li&gt; &lt;li&gt;333&lt;/li&gt;&lt;/ul&gt;&lt;script&gt;var ul=document.querySelector('ul');var list=ul.querySelectorAll('li');for(var i=0;i&lt;list.length;i++)&#123; ul.appendChild(document.createElement('li'));&#125;//这个时候就创建了3个新的li，添加在ul列表上。console.log(list.length);// 输出的结果仍然是3，不是此时li的数量6&lt;/script&gt; getElementById list 是一个动态的 Node List， 每一次调用 lis 都会重新对文档进行查询，导致无限循环的问题。 12345678910111213&lt;ul&gt; &lt;li&gt;111&lt;/li&gt; &lt;li&gt;222&lt;/li&gt; &lt;li&gt;333&lt;/li&gt;&lt;/ul&gt;&lt;script&gt;var ul=document.getElementsByTagName('ul')[0];var list=ul.getElementsByTagName('li');for(var i=0;i&lt;5;i++)&#123; ul.appendChild(document.createElement('li'));&#125;console.log(list.length)//此时输出的结果就是3+5=8&lt;/script&gt;]]></content>
@@ -806,13 +794,13 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[标签]]></title>
-    <url>%2Ftags%2Findex.html</url>
+    <title><![CDATA[categories]]></title>
+    <url>%2Fcategories%2Findex.html</url>
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[categories]]></title>
-    <url>%2Fcategories%2Findex.html</url>
+    <title><![CDATA[标签]]></title>
+    <url>%2Ftags%2Findex.html</url>
     <content type="text"></content>
   </entry>
 </search>
