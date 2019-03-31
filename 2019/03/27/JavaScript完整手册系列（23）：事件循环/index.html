@@ -94,23 +94,23 @@
 
 
 
-<meta name="description" content="事件循环是 JavaScript 最重要的内容之一。  我已经使用 JavaScript 编码好多年了，但是也没有完全理解它的工作原理。当然不了解这些细枝末节也没有什么关系，但通常来讲，知道它的工作原理是很有帮助的，你可能这方面内容也有点好奇。  本节旨在解释 JavaScript 如何处理单线程以及如何处理异步函数的内在细节。">
+<meta name="description" content="事件循环是 JavaScript 最重要的内容之一。  我已经使用 JavaScript 编码好多年了，但是仍然没有完全理解它的工作原理。当然不了解这些细枝末节也没有什么关系，但通常来讲，知道它的工作原理是很有帮助的，你可能这方面内容也有点好奇。  本节旨在解释 JavaScript 如何处理单线程以及如何处理异步函数的内在细节。">
 <meta name="keywords" content="JavaScript,JavaScript完整手册">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript完整手册系列（23）：事件循环">
 <meta property="og:url" content="http://yoursite.com/2019/03/27/JavaScript完整手册系列（23）：事件循环/index.html">
 <meta property="og:site_name" content="金赫思的博客">
-<meta property="og:description" content="事件循环是 JavaScript 最重要的内容之一。  我已经使用 JavaScript 编码好多年了，但是也没有完全理解它的工作原理。当然不了解这些细枝末节也没有什么关系，但通常来讲，知道它的工作原理是很有帮助的，你可能这方面内容也有点好奇。  本节旨在解释 JavaScript 如何处理单线程以及如何处理异步函数的内在细节。">
+<meta property="og:description" content="事件循环是 JavaScript 最重要的内容之一。  我已经使用 JavaScript 编码好多年了，但是仍然没有完全理解它的工作原理。当然不了解这些细枝末节也没有什么关系，但通常来讲，知道它的工作原理是很有帮助的，你可能这方面内容也有点好奇。  本节旨在解释 JavaScript 如何处理单线程以及如何处理异步函数的内在细节。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pic.superbed.cn/item/5c989cfe3a213b041714ad12">
 <meta property="og:image" content="https://pic.superbed.cn/item/5c989d5c3a213b041714b104">
 <meta property="og:image" content="https://pic.superbed.cn/item/5c989dc13a213b041714e3c6">
 <meta property="og:image" content="https://pic.superbed.cn/item/5c989f073a213b041714f047">
 <meta property="og:image" content="https://pic.superbed.cn/item/5c989f2e3a213b041714f1ca">
-<meta property="og:updated_time" content="2019-03-27T14:48:34.573Z">
+<meta property="og:updated_time" content="2019-03-31T09:10:42.869Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript完整手册系列（23）：事件循环">
-<meta name="twitter:description" content="事件循环是 JavaScript 最重要的内容之一。  我已经使用 JavaScript 编码好多年了，但是也没有完全理解它的工作原理。当然不了解这些细枝末节也没有什么关系，但通常来讲，知道它的工作原理是很有帮助的，你可能这方面内容也有点好奇。  本节旨在解释 JavaScript 如何处理单线程以及如何处理异步函数的内在细节。">
+<meta name="twitter:description" content="事件循环是 JavaScript 最重要的内容之一。  我已经使用 JavaScript 编码好多年了，但是仍然没有完全理解它的工作原理。当然不了解这些细枝末节也没有什么关系，但通常来讲，知道它的工作原理是很有帮助的，你可能这方面内容也有点好奇。  本节旨在解释 JavaScript 如何处理单线程以及如何处理异步函数的内在细节。">
 <meta name="twitter:image" content="https://pic.superbed.cn/item/5c989cfe3a213b041714ad12">
 
 
@@ -359,8 +359,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-27T22:48:34+08:00">
-                2019-03-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-31T17:10:42+08:00">
+                2019-03-31
               </time>
             
           </span>
@@ -417,13 +417,13 @@
       
         <p>事件循环是 JavaScript 最重要的内容之一。</p>
 <blockquote>
-<p>我已经使用 JavaScript 编码好多年了，但是也没有<em>完全</em>理解它的工作原理。当然不了解这些细枝末节也没有什么关系，但通常来讲，知道它的工作原理是很有帮助的，你可能这方面内容也有点好奇。</p>
+<p>我已经使用 JavaScript 编码好多年了，但是仍然没有<em>完全</em>理解它的工作原理。当然不了解这些细枝末节也没有什么关系，但通常来讲，知道它的工作原理是很有帮助的，你可能这方面内容也有点好奇。</p>
 </blockquote>
 <p>本节旨在解释 JavaScript 如何处理单线程以及如何处理异步函数的内在细节。</p>
 <a id="more"></a>
 <p>你的 JavaScript 代码运行是单线程的，同一时间只会发生一件事情。这是一个实际上非常有用的限制，因为它简化了很多程序，而不必担心并发问题。</p>
 <p>你只需要注意编写代码的方式，避免任何可能阻塞线程的内容，如同步网络请求或无限循环。</p>
-<p>通常，大多数浏览器的每个浏览器标签都有一个独立的事件循环机制，以使每个进程隔离，避免有无限循环或者繁重处理的页面阻塞整个浏览器。</p>
+<p>通常，大多数浏览器的每个浏览器标签都有一个独立的事件循环，以使每个进程隔离，避免有无限循环或者繁重处理的页面阻塞整个浏览器。</p>
 <p>浏览器管理多个并发事件循环，例如处理API调用。 Web Workers 也在自己的事件循环中运行。</p>
 <p>你只要明白你的代码运行在单一事件循环上，并在编写代码时考虑到这一点，以避免阻塞它。</p>
 <h3 id="阻塞事件循环"><a href="#阻塞事件循环" class="headerlink" title="阻塞事件循环"></a>阻塞事件循环</h3><p>任何执行时间过长不能将控制权返回给事件循环的 JavaScript 代码都会阻塞页面内其它代码的执行，甚至阻塞 UI 线程，用户不能单击、滚动页面，等等。</p>
@@ -462,7 +462,7 @@
 <p>我们不必等待 <code>setTimeout</code> ，<code>fetch</code> 或其他函数来完成它们自己的工作，因为它们是由浏览器提供的，并且它们依赖于自己的线程。例如，如果您将 <code>setTimeout</code> 超时设置为2秒，那么你不必等待 2 秒 — 等待在其他地方发生。</p>
 <h3 id="ES6-工作队列-Job-Queue"><a href="#ES6-工作队列-Job-Queue" class="headerlink" title="ES6 工作队列(Job Queue)"></a>ES6 工作队列(Job Queue)</h3><p>ECMASciprt 2015 引入了工作队列概念，用在 Promises（同样在 ES6/ES2015 中引入）中。这是一种尽快执行异步函数的方法，而不是放在调用堆栈的末尾。</p>
 <p>在当前函数结束之前resolve的 Promises 将在当前函数之后立即执行。</p>
-<p>我发现在游乐园里乘坐过山车的情况可以很好地解释 ES6 工作队列(Job Queue)：消息队列让你排队等候队列，等队列中所有其他人坐完之后乘坐，而消息队列(Job Queue)相当于是快速通行票，可以让你在乘坐完之后立即再乘坐一次。</p>
+<p>我发现在游乐园里乘坐过山车的情况可以很好地解释 ES6 工作队列(Job Queue)：消息队列将你放在其他游客队列之后，而工作队列(Job Queue)相当于是快速通行票，能让你插队提前坐上过山车。</p>
 <p>例如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bar = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'bar'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> baz = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'baz'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'foo'</span>)</span><br><span class="line">  setTimeout(bar, <span class="number">0</span>)</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span></span><br><span class="line">    resolve(<span class="string">'should be right after baz, before bar'</span>)</span><br><span class="line">  ).then(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">console</span>.log(resolve))</span><br><span class="line">  baz()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
 <p>此代码打印:</p>

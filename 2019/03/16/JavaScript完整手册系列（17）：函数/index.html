@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="金赫思的博客">
 <meta property="og:description" content="现在我们将学习JavaScript中所有关于函数的知识，从概述到小细节，帮助你更好地使用函数。 JavaScript中的所有内容都在函数中执行。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-17T10:16:41.952Z">
+<meta property="og:updated_time" content="2019-03-31T09:01:18.507Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript完整手册系列（17）：函数">
 <meta name="twitter:description" content="现在我们将学习JavaScript中所有关于函数的知识，从概述到小细节，帮助你更好地使用函数。 JavaScript中的所有内容都在函数中执行。">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-17T18:16:41+08:00">
-                2019-03-17
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-31T17:01:18+08:00">
+                2019-03-31
               </time>
             
           </span>
@@ -415,7 +415,7 @@
 <p>函数是一个自包含的代码块，可以定义一次，并运行任意多次。</p>
 <p>函数可以选择接受参数，并返回一个值。</p>
 <p>JavaScript 里的函数是<strong>对象</strong>，一个特殊的对象：<strong>函数对象</strong>。</p>
-<p>另外，函数在JavaScript中被称为<strong>一等公民（first class functions）</strong>，因为它们可以被赋给一个值，可以传递参数，还可以作为返回值。</p>
+<p>另外，函数在JavaScript中被称为<strong>一等公民（first class functions）</strong>，因为它们可以被赋给一个值，可以作为参数传递，还可以作为返回值。</p>
 <p>让我们先从ES6/ES2015 之前的语法开始。这是一个<strong>函数声明</strong>：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dosomething</span>(<span class="params">foo</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在ES6/ES2015流行的当下，简称为常规函数。</p>
@@ -439,7 +439,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dosomething = <span class="function">(<span class="params">foo = <span class="number">1</span>, bar = <span class="string">'hey'</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br><span class="line">dosomething(<span class="number">2</span>, <span class="string">'ho!'</span>)</span><br></pre></td></tr></table></figure>
 <p>你可以用数组包裹所有参数，然后在调用时用展开运算符展开：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dosomething = <span class="function">(<span class="params">foo = <span class="number">1</span>, bar = <span class="string">'hey'</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> args = [<span class="number">2</span>, <span class="string">'ho!'</span>]</span><br><span class="line">dosomething(...args)</span><br></pre></td></tr></table></figure>
-<p>使用许多参数，记住顺序可能很困难。这时使用对象解构这个对象允许保留参数名称：</p>
+<p>记住：函数参数是有序的。使用对象作为参数，可以获得参数的名字：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dosomething = <span class="function">(<span class="params">&#123; foo = <span class="number">1</span>, bar = <span class="string">'hey'</span> &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">  <span class="built_in">console</span>.log(foo) <span class="comment">// 2</span></span><br><span class="line">  <span class="built_in">console</span>.log(bar) <span class="comment">// 'ho!'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> args = &#123; <span class="attr">foo</span>: <span class="number">2</span>, <span class="attr">bar</span>: <span class="string">'ho!'</span> &#125;</span><br><span class="line">dosomething(args)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注意这里用的是 <code>{ foo = 1, bar = &#39;hey&#39; }</code>，用的是等号 ,不是 <code>{ foo : 1, bar : &#39;hey&#39; }</code></p>
@@ -478,7 +478,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dosomething()</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dosomething</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'did something'</span>)  <span class="comment">// did something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在底层，JavaScript 在调用之前移动函数，以及在同一作用域内找到的所有其他函数：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dosomething</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'did something'</span>)</span><br><span class="line">&#125;</span><br><span class="line">dosomething()</span><br></pre></td></tr></table></figure>
-<p>看下面的代码，如果你使用命名函数表达式，因为您正在使用 JavaScript 变量，所以会发生不同的事情。我们说的变量提升，其实是变量声明被提升，但不是值被提升，因此下面的代码中不是那个函数被提升。</p>
+<p>看下面的代码，如果你使用命名函数表达式，因为你正在使用 JavaScript 变量，所以会发生不同的事情。我们说的变量提升，其实是变量声明被提升，但不是值被提升，因此下面的代码中不是那个函数被提升。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dosomething()</span><br><span class="line"><span class="keyword">const</span> dosomething = <span class="function"><span class="keyword">function</span> <span class="title">dosomething</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'did something'</span>) <span class="comment">// Uncaught ReferenceError:dosomething is not defined at &lt;anonymous&gt;:1:1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这是因为内部变成了：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dosomething</span><br><span class="line">dosomething()</span><br><span class="line">dosomething = <span class="function"><span class="keyword">function</span> <span class="title">dosomething</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'did something'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

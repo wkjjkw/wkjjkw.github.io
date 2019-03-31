@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="金赫思的博客">
 <meta property="og:description" content="你可能有时候会读到 JS 是无类型的，但是这并不正确。你确实可以为一个变量绑定各种不同的类型，但是 JavaScript 是有类型的。它提供了基本类型和对象类型。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-17T10:15:08.624Z">
+<meta property="og:updated_time" content="2019-03-31T08:42:19.355Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript完整手册系列（9）：数据类型">
 <meta name="twitter:description" content="你可能有时候会读到 JS 是无类型的，但是这并不正确。你确实可以为一个变量绑定各种不同的类型，但是 JavaScript 是有类型的。它提供了基本类型和对象类型。">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-17T18:15:08+08:00">
-                2019-03-17
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-31T16:42:19+08:00">
+                2019-03-31
               </time>
             
           </span>
@@ -413,7 +413,7 @@
 <a id="more"></a>
 <h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><p>基本类型有：</p>
 <ul>
-<li>Numbers(数值)</li>
+<li>Numbers(数字)</li>
 <li>Strings(字符串)</li>
 <li>Booleans(布尔)</li>
 </ul>
@@ -423,7 +423,7 @@
 <li>undefined(未定义)</li>
 </ul>
 <p>让我们在接下来深入了解它们。</p>
-<h4 id="Numbers-数值"><a href="#Numbers-数值" class="headerlink" title="Numbers(数值)"></a>Numbers(数值)</h4><p>本质上，JavaScript 只有一种数字类型：所有数字都是浮点型。</p>
+<h4 id="Numbers-数字"><a href="#Numbers-数字" class="headerlink" title="Numbers(数字)"></a>Numbers(数字)</h4><p>本质上，JavaScript 只有一种数字类型：所有数字都是浮点型。</p>
 <p>一个数字字面量是代码里表示的数字，取决于你如何去写它，它可以是整型字面量也可以是浮点型字面量。</p>
 <p>整型：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">5354576767321</span></span><br><span class="line"><span class="number">0xCC</span> <span class="comment">//hex</span></span><br></pre></td></tr></table></figure>
@@ -450,8 +450,8 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">-0</span></span><br><span class="line"><span class="literal">NaN</span></span><br><span class="line"><span class="literal">undefined</span></span><br><span class="line"><span class="literal">null</span></span><br><span class="line"><span class="string">''</span> <span class="comment">//empty string</span></span><br></pre></td></tr></table></figure>
 <p>其余的都属于 <strong>truthy</strong>。</p>
 <h4 id="null-空值"><a href="#null-空值" class="headerlink" title="null(空值)"></a>null(空值)</h4><p><code>null</code> 是一个特殊值，表示没有值。这在其它语言里也是普遍的观念，比如 <code>nil</code> 或者 Python 里的 <code>None</code>。</p>
-<h4 id="undefined-未定义"><a href="#undefined-未定义" class="headerlink" title="undefined(未定义)"></a>undefined(未定义)</h4><p><code>undefined</code> 表示变量还没有初始化，值为空。</p>
-<p>函数里没有 <code>return</code> 值时就会返回 <code>undefined</code>。当函数参数没有被调用者赋值时，也是 undefined。</p>
+<h4 id="undefined-未定义"><a href="#undefined-未定义" class="headerlink" title="undefined(未定义)"></a>undefined(未定义)</h4><p><code>undefined</code> 表示变量还没有初始化。</p>
+<p>函数里没有 <code>return</code> 值时函数就会返回 <code>undefined</code>。当函数参数没有被调用者赋值时，函数参数也是 undefined。</p>
 <p>检测一个值是否为 <code>undefined</code>，你可以用这个方法：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> variable === <span class="string">'undefined'</span></span><br></pre></td></tr></table></figure>
 <h3 id="对象类型"><a href="#对象类型" class="headerlink" title="对象类型"></a>对象类型</h3><p>所有不属于基本类型的都是对象类型。</p>
@@ -634,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型"><span class="nav-number">1.</span> <span class="nav-text">基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Numbers-数值"><span class="nav-number">1.1.</span> <span class="nav-text">Numbers(数值)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#strings-字符串"><span class="nav-number">1.2.</span> <span class="nav-text">strings(字符串)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模板字符串"><span class="nav-number">1.3.</span> <span class="nav-text">模板字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Booleans-布尔"><span class="nav-number">1.4.</span> <span class="nav-text">Booleans(布尔)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null-空值"><span class="nav-number">1.5.</span> <span class="nav-text">null(空值)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined-未定义"><span class="nav-number">1.6.</span> <span class="nav-text">undefined(未定义)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象类型"><span class="nav-number">2.</span> <span class="nav-text">对象类型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型"><span class="nav-number">1.</span> <span class="nav-text">基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Numbers-数字"><span class="nav-number">1.1.</span> <span class="nav-text">Numbers(数字)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#strings-字符串"><span class="nav-number">1.2.</span> <span class="nav-text">strings(字符串)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模板字符串"><span class="nav-number">1.3.</span> <span class="nav-text">模板字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Booleans-布尔"><span class="nav-number">1.4.</span> <span class="nav-text">Booleans(布尔)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null-空值"><span class="nav-number">1.5.</span> <span class="nav-text">null(空值)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined-未定义"><span class="nav-number">1.6.</span> <span class="nav-text">undefined(未定义)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象类型"><span class="nav-number">2.</span> <span class="nav-text">对象类型</span></a></li></ol></div>
             
 
           </div>
