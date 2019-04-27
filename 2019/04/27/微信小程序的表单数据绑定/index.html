@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="背景最近的工作是开发一款用来差交易流程的微信小程序，流程比较复杂，业务量也比较大。之前没有开发过小程序，从学习小程序到开发接近完成花了半个多月时间。这里记录下自己在开发表单业务上的某些经验。 具体步骤具体的做法直接看代码： 12345678&amp;lt;view class=&apos;evaluateTxt&apos;&amp;gt;   &amp;lt;textarea placeholder=&apos;点击输入取消交易的原因&apos;">
+<meta name="description" content="背景最近的工作是开发一款用来差交易流程的微信小程序，流程比较复杂，业务量也比较大。之前没有开发过小程序，从学习小程序到开发接近完成花了半个多月时间。这里记录下自己在开发表单业务上的某些经验。">
 <meta name="keywords" content="微信小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序的表单数据绑定">
 <meta property="og:url" content="http://yoursite.com/2019/04/27/微信小程序的表单数据绑定/index.html">
 <meta property="og:site_name" content="金赫思的博客">
-<meta property="og:description" content="背景最近的工作是开发一款用来差交易流程的微信小程序，流程比较复杂，业务量也比较大。之前没有开发过小程序，从学习小程序到开发接近完成花了半个多月时间。这里记录下自己在开发表单业务上的某些经验。 具体步骤具体的做法直接看代码： 12345678&amp;lt;view class=&apos;evaluateTxt&apos;&amp;gt;   &amp;lt;textarea placeholder=&apos;点击输入取消交易的原因&apos;">
+<meta property="og:description" content="背景最近的工作是开发一款用来差交易流程的微信小程序，流程比较复杂，业务量也比较大。之前没有开发过小程序，从学习小程序到开发接近完成花了半个多月时间。这里记录下自己在开发表单业务上的某些经验。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-27T06:55:31.467Z">
+<meta property="og:updated_time" content="2019-04-27T07:22:00.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序的表单数据绑定">
-<meta name="twitter:description" content="背景最近的工作是开发一款用来差交易流程的微信小程序，流程比较复杂，业务量也比较大。之前没有开发过小程序，从学习小程序到开发接近完成花了半个多月时间。这里记录下自己在开发表单业务上的某些经验。 具体步骤具体的做法直接看代码： 12345678&amp;lt;view class=&apos;evaluateTxt&apos;&amp;gt;   &amp;lt;textarea placeholder=&apos;点击输入取消交易的原因&apos;">
+<meta name="twitter:description" content="背景最近的工作是开发一款用来差交易流程的微信小程序，流程比较复杂，业务量也比较大。之前没有开发过小程序，从学习小程序到开发接近完成花了半个多月时间。这里记录下自己在开发表单业务上的某些经验。">
 
 
 
@@ -353,7 +353,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-27T14:55:31+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-27T15:22:00+08:00">
                 2019-04-27
               </time>
             
@@ -410,6 +410,7 @@
 
       
         <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近的工作是开发一款用来差交易流程的微信小程序，流程比较复杂，业务量也比较大。之前没有开发过小程序，从学习小程序到开发接近完成花了半个多月时间。这里记录下自己在开发表单业务上的某些经验。</p>
+<a id="more"></a>
 <h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><p>具体的做法直接看代码：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">'evaluateTxt'</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">placeholder</span>=<span class="string">'点击输入取消交易的原因'</span> </span></span><br><span class="line"><span class="tag">             <span class="attr">placeholder-class</span>=<span class="string">"place-gray"</span> </span></span><br><span class="line"><span class="tag">             <span class="attr">data-name</span>=<span class="string">"stopReason"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">value</span>=<span class="string">"&#123;&#123;stopReason&#125;&#125;"</span></span></span><br><span class="line"><span class="tag">             <span class="attr">bindinput</span>=<span class="string">"editStopReason"</span></span></span><br><span class="line"><span class="tag">             &gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  stopReason:<span class="string">''</span></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听文字域</span></span><br><span class="line">editStopReason:<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e)</span><br><span class="line">  <span class="keyword">var</span> that = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">var</span> dataSet = e.currentTarget.dataset</span><br><span class="line">  <span class="keyword">var</span> value = e.detail.value</span><br><span class="line">  <span class="keyword">var</span> name = dataSet.name</span><br><span class="line">  that.data[name] = value</span><br><span class="line">  that.setData(&#123;</span><br><span class="line">    stopReason: that.data[name]</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -452,6 +453,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/27/小程序radioChange方法的使用/" rel="prev" title="小程序radioChange方法的使用">
+                小程序radioChange方法的使用 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -528,7 +533,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

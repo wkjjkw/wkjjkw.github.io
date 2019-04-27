@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[小程序radioChange方法的使用]]></title>
+    <url>%2F2019%2F04%2F27%2F%E5%B0%8F%E7%A8%8B%E5%BA%8FradioChange%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[背景开发中有一项需求是根据radio表单的不同，显示不同的选项，类似于这样： 这种效果，需要使用到小程序表单的radioChange事件。 radioChange事件的使用1234567891011121314151617181920212223242526&lt;radio-group class="radio-group" bindchange="radioChange"&gt; &lt;label class="radio" wx:for="&#123;&#123;items&#125;&#125;" wx:key="&#123;&#123;item.name&#125;&#125;"&gt; &lt;radio value="&#123;&#123;item.name&#125;&#125;" checked="&#123;&#123;item.checked&#125;&#125;" /&gt; &#123;&#123;item.value&#125;&#125; &lt;/label&gt;&lt;/radio-group&gt;&lt;block wx:if="&#123;&#123;radioStatus === '选择通用券'&#125;&#125;"&gt;&lt;view class='price-view'&gt; &lt;span&gt;剩余额度：&lt;/span&gt; &lt;text&gt;&#123;&#123;orderDetail.pay.couponLimit&#125;&#125;&lt;/text&gt;&lt;/view&gt;&lt;view class='price-view'&gt; &lt;span&gt;可抵扣额度：&lt;/span&gt; &lt;text&gt;&#123;&#123;orderDetail.pay.couponDiscountLimit&#125;&#125;&lt;/text&gt;&lt;/view&gt;&lt;/block&gt;&lt;block wx:if="&#123;&#123;radioStatus === '选择专用券'&#125;&#125;"&gt;&lt;view class='price-view'&gt; &lt;span&gt;剩余额度：&lt;/span&gt; &lt;text&gt;&#123;&#123;orderDetail.pay.specialLimit&#125;&#125;&lt;/text&gt;&lt;/view&gt;&lt;view class='price-view'&gt; &lt;span&gt;可抵扣额度：&lt;/span&gt; &lt;text&gt;&#123;&#123;orderDetail.pay.specialDiscountLimit&#125;&#125;&lt;/text&gt;&lt;/view&gt;&lt;/block&gt; 123456789101112131415data: &#123; items:[ &#123;name:'选择通用券',value:'选择通用券',checked: 'true'&#125;, &#123;name:'选择专用券',value:'选择专用券'&#125; ], radioStatus:'选择通用券', orderDetail:&#123;&#125;&#125;, radioChange: function (e) &#123; console.log(e) this.setData(&#123; radioStatus:e.detail.value &#125;)&#125;]]></content>
+      <categories>
+        <category>移动端开发</category>
+      </categories>
+      <tags>
+        <tag>微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[微信小程序的表单数据绑定]]></title>
     <url>%2F2019%2F04%2F27%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%2F</url>
     <content type="text"><![CDATA[背景最近的工作是开发一款用来差交易流程的微信小程序，流程比较复杂，业务量也比较大。之前没有开发过小程序，从学习小程序到开发接近完成花了半个多月时间。这里记录下自己在开发表单业务上的某些经验。 具体步骤具体的做法直接看代码： 12345678&lt;view class='evaluateTxt'&gt; &lt;textarea placeholder='点击输入取消交易的原因' placeholder-class="place-gray" data-name="stopReason" value="&#123;&#123;stopReason&#125;&#125;" bindinput="editStopReason" &gt;&lt;/textarea&gt;&lt;/view&gt; 12345678910111213141516data: &#123; stopReason:''&#125;,// 监听文字域editStopReason:function(e)&#123; console.log(e) var that = this var dataSet = e.currentTarget.dataset var value = e.detail.value var name = dataSet.name that.data[name] = value that.setData(&#123; stopReason: that.data[name] &#125;)&#125;]]></content>
