@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="金赫思的博客">
 <meta property="og:description" content="对开发者来说，JavaScript 的循环作用域可能会让人感到头疼。我们将学习循环作用域中和 var，let 有关的技巧。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-27T14:53:42.135Z">
+<meta property="og:updated_time" content="2019-05-18T08:18:06.785Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript完整手册系列（27）：循环和作用域">
 <meta name="twitter:description" content="对开发者来说，JavaScript 的循环作用域可能会让人感到头疼。我们将学习循环作用域中和 var，let 有关的技巧。">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-27T22:53:42+08:00">
-                2019-03-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-18T16:18:06+08:00">
+                2019-05-18
               </time>
             
           </span>
@@ -429,9 +429,9 @@
 <p>这是输出：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
 <p>这怎么可能呢？ 原因是每一次循环迭代 <code>i</code> 都创建了一个新的作用域，每个添加到 <code>operations</code> 数组的函数都获取当时的 <code>i</code> 副本。</p>
-<p>Keep in mind you cannot use <code>const</code> in this case, because there would be an error as <code>for</code> tries to assign a new value in the second iteration.</p>
+<p>请记住，在这种情况下你不能使用 <code>const</code> ，因为在 <code>for</code> 尝试第二次迭代中分配新值时会出现错误。</p>
 <p>另一种解决此问题的方法在 ES6 之前的代码中很常见，它被称为立即执行函数表达式（IIFE）。</p>
-<p>在这种情况下，你可以包裹整个函数并将 <code>i</code> 绑定到这个函数。 这样每次都创建了一个立即执行的函数，并返回了一个新函数，所以我们可以稍后执行：</p>
+<p>在这种情况下，你可以包裹整个函数并将 <code>i</code> 绑定到这个函数。 这样每次都创建了一个立即执行的函数，并返回了一个新函数，所以我们可以稍后执行它：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> operations = []</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  operations.push(<span class="function">(<span class="params">(j</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(j)</span><br><span class="line">  &#125;)(i))</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> operation <span class="keyword">of</span> operations) &#123;</span><br><span class="line">  operation()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>

@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="金赫思的博客">
 <meta property="og:description" content="对任何编程语言执行数学运算都是很常见的事情。JavaScript 提供了几个操作符来帮助我们处理数字。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-27T15:00:04.472Z">
+<meta property="og:updated_time" content="2019-05-18T08:51:00.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript完整手册系列（32）：数学运算符">
 <meta name="twitter:description" content="对任何编程语言执行数学运算都是很常见的事情。JavaScript 提供了几个操作符来帮助我们处理数字。">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-27T23:00:04+08:00">
-                2019-03-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-18T16:51:00+08:00">
+                2019-05-18
               </time>
             
           </span>
@@ -415,7 +415,7 @@
 <p>如果你使用字符串，<code>+</code> 运算符也可以作为字符串连接，所以要注意：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> three = <span class="number">1</span> + <span class="number">2</span></span><br><span class="line">three + <span class="number">1</span> <span class="comment">// 4</span></span><br><span class="line"><span class="string">'three'</span> + <span class="number">1</span> <span class="comment">// three1</span></span><br></pre></td></tr></table></figure>
 <h4 id="相减"><a href="#相减" class="headerlink" title="相减(-)"></a>相减(-)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> two = <span class="number">4</span> - <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h4 id="除法"><a href="#除法" class="headerlink" title="除法(/)"></a>除法(/)</h4><p>返回第一个数字和第二个数字之间商：</p>
+<h4 id="除法"><a href="#除法" class="headerlink" title="除法(/)"></a>除法(/)</h4><p>返回第一个数字和第二个数字的商：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> result = <span class="number">20</span> / <span class="number">5</span> <span class="comment">//result === 4</span></span><br><span class="line"><span class="keyword">const</span> result = <span class="number">20</span> / <span class="number">7</span> <span class="comment">//result === 2.857142857142857</span></span><br></pre></td></tr></table></figure>
 <p>如果除以 0，JavaScript 不会抛出任何错误，而是返回 <code>Infinity</code>（如果是负值返回 <code>-Infinity</code>）。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> / <span class="number">0</span> <span class="comment">//Infinity</span></span><br><span class="line"><span class="number">-1</span> / <span class="number">0</span> <span class="comment">//-Infinity</span></span><br></pre></td></tr></table></figure>
@@ -435,7 +435,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">2</span></span><br><span class="line">-x <span class="comment">//-2</span></span><br><span class="line">x <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
 <h4 id="一元正号"><a href="#一元正号" class="headerlink" title="一元正号(+)"></a>一元正号(+)</h4><p>如果操作数不是数字，它会尝试将操作数转换数字。如果操作数已经是一个数字，它什么都不做。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">2</span></span><br><span class="line">+x <span class="comment">//2</span></span><br><span class="line"></span><br><span class="line">x = <span class="string">'2'</span></span><br><span class="line">+x <span class="comment">//2</span></span><br><span class="line"></span><br><span class="line">x = <span class="string">'2a'</span></span><br><span class="line">+x <span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
-<h3 id="快速赋值"><a href="#快速赋值" class="headerlink" title="快速赋值"></a>快速赋值</h3><p>常规的赋值操作符 <code>=</code> 对所有的数学运算符都有一个快捷方式让你能组合赋值，将第一个操作数和第二个操作数的结果赋值给第一个操作数。</p>
+<h3 id="快速赋值"><a href="#快速赋值" class="headerlink" title="快速赋值"></a>快速赋值</h3><p>常规赋值运算符 <code>=</code> ，对所有算术运算符都有一个快捷方式，该方式允许你组合赋值，将第一个操作数和第二个操作数的结果赋值给第一个操作数。</p>
 <p>它们是：</p>
 <p><code>+=</code>：加法赋值<br><code>-=</code>：除法赋值<br><code>*=</code>：乘法赋值<br><code>/=</code>：除法赋值<br><code>%=</code>：取余赋值<br><code>**=</code>：求幂赋值</p>
 <p>例子：</p>
@@ -451,7 +451,7 @@
 <li><code>+</code> <code>-</code> 加法/减法</li>
 <li><code>=</code> <code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code> <code>%=</code> <code>**=</code> 赋值运算</li>
 </ul>
-<p>同一级别的运算符（如 <code>+</code> 和 <code>-</code> ）按找到的顺序执行</p>
+<p>同一级别的运算符（如 <code>+</code> 和 <code>-</code> ）按照的顺序执行</p>
 <p>按照上面的顺序，我们可以计算这个式子：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">1</span> * <span class="number">2</span> + <span class="number">5</span> / <span class="number">2</span> % <span class="number">2</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">1</span> * <span class="number">2</span> + <span class="number">5</span> / <span class="number">2</span> % <span class="number">2</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">2</span> + <span class="number">2.5</span> % <span class="number">2</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">2</span> + <span class="number">0.5</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">2.5</span></span><br></pre></td></tr></table></figure>
       

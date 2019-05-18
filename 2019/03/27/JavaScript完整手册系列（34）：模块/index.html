@@ -103,7 +103,7 @@
 <meta property="og:description" content="ES Modules 是用于处理模块的 ECMAScript 标准。 虽然 Node.js 长期使用 CommonJS 标准，但浏览器从未有过模块系统。 每个主要决策（如模块系统）必须首先由 ECMAScript 标准化，然后由浏览器实现。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pic.superbed.cn/item/5c9aea343a213b0417320d0c">
-<meta property="og:updated_time" content="2019-03-27T15:02:52.752Z">
+<meta property="og:updated_time" content="2019-05-18T08:59:37.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript完整手册系列（34）：模块">
 <meta name="twitter:description" content="ES Modules 是用于处理模块的 ECMAScript 标准。 虽然 Node.js 长期使用 CommonJS 标准，但浏览器从未有过模块系统。 每个主要决策（如模块系统）必须首先由 ECMAScript 标准化，然后由浏览器实现。">
@@ -355,8 +355,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-27T23:02:52+08:00">
-                2019-03-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-18T16:59:37+08:00">
+                2019-05-18
               </time>
             
           </span>
@@ -426,7 +426,7 @@
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> str =&gt; str.toUpperCase()</span><br></pre></td></tr></table></figure>
 <p>在这个例子中，模块定义单个默认导出(<strong>default export</strong>)，因此它可以是匿名函数。 否则，它需要一个名称来区分其它的导出。</p>
-<p>现在，<strong>其它任何的 JavaScript 模块</strong>都可以通过导入 uppercase.js 导入这个函数。</p>
+<p>现在，<strong>其它任何的 JavaScript 模块</strong>都可以通过import来导入 uppercase.js 提供的功能。</p>
 <p>一个HTML页面可以使用带有特殊的 <code>type=&quot;module&quot;</code> 属性的 <code>&lt;script&gt;</code> 标记添加模块：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"module"</span> <span class="attr">src</span>=<span class="string">"index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>注意：此模块导入的行为类似于 <code>defer</code> 脚本加载。请参阅 <a href="https://flaviocopes.com/javascript-async-defer/" target="_blank" rel="noopener">使用延迟和异步高效加载JavaScript)</a></p>
@@ -448,11 +448,11 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="number">2</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; a, b, c &#125;</span><br></pre></td></tr></table></figure>
 <p>另一个模块可以使用以下代码导入所有上面这些导出：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">from</span> <span class="string">'module'</span></span><br></pre></td></tr></table></figure>
-<p>你可以使用解构分配只选择导入部分内容：</p>
+<p>你可以使用解构只选择导入部分内容：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; a &#125; <span class="keyword">from</span> <span class="string">'module'</span></span><br><span class="line"><span class="keyword">import</span> &#123; a, b &#125; <span class="keyword">from</span> <span class="string">'module'</span></span><br></pre></td></tr></table></figure>
 <p>为方便起见，你可以使用 <code>as</code> 重命名任何导入(import)：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; a, b <span class="keyword">as</span> two &#125; <span class="keyword">from</span> <span class="string">'module'</span></span><br></pre></td></tr></table></figure>
-<p>你可以按名称 导入(import) 默认导出(default export) 和任何 非默认导出(non-default export)，例如常见的 React 导入：</p>
+<p>你可以按名称 导入默认导出(default export) 和任何非默认导出(non-default export)，例如常见的 React 导入：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br></pre></td></tr></table></figure>
 <p>你可以在 <a href="https://glitch.com/edit/#!/flavio-es-modules-example?path=index.html" target="_blank" rel="noopener">此处</a> 查看 ES 模块的示例。</p>
 <h3 id="跨域资源共享-CORS"><a href="#跨域资源共享-CORS" class="headerlink" title="跨域资源共享 CORS"></a>跨域资源共享 CORS</h3><p>通过 CORS 获取模块，意味着如果你从其它域名引入脚本，他们必须有一个有效的 CORS 头允许跨站点加载（像 <code>Access-Control-Allow-Origin: *</code>）。</p>

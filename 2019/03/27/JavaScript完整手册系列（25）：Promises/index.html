@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="金赫思的博客">
 <meta property="og:description" content="Promises 是一种 JavaScript 中处理异步代码的方法，无需在代码中编写太多回调。 Promises 通常定义为最终可用的值的代理（a proxy for a value that will eventually become available）。 其实 Promises 已经存在多年，但是直到 ES2015 才被标准化和引入，现在它们已经在 ES2017 中被 async(异步)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-05T13:33:23.422Z">
+<meta property="og:updated_time" content="2019-05-18T08:00:14.993Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript完整手册系列（25）：Promises">
 <meta name="twitter:description" content="Promises 是一种 JavaScript 中处理异步代码的方法，无需在代码中编写太多回调。 Promises 通常定义为最终可用的值的代理（a proxy for a value that will eventually become available）。 其实 Promises 已经存在多年，但是直到 ES2015 才被标准化和引入，现在它们已经在 ES2017 中被 async(异步)">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-05T21:33:23+08:00">
-                2019-04-05
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-18T16:00:14+08:00">
+                2019-05-18
               </time>
             
           </span>
@@ -414,7 +414,7 @@
 <p>其实 Promises 已经存在多年，但是直到 ES2015 才被标准化和引入，现在它们已经在 ES2017 中被 async(异步) 函数所取代。</p>
 <p>Async functions(异步函数) 使用 promises API 作为构建块，因此理解 Promises 是理解异步函数的基础，即便在你现在写的代码中可能会使用 async(异步) 函数而不是promises 。</p>
 <a id="more"></a>
-<h4 id="一句话，Promises是如何工作的"><a href="#一句话，Promises是如何工作的" class="headerlink" title="一句话，Promises是如何工作的"></a>一句话，Promises是如何工作的</h4><p>一旦调用了一个 promise ，它就会以 pending(挂起) 状态开始。这意味着调用者会持续执行，同时等待自身处理结果，然后给调用函数一些反馈。</p>
+<h4 id="Promises是如何工作的"><a href="#Promises是如何工作的" class="headerlink" title="Promises是如何工作的"></a>Promises是如何工作的</h4><p>一旦调用了一个 promise ，它就会以 pending(挂起) 状态开始。这意味着调用者会持续执行，同时等待自身处理结果，然后给调用函数一些反馈。</p>
 <p>此时，该调用函数等待这个 promise 返回 resolved 状态 或者 rejected 状态，但因为 JavaScript 是异步的，所以这个函数会在 promise 工作时继续执行其它代码。</p>
 <h4 id="哪些-JS-API使用-promises-？"><a href="#哪些-JS-API使用-promises-？" class="headerlink" title="哪些 JS API使用 promises ？"></a>哪些 JS API使用 promises ？</h4><p>除了你自己的代码和库代码之外，Promises 还被用于标准的现代 Web API，例如：</p>
 <ul>
@@ -642,7 +642,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一句话，Promises是如何工作的"><span class="nav-number">1.</span> <span class="nav-text">一句话，Promises是如何工作的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哪些-JS-API使用-promises-？"><span class="nav-number">2.</span> <span class="nav-text">哪些 JS API使用 promises ？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-promise"><span class="nav-number"></span> <span class="nav-text">创建 promise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-promise"><span class="nav-number"></span> <span class="nav-text">使用 promise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链式调用-promises"><span class="nav-number"></span> <span class="nav-text">链式调用 promises</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#链式调用-promises-例子"><span class="nav-number">1.</span> <span class="nav-text">链式调用 promises 例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理错误"><span class="nav-number"></span> <span class="nav-text">处理错误</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#级联错误"><span class="nav-number">1.</span> <span class="nav-text">级联错误</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-prototype-finally"><span class="nav-number"></span> <span class="nav-text">Promise.prototype.finally()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协调-promises"><span class="nav-number"></span> <span class="nav-text">协调 promises</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise-all"><span class="nav-number">1.</span> <span class="nav-text">Promise.all()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise-race"><span class="nav-number">2.</span> <span class="nav-text">Promise.race()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见错误"><span class="nav-number"></span> <span class="nav-text">常见错误</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Uncaught-TypeError-undefined-is-not-a-promise"><span class="nav-number">1.</span> <span class="nav-text">Uncaught TypeError: undefined is not a promise</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Promises是如何工作的"><span class="nav-number">1.</span> <span class="nav-text">Promises是如何工作的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哪些-JS-API使用-promises-？"><span class="nav-number">2.</span> <span class="nav-text">哪些 JS API使用 promises ？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-promise"><span class="nav-number"></span> <span class="nav-text">创建 promise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-promise"><span class="nav-number"></span> <span class="nav-text">使用 promise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链式调用-promises"><span class="nav-number"></span> <span class="nav-text">链式调用 promises</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#链式调用-promises-例子"><span class="nav-number">1.</span> <span class="nav-text">链式调用 promises 例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理错误"><span class="nav-number"></span> <span class="nav-text">处理错误</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#级联错误"><span class="nav-number">1.</span> <span class="nav-text">级联错误</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-prototype-finally"><span class="nav-number"></span> <span class="nav-text">Promise.prototype.finally()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协调-promises"><span class="nav-number"></span> <span class="nav-text">协调 promises</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise-all"><span class="nav-number">1.</span> <span class="nav-text">Promise.all()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise-race"><span class="nav-number">2.</span> <span class="nav-text">Promise.race()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见错误"><span class="nav-number"></span> <span class="nav-text">常见错误</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Uncaught-TypeError-undefined-is-not-a-promise"><span class="nav-number">1.</span> <span class="nav-text">Uncaught TypeError: undefined is not a promise</span></a></li></ol></div>
             
 
           </div>

@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="金赫思的博客">
 <meta property="og:description" content="现在，我们将探索 JavaScript 中更现代的异步函数方法。 JavaScript 在很短的时间内从回调发展为 Promises ，从 ES2017(ES8) 开始，使用 async/await 语法让异步 JavaScript 变得更简单。 async(异步) 函数是 promises 和 generator 的组合，基本上，它们是对 promises 的更高级别的抽象。让我再说一遍：asy">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-27T14:52:33.431Z">
+<meta property="og:updated_time" content="2019-05-18T08:11:37.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript完整手册系列（26）：Async和Await">
 <meta name="twitter:description" content="现在，我们将探索 JavaScript 中更现代的异步函数方法。 JavaScript 在很短的时间内从回调发展为 Promises ，从 ES2017(ES8) 开始，使用 async/await 语法让异步 JavaScript 变得更简单。 async(异步) 函数是 promises 和 generator 的组合，基本上，它们是对 promises 的更高级别的抽象。让我再说一遍：asy">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-27T22:52:33+08:00">
-                2019-03-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-18T16:11:37+08:00">
+                2019-05-18
               </time>
             
           </span>
@@ -414,7 +414,7 @@
 <a id="more"></a>
 <h3 id="为什么要引入-async-await-？"><a href="#为什么要引入-async-await-？" class="headerlink" title="为什么要引入 async/await ？"></a>为什么要引入 async/await ？</h3><p>它们降低了 promises 对一些固定语法样板的要求，打破了链式 promise “不能切断链式”的限制。</p>
 <p>在 ES2015 中引入 Promise 时，它们旨在解决异步代码的问题，并且他们确实做到了，但在 ES2015 和 ES2017 的两年中，人们发现很明显 promises 不是最终的解决方案。</p>
-<p>引入 Promises 来解决著名的回调地狱问题，但是因为Promises自身的复杂性，又因此引入了更复杂的语法。</p>
+<p>引入 Promises 来解决著名的回调地狱问题，但是因为Promises自身的复杂性，又因此导致了更为复杂的语法。</p>
 <p>它们是良好的原语，但是应该有更好的语法供开发者使用，所以当时机成熟时，我们就有了 <strong>异步函数(async functions)</strong>。它们使代码看起来像是同步的，但其实它们是异步和非阻塞的。</p>
 <h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>一个async(异步) 函数返回一个 promise，如下例所示：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> doSomethingAsync = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(<span class="string">'I did something'</span>), <span class="number">3000</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

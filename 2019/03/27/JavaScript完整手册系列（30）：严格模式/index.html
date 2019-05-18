@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="严格模式是一项 ES5 功能，它使 JavaScript 以更好的方式运行，因为启用严格模式会更改 JavaScript 语言的语义。 了解严格模式与普通模式（通常称为草率模式）下 JavaScript 代码之间的主要区别非常重要。">
+<meta name="description" content="严格模式是一项 ES5 的功能，它使 JavaScript 以更好的方式运行，因为启用严格模式会更改 JavaScript 语言的语义。 了解严格模式与普通模式（通常称为草率模式）下 JavaScript 代码之间的主要区别非常重要。">
 <meta name="keywords" content="JavaScript,JavaScript完整手册">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript完整手册系列（30）：严格模式">
 <meta property="og:url" content="http://yoursite.com/2019/03/27/JavaScript完整手册系列（30）：严格模式/index.html">
 <meta property="og:site_name" content="金赫思的博客">
-<meta property="og:description" content="严格模式是一项 ES5 功能，它使 JavaScript 以更好的方式运行，因为启用严格模式会更改 JavaScript 语言的语义。 了解严格模式与普通模式（通常称为草率模式）下 JavaScript 代码之间的主要区别非常重要。">
+<meta property="og:description" content="严格模式是一项 ES5 的功能，它使 JavaScript 以更好的方式运行，因为启用严格模式会更改 JavaScript 语言的语义。 了解严格模式与普通模式（通常称为草率模式）下 JavaScript 代码之间的主要区别非常重要。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pic.superbed.cn/item/5c9ad73a3a213b041730c291">
-<meta property="og:updated_time" content="2019-03-27T14:57:53.059Z">
+<meta property="og:updated_time" content="2019-05-18T08:38:52.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript完整手册系列（30）：严格模式">
-<meta name="twitter:description" content="严格模式是一项 ES5 功能，它使 JavaScript 以更好的方式运行，因为启用严格模式会更改 JavaScript 语言的语义。 了解严格模式与普通模式（通常称为草率模式）下 JavaScript 代码之间的主要区别非常重要。">
+<meta name="twitter:description" content="严格模式是一项 ES5 的功能，它使 JavaScript 以更好的方式运行，因为启用严格模式会更改 JavaScript 语言的语义。 了解严格模式与普通模式（通常称为草率模式）下 JavaScript 代码之间的主要区别非常重要。">
 <meta name="twitter:image" content="https://pic.superbed.cn/item/5c9ad73a3a213b041730c291">
 
 
@@ -355,8 +355,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-27T22:57:53+08:00">
-                2019-03-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-18T16:38:52+08:00">
+                2019-05-18
               </time>
             
           </span>
@@ -411,7 +411,7 @@
       
 
       
-        <p>严格模式是一项 ES5 功能，它使 JavaScript 以更好的方式运行，因为启用严格模式会更改 JavaScript 语言的语义。</p>
+        <p>严格模式是一项 ES5 的功能，它使 JavaScript 以更好的方式运行，因为启用严格模式会更改 JavaScript 语言的语义。</p>
 <p>了解严格模式与普通模式（通常称为草率模式）下 JavaScript 代码之间的主要区别非常重要。</p>
 <a id="more"></a>
 <h3 id="如何开启用格模式"><a href="#如何开启用格模式" class="headerlink" title="如何开启用格模式"></a>如何开启用格模式</h3><p>严格模式是可选的。 与 JavaScript 中的每一个重大变化一样，我们不能简单地改变语言默认的行为方式，因为这会破坏大量的 JavaScript代码 ，并且 JavaScript 会花费大量精力来确保1996年的JavaScript代码在今天仍然有效。 这是其成功的关键。</p>
@@ -430,14 +430,14 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">undefined</span> = <span class="number">1</span> <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  <span class="literal">undefined</span> = <span class="number">1</span> <span class="comment">// Cannot assign to read only property 'undefined' of object '#&lt;Window&gt;'</span></span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
 <p>这同样适用于 Infinity，NaN，<code>eval</code> ，<code>arguments</code> 等。</p>
 <p>在 JavaScript 中，可以使用下面代码定义对象属性不可写</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> car = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(car, <span class="string">'color'</span>, &#123; <span class="attr">value</span>: <span class="string">'blue'</span>, <span class="attr">writable</span>: <span class="literal">false</span> &#125;)</span><br><span class="line">()</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> car = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(car, <span class="string">'color'</span>, &#123; <span class="attr">value</span>: <span class="string">'blue'</span>, <span class="attr">writable</span>: <span class="literal">false</span> &#125;)</span><br></pre></td></tr></table></figure>
 <p>在严格模式下，你不能覆盖这个值，但在非严格模式下可以这么做：</p>
 <p><img src="https://pic.superbed.cn/item/5c9ad73a3a213b041730c291" alt="strictmode"></p>
 <p>和 getters 的原理一样：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> car = &#123;</span><br><span class="line">  get color() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'blue'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">car.color = <span class="string">'red'</span>(</span><br><span class="line">  <span class="comment">//ok</span></span><br><span class="line"></span><br><span class="line">  () =&gt; &#123;</span><br><span class="line"><span class="meta">    'use strict'</span></span><br><span class="line">    car.color = <span class="string">'yellow'</span> <span class="comment">//TypeError: Cannot set property color of # which has only a getter</span></span><br><span class="line">  &#125;</span><br><span class="line">)()</span><br></pre></td></tr></table></figure>
 <p>非严格模式允许扩展一个不可扩展的对象：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> car = &#123; <span class="attr">color</span>: <span class="string">'blue'</span> &#125;</span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(car)</span><br><span class="line"></span><br><span class="line">car.model = <span class="string">'Fiesta'</span>(</span><br><span class="line">  <span class="comment">//ok</span></span><br><span class="line">  () =&gt; &#123;</span><br><span class="line"><span class="meta">    'use strict'</span></span><br><span class="line">    car.owner = <span class="string">'Flavio'</span> <span class="comment">//TypeError: Cannot add property owner, object is not extensible</span></span><br><span class="line">  &#125;</span><br><span class="line">)()</span><br></pre></td></tr></table></figure>
-<p>另外，非严格模式允许设置原始值的属性，没有恩和错误提示，但是也不会生效：</p>
+<p>另外，非严格模式允许设置原始值的属性，没有任何错误提示，但是也不会生效：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">true</span>.false = <span class="string">''</span>(</span><br><span class="line">  <span class="comment">//''</span></span><br><span class="line">  <span class="number">1</span></span><br><span class="line">).name =</span><br><span class="line">  <span class="string">'xxx'</span> <span class="comment">//'xxx'</span></span><br><span class="line"><span class="keyword">var</span> test = <span class="string">'test'</span> <span class="comment">//undefined</span></span><br><span class="line">test.testing = <span class="literal">true</span> <span class="comment">//true</span></span><br><span class="line">test.testing <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
 <p>在严格模式下，这些情况都会失败：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">;<span class="function">(<span class="params">(</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  <span class="literal">true</span>.false = <span class="string">''</span>(</span><br><span class="line">    <span class="comment">//TypeError: Cannot create property 'false' on boolean 'true'</span></span><br><span class="line">    <span class="number">1</span></span><br><span class="line">  ).name =</span><br><span class="line">    <span class="string">'xxx'</span> <span class="comment">//TypeError: Cannot create property 'name' on number '1'</span></span><br><span class="line">  <span class="string">'test'</span>.testing = <span class="literal">true</span> <span class="comment">//TypeError: Cannot create property 'testing' on string 'test'</span></span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
